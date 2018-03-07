@@ -1,0 +1,85 @@
+{% extends "base_ajax.html" %}
+{% load i18n %}
+{% load widget_filters %}
+
+{% block content %}
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="box box-primary">
+                <div class="box-header with-border">
+                    <i class="fa fa-pinterest-p"></i>
+                    <h3 class="box-title">{% trans 'Patch Clamp Protocol' %}</h3>
+                    <div class="box-tools pull-right">
+                        <a href="#" onclick="chopen.ion_channel.patchClamp.openCreateForm()"
+                           class="btn btn-box-tool" title="{% trans 'Add Patch Clamp' %}">
+                            <i class="fa fa-plus-circle"></i>
+                            {% trans 'Add Patch Clamp' %}
+                        </a>
+                        <button class="btn btn-box-tool" onclick="chopen.ion_channel.patchClamp.refresh()" title="{% trans 'Refresh' %}">
+                            <i class="fa fa-refresh"></i>
+                        </button>
+                        <button class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
+                    </div>
+                </div>
+                <div class="box-body table-responsive">
+                    <table id="patch_clamp_result_table" class="table table-bordered table-striped">
+                        <thead>
+                        <tr>
+                            <th style="width: 10px">ID</th>
+                            <th>{% trans 'Cell' %}</th>
+                            <th>{% trans 'Patch clamp method' %}</th>
+                            <th>{% trans 'Duration (ms)' %}</th>
+                            <th>{% trans 'Holding potential (mV)' %}</th>
+                            <th>{% trans 'From (mV)' %}</th>
+                            <th>{% trans 'To (mV)' %}</th>
+                            <th>{% trans 'Steps (mV)' %}</th>
+                            <th>{% trans 'Temperature (Celsius)' %}</th>
+                            <th>{% trans '[Ca2+] (mM)' %}</th>
+                            <th>{% trans 'Action' %}</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        {% for patch_clamp in patch_clamps %}
+                            <tr>
+                                <td>{{ patch_clamp.id }}</td>
+                                <td>{{ patch_clamp.cell }}</td>
+                                <td>{{ patch_clamp.method }}</td>
+                                <td>{{ patch_clamp.duration }}</td>
+                                <td>{{ patch_clamp.holding_potential }}</td>
+                                <td>{{ patch_clamp.voltage_start }}</td>
+                                <td>{{ patch_clamp.voltage_end }}</td>
+                                <td>{{ patch_clamp.voltage_steps }}</td>
+                                <td>{{ patch_clamp.temperature }}</td>
+                                <td>{{ patch_clamp.Ca_concentration }}</td>
+                                <td>
+                                    <a href="#"
+                                       onclick="chopen.ion_channel.patchClamp.openUpdateForm('{% url 'ion_channel:patch-clamp-update' patch_clamp.id %}')"
+                                       class="badge bg-light-blue">
+                                        <i class="fa fa-edit"></i>
+                                        {% trans 'Edit' %}
+                                    </a>
+                                    <a href="#"
+                                       onclick="chopen.ion_channel.patchClamp.confirmDelete('{% url 'ion_channel:patch-clamp-delete' patch_clamp.id %}')"
+                                       class="badge bg-red">
+                                        <i class="fa fa-remove"></i>
+                                        {% trans 'Delete' %}
+                                    </a>
+                                </td>
+                            </tr>
+                        {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+                <div class="overlay cw-loading" id="patch_clamp_loading" >
+                    <i class="fa fa-refresh fa-spin"></i>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block inline-script %}
+    <script type="text/javascript">
+        $("#patch_clamp_result_table").dataTable();
+    </script>
+{% endblock %}

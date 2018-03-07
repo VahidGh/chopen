@@ -1,0 +1,88 @@
+{% extends "base.html" %}
+{% load i18n %}
+{% load widget_filters %}
+
+{% block page_title %}{% trans 'Patch Clamps' %}{% endblock %}
+{% block page_header %}{% trans 'Patch Clamps' %}{% endblock %}
+{% block breadcrumb %}
+    <li><a href="{% url 'ion_channel:home' %}"><i class="fa fa-home"></i> {% trans 'Home' %}</a></li>
+    <li class="active">{% trans 'Patch Clamps' %}</li>
+{% endblock %}
+
+{% block content %}
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="box box-primary">
+                <div class="box-header">
+                    <i class="fa fa-pinterest-p"></i>
+                    <h3 class="box-title">{% trans 'Patch Clamp' %}</h3>
+                    <div class="box-tools pull-right">
+                        <a href="{% url 'ion_channel:patch-clamp-create' %}"
+                           class="btn btn-success btn-sm">
+                            <i class="fa fa-plus"></i>
+                            {% trans 'Add Patch Clamp' %}
+                        </a>
+                    </div>
+                </div>
+                <div class="box-body table-responsive">
+                    <table id="result_table" class="table table-bordered table-striped">
+                        <thead>
+                        <tr>
+                            <th style="width: 10px">ID</th>
+                            <th>{% trans 'Cell' %}</th>
+                            <th>{% trans 'Patch clamp method' %}</th>
+                            <th>{% trans 'Duration (ms)' %}</th>
+                            <th>{% trans 'Holding potential (mV)' %}</th>
+                            <th>{% trans 'From (mV)' %}</th>
+                            <th>{% trans 'To (mV)' %}</th>
+                            <th>{% trans 'Steps (mV)' %}</th>
+                            <th>{% trans 'Temperature (Celsius)' %}</th>
+                            <th>{% trans '[Ca2+] (mM)' %}</th>
+                            <th>{% trans 'Action' %}</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        {% for patch_clamp in patch_clamps %}
+                            <tr>
+                                <td>{{ patch_clamp.id }}</td>
+                                <td>{{ patch_clamp.cell }}</td>
+                                <td>{{ patch_clamp.method }}</td>
+                                <td>{{ patch_clamp.duration }}</td>
+                                <td>{{ patch_clamp.holding_potential }}</td>
+                                <td>{{ patch_clamp.voltage_start }}</td>
+                                <td>{{ patch_clamp.voltage_end }}</td>
+                                <td>{{ patch_clamp.voltage_steps }}</td>
+                                <td>{{ patch_clamp.temperature }}</td>
+                                <td>{{ patch_clamp.Ca_concentration }}</td>
+                                <td>
+                                    <a href="{% url 'ion_channel:patch-clamp-detail' patch_clamp.id %}"
+                                       class="badge bg-yellow">
+                                        <i class="fa fa-eye"></i>
+                                        {% trans 'View Detail' %}
+                                    </a>
+                                    <a href="{% url 'ion_channel:patch-clamp-update' patch_clamp.id %}"
+                                       class="badge bg-light-blue">
+                                        <i class="fa fa-edit"></i>
+                                        {% trans 'Edit' %}
+                                    </a>
+                                    <a href="{% url 'ion_channel:patch-clamp-delete' patch_clamp.id %}"
+                                       class="badge bg-red">
+                                        <i class="fa fa-remove"></i>
+                                        {% trans 'Delete' %}
+                                    </a>
+                                </td>
+                            </tr>
+                        {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block inline-script %}
+    <script type="text/javascript">
+        $("#result_table").dataTable();
+    </script>
+{% endblock %}

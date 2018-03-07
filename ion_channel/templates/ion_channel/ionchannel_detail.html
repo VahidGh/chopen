@@ -1,0 +1,106 @@
+{% extends "base.html" %}
+{% load i18n %}
+{% load widget_filters %}
+
+{% block page_title %}{% trans 'Ion Channel Detail' %}{% endblock %}
+{% block page_header %}{% trans 'Ion Channel Detail' %}{% endblock %}
+{% block breadcrumb %}
+    <li><a href="{% url 'ion_channel:home' %}"><i class="fa fa-home"></i> {% trans 'Home' %}</a></li>
+    <li><a href="{% url 'ion_channel:ion-channel-index' %}">{% trans 'Ion Channels' %}</a></li>
+    <li class="active">{% trans 'Detail' %}</li>
+{% endblock %}
+
+{% block content %}
+    <div class="col-md-6">
+      <div class="box box-solid">
+        <div class="box-header with-border">
+          <h3 class="box-title">{{ object.channel_name }}</h3>
+        </div>
+        <div class="box-body">
+          <dl style="word-break: break-all">
+              {% for field in form%}
+                {% if field.value %}
+                    <dt>{{ field.label_tag }}</dt>
+                    {% if field.html_name == "username" %}
+                        <dd><p>{{ object.username }}</p></dd>
+                    {% elif field.html_name == "create_date" %}
+                        <dd><p>{{ object.create_date }}</p></dd>
+                        <dt>{% trans 'Last update:' %}</dt>
+                        {% for ic in ion_channel %}
+                        <dd><p>{{ ic.last_update }}</p></dd>
+                        {% endfor %}
+                    {% elif field.html_name == "refSeq_id" %}
+                        <dd><p><a href="http://www.ncbi.nlm.nih.gov/protein/{{ field.value }}">{{ field.value }}</a></p></dd>
+                    {% elif field.html_name == "gene_id" %}
+                        <dd><p><a href="http://www.ncbi.nlm.nih.gov/gene/{{ field.value }}">{{ field.value }}</a></p></dd>
+                    {% elif field.html_name == "uniprot_id" %}
+                        <dd><p><a href="http://www.uniprot.org/uniprot/{{ field.value }}">{{ field.value }}</a></p></dd>
+                    {% elif field.html_name == 'references' %}
+                        {% for ref in object.references.all %}
+                            <dd><p>{% trans '[' %}{{ ref.id }}{% trans '] ' %}
+                                <a href="http://www.ncbi.nlm.nih.gov/pubmed/{{ ref.PMID }}">{{ ref }}</a>
+                            </p></dd>
+                        {% endfor %}
+                    {% else %}
+                        <dd>{{ field.value|linebreaks }}</dd>
+                    {% endif %}
+                {% endif %}
+              {% endfor %}
+          </dl>
+        </div>
+      </div>
+    </div>
+    <!--<h3 class="box-title">{% trans 'Electrophysiology Experiments' %}</h3>-->
+    {% for graph in graphs %}
+      {% if graph.id %}
+      <div class="col-md-6">
+            <div class="box box-solid">
+                <div class="box-header with-border">
+                  <h3 class="box-title">{% trans 'Graph for ' %}{{ graph.y_axis_type }}{% trans '-' %}{{ graph.x_axis_type }}{% trans ' Relationship' %}</h3>
+                </div>
+                <div class="box-body">
+                    <dl style="word-break: break-all">
+                        <dt>{% trans 'Graph ID:' %}</dt>
+                        <dd><p>{{ graph.id }}</p></dd>
+                        <dt>{% trans 'Ion channel:' %}</dt>
+                        <dd><p>{{ graph.ion_channel }}</p></dd>
+                        <dt>{% trans 'Patch Clamp:' %}</dt>
+                        <dd><p>{{ graph.patch_clamp }}</p></dd>
+                        <dt>{% trans 'Reference:' %}</dt>
+                        <dd><p><a href="http://www.ncbi.nlm.nih.gov/pubmed/{{ graph.reference.PMID }}">{{ graph.reference.PMID }}</a></p></dd>
+                        <dt>{% trans 'Ref Address:' %}</dt>
+                        <dd><p>{{ graph.figure_ref_address }}</p></dd>
+                        <dt>{% trans 'Ref Caption:' %}</dt>
+                        <dd><p>{{ graph.figure_ref_caption }}</p></dd>
+                        <dt>{% trans 'Axis:' %}</dt>
+                        <dd><p>
+                            {{ graph.y_axis_type }}{% trans '(' %}{{ graph.y_axis_unit }}{% trans ')' %}{% trans '-' %}{{ graph.x_axis_type }}{% trans '(' %}{{ graph.x_axis_unit }}{% trans ')' %}
+                        </p></dd>
+                        <dt>{% trans 'Figure:' %}</dt>
+                        <dd><p>
+                            <a href="{{ graph.file.url }}">
+                                <img src="{{ graph.file.url }}" style="max-width:100%; max-height:100%;"/>
+                            </a>
+                            {% if graph.digitized_plot %}
+                                <a href="{{ graph.digitized_plot.url }}">
+                                    <img src="{{ graph.digitized_plot.url }}" style="max-width:100%; max-height:100%;" />
+                                </a>
+                            {% endif %}
+                            {% if graph.digitized_plot_file %}
+                                <a href="{{ graph.digitized_plot_file.url }}">{% trans 'Download pickle' %}</a>
+                            {% endif %}
+                        </p></dd>
+                        <dt>{% trans 'Digitized data:' %}</dt>
+                        <dd><p>
+                            <a href="{% url 'ion_channel:graph-data-index' graph.id %}" class="badge bg-yellow">
+                                <i class="fa fa-file-text-o"></i>
+                                {% trans 'View Series' %}
+                            </a>
+                        </p></dd>
+                    </dl>
+                </div>
+            </div>
+        </div>
+        {% endif %}
+    {% endfor %}
+{% endblock %}

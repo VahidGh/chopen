@@ -1,0 +1,116 @@
+{% extends "base_ajax.html" %}
+{% load i18n %}
+{% load widget_filters %}
+
+{% block content %}
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="box box-primary">
+                <div class="box-header with-border">
+                    <i class="fa fa-bar-chart"></i>
+                    <div class="box-tools pull-right">
+                        <a href="#" onclick="chopen.ion_channel.graph.openCreateForm()"
+                           class="btn btn-box-tool" title="{% trans 'Add New Graph' %}">
+                            <i class="fa fa-plus-circle"></i>
+                            {% trans 'Add New Graph' %}
+                        </a>
+                        <button class="btn btn-box-tool" onclick="chopen.ion_channel.graph.refresh()" title="{% trans 'Refresh' %}">
+                            <i class="fa fa-refresh"></i>
+                        </button>
+                    </div>
+                </div>
+                <div class="box-body table-responsive">
+                    <table id="graph_result_table" class="table table-bordered table-striped">
+                        <thead>
+                        <tr>
+                            <th style="width: 10px">ID</th>
+                            <th>{% trans 'Ion channel' %}</th>
+                            <th>{% trans 'Patch Clamp' %}</th>
+                            <th>{% trans 'Reference' %}</th>
+                            <th>{% trans 'Ref Address' %}</th>
+                            <th>{% trans 'Ref Caption' %}</th>
+                            <th>{% trans 'Axis' %}</th>
+                            <th>{% trans 'Figure' %}</th>
+                            <th>{% trans 'Action' %}</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        {% for graph in graphs %}
+                            <tr>
+                                <td>{{ graph.id }}</td>
+                                <td>{{ graph.ion_channel }}</td>
+                                <td>
+                                    <abbr title="{{ graph.patch_clamp }}">{{ graph.patch_clamp|truncatechars:100 }}</abbr>
+                                </td>
+                                <td>
+                                    <a href="http://www.ncbi.nlm.nih.gov/pubmed/{{ graph.reference.PMID }}">
+                                        <abbr title="{{ graph.reference }}">{{ graph.reference|truncatechars:100 }}</abbr>
+                                    </a>
+                                </td>
+                                <td>{{ graph.figure_ref_address }}</td>
+                                <td>
+                                    <abbr title="{{ graph.figure_ref_caption }}">{{ graph.figure_ref_caption|truncatechars:100 }}</abbr>
+                                </td>
+                                <td>
+                                    {{ graph.y_axis_type }}{% trans '(' %}{{ graph.y_axis_unit }}{% trans ')' %}{% trans '-' %}{{ graph.x_axis_type }}{% trans '(' %}{{ graph.x_axis_unit }}{% trans ')' %}
+                                </td>
+                                <td>
+                                    <a href="{{ graph.file.url }}">
+                                        <img src="{{ graph.file.url }}" style="max-width:100%; max-height:100%;" />
+                                    </a>
+                                    {% if graph.digitized_plot %}
+                                    <a href="{{ graph.digitized_plot.url }}">
+                                        <img src="{{ graph.digitized_plot.url }}" style="max-width:100%; max-height:100%;" />
+                                    </a>
+                                    {% endif %}
+                                    {% if graph.digitized_plot_file %}
+                                    <a href="{{ graph.digitized_plot_file.url }}">{% trans 'Download pickle' %}</a>
+                                    {% endif %}
+                                </td>
+                                <td>
+                                    <a href="#"
+                                       onclick="chopen.ion_channel.graph.openUpdateForm('{% url 'ion_channel:graph-update' graph.id %}')"
+                                       class="badge bg-light-blue">
+                                        <i class="fa fa-edit"></i>
+                                        {% trans 'Edit' %}
+                                    </a>
+                                    <a href="#"
+                                       onclick="chopen.ion_channel.graph.confirmDelete('{% url 'ion_channel:graph-delete' graph.id %}')"
+                                       class="badge bg-red">
+                                        <i class="fa fa-remove"></i>
+                                        {% trans 'Delete' %}
+                                    </a>
+                                    <a href="{% url 'digitizer:digitize' graph.id %}" target="_blank"
+                                       class="badge bg-green">
+                                        <i class="fa fa-file-text-o"></i>
+                                        {% trans 'Digitize' %}
+                                    </a>
+                                    <a href="{% url 'ion_channel:graph-plot' graph.id %}" target="_blank"
+                                       class="badge bg-blue">
+                                        <i class="fa fa-area-chart"></i>
+                                        {% trans 'Plot' %}
+                                    </a>
+                                    <a href="{% url 'ion_channel:graph-data-index' graph.id %}" target="_blank"
+                                       class="badge bg-yellow">
+                                        <i class="fa fa-file-text-o"></i>
+                                        {% trans 'Series' %}
+                                    </a>
+                                </td>
+                            </tr>
+                        {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+                <div class="overlay cw-loading" id="graph_loading">
+                    <i class="fa fa-refresh fa-spin"></i>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block inline-script %}
+    <script type="text/javascript">
+        $("#graph_result_table").dataTable();
+    </script>
+{% endblock %}

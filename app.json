@@ -1,0 +1,19 @@
+// Heroku implementation
+
+{
+  "name": "Chopen",
+  "description": "An open source toolbox for ion channel data modeling and analysis",
+  "repository": "https://github.com/vahidgh/chopen",
+  "keywords": ["openworm", "ion channel", "elegans", "computational model", "open science"],
+  "env": {
+    "DJANGO_DEBUG": "off",
+    "DJANGO_SETTINGS_MODULE": "web_app.settings",
+    "DJANGO_SECURE_SSL_REDIRECT": "on"
+  },
+  "scripts": {
+    "postdeploy": "echo 'y' | python manage.py makemigrations ion_channel account && python manage.py migrate"
+  }
+//  "addons": [
+//    "heroku-postgresql:hobby-dev"
+//  ]
+}

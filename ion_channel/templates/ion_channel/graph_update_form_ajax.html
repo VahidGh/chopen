@@ -1,0 +1,42 @@
+{% extends "base_ajax.html" %}
+{% load i18n %}
+{% load widget_filters %}
+{% load staticfiles %}
+
+{% block content %}
+<div id="graph_form_wrapper">
+    <div class="row">
+        <div class="col-sm-12">
+            <form id="frm_graph" enctype="multipart/form-data" method="post" class="form" action="{% url 'ion_channel:graph-update' object.pk %}">
+                <div class="box-body" style="overflow-y: scroll; height: 400px;">
+                    {% csrf_token %}
+                    {% for field in form %}
+                        <div class="form-group">
+                            {{ field.label_tag }}
+                            {{ field |addcss:"form-control" }}
+                            {{ field.errors }}
+                        </div>
+                    {% endfor %}
+                </div>
+                <div class="box-footer">
+                    <input type="submit" value="{% trans 'Update Graph' %}" class="btn btn-primary pull-right"
+                           onclick="return chopen.ion_channel.graph.save()"/>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block inline-css%}
+<link href="{% static 'third_party/select2/css/select2.min.css' %}" rel="stylesheet" type="text/css"/>
+{% endblock %}
+
+{% block inline-script %}
+<script src="{% static 'third_party/select2/js/select2.min.js' %}"></script>
+<script type="text/javascript">
+    $("#id_ion_channel").select2();
+    $("#id_reference").select2();
+    $("#id_patch_clamp").select2();
+</script>
+{% endblock %}

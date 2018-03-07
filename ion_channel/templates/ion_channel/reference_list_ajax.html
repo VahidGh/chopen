@@ -1,0 +1,84 @@
+{% extends "base_ajax.html" %}
+{% load i18n %}
+{% load widget_filters %}
+
+{% block content %}
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="box box-primary">
+                <div class="box-header with-border">
+                    <i class="fa fa-file-text-o"></i>
+                    <h3 class="box-title">{% trans 'Reference For Patch Clamp Experiment' %}</h3>
+                    <div class="box-tools pull-right">
+                        <a href="#" onclick="chopen.ion_channel.reference.openCreateForm()"
+                           class="btn btn-box-tool" title="{% trans 'Add Reference Manually' %}">
+                            <i class="fa fa-plus-circle"></i>
+                            {% trans 'Add Reference Manually' %}
+                        </a>
+                        <a href="#" onclick="chopen.ion_channel.reference.openCreateAutoForm()"
+                           class="btn btn-box-tool" title="{% trans 'Add Reference Using Auto-Search' %}">
+                            <i class="fa fa-plus-circle"></i>
+                            {% trans 'Add Reference Using Auto-Search' %}
+                        </a>
+                        <button class="btn btn-box-tool" onclick="chopen.ion_channel.reference.refresh()"
+                                title="{% trans 'Refresh' %}">
+                            <i class="fa fa-refresh"></i>
+                        </button>
+                    </div>
+                </div>
+                <div class="box-body table-responsive">
+                    <table id="reference_result_table" class="table table-bordered table-striped">
+                        <thead>
+                        <tr>
+                            <th>{% trans 'ID' %}</th>
+                            <th>{% trans 'Reference' %}</th>
+                            <th>{% trans 'Year' %}</th>
+                            <th>{% trans 'DOI' %}</th>
+                            <th>{% trans 'PMID' %}</th>
+                            <th>{% trans 'Category' %}</th>
+                            <th>{% trans 'File Address' %}</th>
+                            <th>{% trans 'Action' %}</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        {% for reference in references %}
+                        <tr>
+                            <td>{{reference.id}}</td>
+                            <td>{{ reference.citation }}</td>
+                            <td>{{ reference.year }}</td>
+                            <td><a href="http://doi.org/{{ reference.doi }}">{{ reference.doi }}</a></td>
+                            <td><a href="http://www.ncbi.nlm.nih.gov/pubmed/{{ reference.PMID }}">{{ reference.PMID }}</a></td>
+                            <td>{{ reference.subject }}</td>
+                            <td><a href="{{ reference.file_url }}">{{ reference.file_url|truncatechars:40 }}</a></td>
+                            <td>
+                                <a href="#"
+                                   onclick="chopen.ion_channel.reference.openUpdateForm('{% url 'ion_channel:reference-update' reference.id %}')"
+                                   class="badge bg-light-blue">
+                                    <i class="fa fa-edit"></i>
+                                    {% trans 'Edit' %}
+                                </a>
+                                <a href="#"
+                                   onclick="chopen.ion_channel.reference.confirmDelete('{% url 'ion_channel:reference-delete' reference.id %}')"
+                                   class="badge bg-red">
+                                    <i class="fa fa-remove"></i>
+                                    {% trans 'Delete' %}
+                                </a>
+                            </td>
+                        </tr>
+                        {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+                <div class="overlay cw-loading" id="reference_loading">
+                    <i class="fa fa-refresh fa-spin"></i>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block inline-script %}
+    <script type="text/javascript">
+        $("#reference_result_table").dataTable();
+    </script>
+{% endblock %}

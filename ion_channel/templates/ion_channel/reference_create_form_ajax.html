@@ -1,0 +1,29 @@
+{% extends "base_ajax.html" %}
+{% load i18n %}
+{% load widget_filters %}
+{% load staticfiles %}
+
+{% block content %}
+<div id="reference_form_wrapper">
+    <div class="row">
+        <div class="col-sm-12">
+            <form method="post" class="form" id="frm_reference" action="{% url 'ion_channel:reference-create' %}">
+                <div class="box-body" style="overflow-y: scroll; height: 400px;">
+                    {% csrf_token %}
+                    {% for field in form %}
+                        <div class="form-group">
+                            {{ field.label_tag }}
+                            {{ field |addcss:"form-control" }}
+                            {{ field.errors }}
+                        </div>
+                    {% endfor %}
+                </div>
+                <div class="box-footer">
+                    <input type="submit" value="{% trans 'Save Reference' %}" class="btn btn-primary pull-right"
+                           onclick="return chopen.ion_channel.reference.save()"/>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %}
