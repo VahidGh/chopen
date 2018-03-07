@@ -25,6 +25,8 @@ SECRET_KEY = 'd0vy02-g#nq@lg!s%5v$w(jilj@af791#1-3k9y7ea3c)djj!w'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
+ALLOWED_HOSTS = ['chopen.herokuapp.com', 'localhost', '127.0.0.1']
+
 # Application definition
 
 INSTALLED_APPS = (
