@@ -13,7 +13,4 @@
   "scripts": {
     "postdeploy": "echo 'y' | python manage.py makemigrations ion_channel account && python manage.py migrate"
   }
-//  "addons": [
-//    "heroku-postgresql:hobby-dev"
-//  ]
 }
