@@ -5,6 +5,7 @@ Django==2.0.3
 django-formtools==2.1
 djangorestframework==3.7.7
 eutils==0.3.2
+gunicorn==19.7.1
 idna==2.6
 lxml==4.1.1
 metapub==0.4.3.6
