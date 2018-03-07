@@ -1,9 +1,7 @@
-// Heroku implementation
-
 {
   "name": "Chopen",
   "description": "An open source toolbox for ion channel data modeling and analysis",
-  "repository": "https://github.com/vahidgh/chopen",
+  "repository": "https://github.com/VahidGh/chopen",
   "keywords": ["openworm", "ion channel", "elegans", "computational model", "open science"],
   "env": {
     "DJANGO_DEBUG": "off",
