@@ -1,3 +1,2 @@
 release: yes "yes" | python manage.py migrate
-
-web: gunicorn chopen.wsgi --log-file -
+web: gunicorn web_app.wsgi --log-file -
