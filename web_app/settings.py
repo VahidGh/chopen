@@ -36,18 +36,16 @@ INSTALLED_APPS = (
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    # 'chopen',
     'web_app',
     'digitizer',
     'ion_channel',
     'account',
+    'channelworm',
+    'predychannel',
     'api',
-    # 'fitter',
+    # 'scholar',
     'formtools',
     'rest_framework',
-    # 'channelworm',
-    # 'predychannel',
-
 )
 
 MIDDLEWARE = (
@@ -69,6 +67,7 @@ TEMPLATES = [
         'DIRS': [os.path.join(BASE_DIR,'web_app', 'templates'),
                  os.path.join(BASE_DIR,'ion_channel', 'templates'),
                  os.path.join(BASE_DIR,'digitizer', 'templates'),
+                 os.path.join(BASE_DIR,'channelworm', 'templates'),
                  os.path.join(BASE_DIR,'account', 'templates')],
         'APP_DIRS': True,
         'OPTIONS': {
@@ -182,9 +181,8 @@ STATICFILES_DIRS = (
     # Don't forget to use absolute paths, not relative paths.
     os.path.join(BASE_DIR, 'web_app', 'static'),
     os.path.join(BASE_DIR, 'ion_channel', 'static'),
+    os.path.join(BASE_DIR, 'channelworm', 'static'),
     os.path.join(BASE_DIR, 'digitizer', 'static'),
-    # os.path.join(BASE_DIR, 'channelworm', 'static'),
-    # os.path.join(BASE_DIR, 'predychannel', 'static'),
 )
 
 MEDIA_ROOT = os.path.join(os.path.dirname(__file__), 'media')
@@ -195,5 +193,3 @@ LOGIN_REDIRECT_URL = '/'
 DEFAULT_INDEX_TABLESPACE = ''
 DEFAULT_TABLESPACE = ''
 ABSOLUTE_URL_OVERRIDES = {}
-
-# WAGTAIL_SITE_NAME = 'OpenWorm'
