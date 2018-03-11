@@ -136,38 +136,38 @@ def index(request):
 #     success_url = reverse_lazy('ion_channel:ion-channel-index')
 
 
-class IonChannelList(ListView):
+class IonChannelGeneList(ListView):
     model = IonChannelGene
     context_object_name = 'ion_channels'
 
-class IonChannelDetail(UpdateView):
+class IonChannelGeneDetail(UpdateView):
     model = IonChannelGene
     template_name_suffix = '_detail'
     fields = '__all__'
 
     def get_context_data(self, **kwargs):
-        context = super(IonChannelDetail, self).get_context_data(**kwargs)
+        context = super(IonChannelGeneDetail, self).get_context_data(**kwargs)
         context['proteins'] = Protein.objects.filter(ion_channel_id=int(self.kwargs['pk']))
         return context
 
 
-class IonChannelCreate(CreateView):
+class IonChannelGeneCreate(CreateView):
     model = IonChannelGene
     fields = '__all__'
     template_name_suffix = '_create_form'
-    success_url = reverse_lazy('ion_channel:ion-channel-index')
+    success_url = reverse_lazy('channelworm:ion-channel-index')
 
 
-class IonChannelUpdate(UpdateView):
+class IonChannelGeneUpdate(UpdateView):
     model = IonChannelGene
     fields = '__all__'
     template_name_suffix = '_update_form'
-    success_url = reverse_lazy('ion_channel:ion-channel-index')
+    success_url = reverse_lazy('channelworm:ion-channel-index')
 
 
-class IonChannelDelete(DeleteView):
+class IonChannelGeneDelete(DeleteView):
     model = IonChannelGene
-    success_url = reverse_lazy('ion_channel:ion-channel-index')
+    success_url = reverse_lazy('channelworm:ion-channel-index')
 
 #
 # class IonChannelModelList(ListView):

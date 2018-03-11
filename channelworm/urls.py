@@ -21,11 +21,11 @@ from .form import *
 urlpatterns = [
     url(r'^$', index, name='index'),
 
-    url(r'^ion_channels$', IonChannelList.as_view(), name='ion-channel-index'),
-    url(r'^ion_channels/detail/(?P<pk>[0-9]+)$', IonChannelDetail.as_view(), name='ion-channel-detail'),
-    url(r'^ion_channels/create$', login_required(IonChannelCreate.as_view()), name='ion-channel-create'),
-    url(r'^ion_channels/update/(?P<pk>[0-9]+)$', login_required(IonChannelUpdate.as_view()), name='ion-channel-update'),
-    url(r'^ion_channels/delete/(?P<pk>[0-9]+)$', login_required(IonChannelDelete.as_view()), name='ion-channel-delete'),
+    url(r'^ion_channels', IonChannelGeneList.as_view(), name='ion-channel-index'),
+    url(r'^ion_channels/detail/(?P<pk>[0-9]+)$', IonChannelGeneDetail.as_view(), name='ion-channel-detail'),
+    url(r'^ion_channels/create', login_required(IonChannelGeneCreate.as_view()), name='ion-channel-create'),
+    url(r'^ion_channels/update/(?P<pk>[0-9]+)$', login_required(IonChannelGeneUpdate.as_view()), name='ion-channel-update'),
+    url(r'^ion_channels/delete/(?P<pk>[0-9]+)$', login_required(IonChannelGeneDelete.as_view()), name='ion-channel-delete'),
     #
     # url(r'^reference/create/$', login_required(ReferenceCreate.as_view()), name='reference-create'),
     # url(r'^reference$', ReferenceList.as_view(), name='reference-index'),
