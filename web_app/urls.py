@@ -8,7 +8,7 @@ from django.contrib import admin
 from django.conf import settings
 import sys
 # from ion_channel.views import index
-from homepage.views import index
+from .views import index
 
 # TODO: Check for conflicts in two accounts url pattern
 # login_required() from 'django.contrib.auth.urls' redirects to accounts/login/ by default!
@@ -25,8 +25,8 @@ urlpatterns = [
     url(r'^ion_channel/', include(('ion_channel.urls', 'ion_channel'), namespace="ion_channel"), ),
     url(r'^api/', include(('api.urls', 'api'), namespace="api"), ),
     url(r'^index$', index ),
-    # url(r'^$', index ,name='home'),
-    url(r'^$', include(('homepage.urls', 'homepage'), namespace='homepage')),
+    url(r'^$', index ,name='home'),
+    # url(r'^$', include(('homepage.urls', 'homepage'), namespace='homepage')),
     # url(r'^explorer/', include('explorer.urls')),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
