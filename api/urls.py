@@ -5,6 +5,14 @@ from .views import *
 
 
 urlpatterns = [
+    url(r'^ion_channel_gene/create/$', login_required(IonChannelGeneCreateAPI.as_view()), name="ion-channel-gene-create-api"),
+    url(r'^ion_channel_gene/list/$', IonChannelGeneListAPI.as_view(), name="ion-channel-gene-list-api"),
+    url(r'^ion_channel_gene/details/(?P<pk>[0-9]+)/$', IonChannelGeneDetailsAPI.as_view(), name="ion-channel-gene-details-api"),
+
+    url(r'^protein/create/$', login_required(ProteinCreateAPI.as_view()), name="protein-create-api"),
+    url(r'^protein/list/$', ProteinListAPI.as_view(), name="protein-list-api"),
+    url(r'^protein/details/(?P<pk>[0-9]+)/$', ProteinDetailsAPI.as_view(), name="protein-details-api"),
+
     url(r'^ion_channel/create/$', login_required(IonChannelCreateAPI.as_view()), name="ion-channel-create-api"),
     url(r'^ion_channel/list/$', IonChannelListAPI.as_view(), name="ion-channel-list-api"),
     url(r'^ion_channel/details/(?P<pk>[0-9]+)/$', IonChannelDetailsAPI.as_view(), name="ion-channel-details-api"),

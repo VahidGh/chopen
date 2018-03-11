@@ -1,5 +1,20 @@
 from rest_framework import serializers
 from ion_channel.models import *
+from channelworm.models import *
+
+
+class IonChannelGeneSerializer(serializers.ModelSerializer):
+
+    class Meta:
+        model = IonChannelGene
+        fields = '__all__'
+
+
+class ProteinSerializer(serializers.ModelSerializer):
+
+    class Meta:
+        model = Protein
+        fields = '__all__'
 
 
 class IonChannelSerializer(serializers.ModelSerializer):

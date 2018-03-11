@@ -9,7 +9,6 @@ from datetime import datetime
 from django.conf import settings
 from django.views.generic import ListView, CreateView, UpdateView, DeleteView
 import sys
-sys.path.append('..')
 from web_app.views import AjaxMixinListView, AjaxMixinCreateView, AjaxMixinUpdateView, AjaxMixinDeleteView
 from .models import *
 from .form import *

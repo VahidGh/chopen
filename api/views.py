@@ -1,6 +1,47 @@
 from rest_framework import generics, permissions
 from .serializers import *
 from ion_channel.models import *
+from channelworm.models import *
+
+
+class IonChannelGeneCreateAPI(generics.ListCreateAPIView):
+    queryset = IonChannelGene.objects.all()
+    serializer_class = IonChannelGeneSerializer
+
+    def perform_create(self, serializer):
+        serializer.save(username=self.request.user)
+
+
+class IonChannelGeneDetailsAPI(generics.RetrieveUpdateDestroyAPIView):
+
+    queryset = IonChannelGene.objects.all()
+    serializer_class = IonChannelGeneSerializer
+
+
+class IonChannelGeneListAPI(generics.ListAPIView):
+
+    queryset = IonChannelGene.objects.all()
+    serializer_class = IonChannelGeneSerializer
+
+
+class ProteinCreateAPI(generics.ListCreateAPIView):
+    queryset = Protein.objects.all()
+    serializer_class = ProteinSerializer
+
+    def perform_create(self, serializer):
+        serializer.save(username=self.request.user)
+
+
+class ProteinDetailsAPI(generics.RetrieveUpdateDestroyAPIView):
+
+    queryset = Protein.objects.all()
+    serializer_class = ProteinSerializer
+
+
+class ProteinListAPI(generics.ListAPIView):
+
+    queryset = Protein.objects.all()
+    serializer_class = ProteinSerializer
 
 
 class IonChannelCreateAPI(generics.ListCreateAPIView):
