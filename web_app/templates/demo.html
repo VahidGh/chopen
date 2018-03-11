@@ -68,25 +68,27 @@
 
 						<ul class="one-page-menu" data-easing="easeInOutExpo" data-speed="1250" data-offset="160">
 							<li><a href="index.html" data-href="#wrapper"><div>Home</div></a></li>
-							<li><a href="#" data-href="#"><div>Toolbox</div></a></li>
+							<li><a href="#" data-href="#"><div>Toolbox</div></a>
 								<ul>
 									<li><a href="#" data-href="#"><div>Ion Channel Modeling Wizard</div></a></li>
 									<li><a href="#" data-href="#"><div>PreDyChannel</div></a></li>
 									<li><a href="#" data-href="#"><div>Open Scholar</div></a></li>
 								</ul>
-							<li><a href="#" data-href="#"><div>Showcase</div></a>
+							</li>
+                            <li><a href="#" data-href="#"><div>Showcase</div></a>
 								<ul>
-									<li><a href="#" data-href="#"><div>ChannelWorm</div></a></li>
+									<li><a href="{% url 'ion_channel:ion-channel-index' %}" data-href="#"><div>ChannelWorm</div></a></li>
 									<li><a href="#" data-href="#"><div>Ion Channel Dataset</div></a></li>
-									<li><a href="#" data-href="#"><div>OpenWorm Scholar</div></a></li>
+									<li><a href="{% url 'ion_channel:reference-index' %}" data-href="#"><div>OpenWorm Scholar</div></a></li>
 								</ul>
 							</li>
-							<li><a href="#" data-href="#"><div>API</div></a></li>
+							<li><a href="#" data-href="#"><div>API</div></a>
 								<ul>
 									<li><a href="#" data-href="#"><div>ChannelWorm API</div></a></li>
 									<li><a href="#" data-href="#"><div>Ion Channel Dataset API</div></a></li>
 									<li><a href="#" data-href="#"><div>OpenWorm Scholar API</div></a></li>
 								</ul>
+                            </li>
 						</ul>
 
 						<ul class="one-page-menu" data-easing="easeInOutExpo" data-speed="1250" data-offset="160">
