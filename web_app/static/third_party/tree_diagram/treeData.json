@@ -2,77 +2,93 @@
   {
     "name": "ion channel",
     "parent": "null",
+    "aydi": "main",
     "children": [
       {
       "name": "Potassium channel",
       "parent": "ion channel",
+      "aydi": "vg",
       "children": [
         {
           "name": "Voltage-gated",
           "parent": "Potassium channel",
+          "aydi": "vg",
           "children": [
             {
               "name": "Shaker/Kv1",
               "parent": "Voltage-gated",
-              "description": "hello"
+              "aydi": "vg"
             },
             {
               "name": "Shab/Kv2",
-              "parent": "Voltage-gated"
+              "parent": "Voltage-gated",
+              "aydi": "vg"
             },
             {
               "name": "Shaw/Kv3",
-              "parent": "Voltage-gated"
+              "parent": "Voltage-gated",
+              "aydi": "vg"
             },
             {
               "name": "Shal/Kv4",
-              "parent": "Voltage-gated"
+              "parent": "Voltage-gated",
+              "aydi": "vg"
             },
             {
               "name": "KQT",
-              "parent": "Voltage-gated"
+              "parent": "Voltage-gated",
+              "aydi": "vg"
             },
             {
               "name": "Eag-like/Kv10-12",
-              "parent": "Voltage-gated"
+              "parent": "Voltage-gated",
+              "aydi": "vg"
             },
             {
               "name": "Calcium-activated Slo-like",
-              "parent": "Voltage-gated"
+              "parent": "Voltage-gated",
+              "aydi": "vg"
             },
             {
               "name": "Calcium-activated SK",
-              "parent": "Voltage-gated"
+              "parent": "Voltage-gated",
+              "aydi": "vg"
             }
           ]
         },
         {
           "name": "Temperature, Voltage-dependent",
           "parent": "Potassium channel",
+          "aydi": "vg",
           "children": [
             {
               "name": "TWK",
-              "parent": "Temperature, Voltage-dependent"
+              "parent": "Temperature, Voltage-dependent",
+              "aydi": "vg"
             }
           ]
         },
         {
           "name": "Voltage-gated",
           "parent": "Potassium channel",
+          "aydi": "vg",
           "children": [
             {
               "name": "Kir",
-              "parent": "Voltage-gated"
+              "parent": "Voltage-gated",
+              "aydi": "vg"
             }
           ]
         },
         {
           "name": "Voltage-gated",
           "parent": "Potassium channel",
+          "aydi": "vg",
           "children": [
             {
               "name": "KCNF1",
-              "parent": "Voltage-gated"
+              "parent": "Voltage-gated",
+              "aydi": "vg"
             }
           ]
         }
@@ -81,34 +97,42 @@
     {
       "name": "Calcium channel",
       "parent": "ion channel",
+      "aydi": "vg3",
       "children": [
         {
           "name": "Voltage-gated",
           "parent": "Calcium channel",
+          "aydi": "vg3",
           "children": [
             {
               "name": "L-type/Cav1",
-              "parent": "Voltage-gated"
+              "parent": "Voltage-gated",
+              "aydi": "vg3"
             },
             {
               "name": "R, N, P/Q-Type/Cav2",
-              "parent": "Voltage-gated"
+              "parent": "Voltage-gated",
+              "aydi": "vg3"
             },
             {
               "name": "T-Type/Cav3",
-              "parent": "Voltage-gated"
+              "parent": "Voltage-gated",
+              "aydi": "vg3"
             },
             {
               "name": "U Type",
-              "parent": "Voltage-gated"
+              "parent": "Voltage-gated",
+              "aydi": "vg3"
             },
             {
               "name": "a2d subunit",
-              "parent": "Voltage-gated"
+              "parent": "Voltage-gated",
+              "aydi": "vg3"
             },
             {
               "name": "B subunit",
-              "parent": "Voltage-gated"
+              "parent": "Voltage-gated",
+              "aydi": "vg3"
             }
           ]
         }
@@ -117,84 +141,101 @@
     {
       "name": "TRP channel",
       "parent": "ion channel",
+      "aydi": "trp",
       "children": [
         {
           "name": " ",
           "parent": "TRP channel",
+          "aydi": "trp",
           "children": [
             {
               "name": "TRPV",
-              "parent": " "
+              "parent": " ",
+              "aydi": "trp"
             }
           ]
         },
           {
           "name": " ",
           "parent": "TRP channel",
+          "aydi": "trp",
           "children": [
             {
               "name": "TRPP",
-              "parent": " "
+              "parent": " ",
+              "aydi": "trp"
             }
           ]
         },
           {
           "name": " ",
           "parent": "TRP channel",
+          "aydi": "trp",
           "children": [
             {
               "name": "TRPN",
-              "parent": " "
+              "parent": " ",
+              "aydi": "trp"
             }
           ]
         },
           {
           "name": " ",
           "parent": "TRP channel",
+          "aydi": "trp",
           "children": [
             {
               "name": "TRPML",
-              "parent": " "
+              "parent": " ",
+              "aydi": "trp"
             }
           ]
         },
           {
           "name": " ",
           "parent": "TRP channel",
+          "aydi": "trp",
           "children": [
             {
               "name": "TRPM",
-              "parent": " "
+              "parent": " ",
+              "aydi": "trp"
             }
           ]
         },
           {
           "name": " ",
           "parent": "TRP channel",
+          "aydi": "trp",
           "children": [
             {
               "name": "TRPC",
-              "parent": " "
+              "parent": " ",
+              "aydi": "trp"
             }
           ]
         },
           {
           "name": " ",
           "parent": "TRP channel",
+          "aydi": "trp",
           "children": [
             {
               "name": "TRPA",
-              "parent": " "
+              "parent": " ",
+              "aydi": "trp"
             }
           ]
         },
           {
           "name": " ",
           "parent": "TRP channel",
+          "aydi": "trp",
           "children": [
             {
               "name": "TRPM-related",
-              "parent": " "
+              "parent": " ",
+              "aydi": "trp"
             }
           ]
         }
@@ -203,24 +244,29 @@
         {
       "name": "Ionotropic glutamate receptors",
       "parent": "ion channel",
+      "aydi": "ion",
       "children": [
         {
           "name": " ",
           "parent": "Ionotropic glutamate receptors",
+          "aydi": "ion",
           "children": [
             {
               "name": "NMDA-type",
-              "parent": " "
+              "parent": " ",
+              "aydi": "ion"
             }
           ]
         },
           {
           "name": " ",
           "parent": "Ionotropic glutamate receptors",
+          "aydi": "ion",
           "children": [
             {
               "name": "AMPA-type",
-              "parent": " "
+              "parent": " ",
+              "aydi": "ion"
             }
           ]
         }
@@ -229,94 +275,113 @@
     {
       "name": "DEG/ENaC",
       "parent": "ion channel",
+      "aydi": "deg",
       "children": [
         {
           "name": " ",
           "parent": "DEG/ENaC",
+          "aydi": "deg",
           "children": [
             {
               "name": "Subgroup 1",
-              "parent": " "
+              "parent": " ",
+              "aydi": "deg"
             }
           ]
         },
           {
           "name": " ",
           "parent": "DEG/ENaC",
+          "aydi": "deg",
           "children": [
             {
               "name": "Subgroup 2",
-              "parent": " "
+              "parent": " ",
+              "aydi": "deg"
             }
           ]
         },
         {
           "name": " ",
           "parent": "DEG/ENaC",
+          "aydi": "deg",
           "children": [
             {
               "name": "Subgroup 3 (EGF + ASC domain)",
-              "parent": " "
+              "parent": " ",
+              "aydi": "deg"
             }
           ]
         },
         {
           "name": " ",
           "parent": "DEG/ENaC",
+          "aydi": "deg",
           "children": [
             {
               "name": " ",
-              "parent": " "
+              "parent": " ",
+              "aydi": "deg"
             }
           ]
         },
         {
           "name": " ",
           "parent": "DEG/ENaC",
+          "aydi": "deg",
           "children": [
             {
               "name": " ",
-              "parent": " "
+              "parent": " ",
+              "aydi": "deg"
             }
           ]
         },
         {
           "name": " ",
           "parent": "DEG/ENaC",
+          "aydi": "deg",
           "children": [
             {
               "name": " ",
-              "parent": " "
+              "parent": " ",
+              "aydi": "deg"
             }
           ]
         },
         {
           "name": " ",
           "parent": "DEG/ENaC",
+          "aydi": "deg",
           "children": [
             {
               "name": " ",
-              "parent": " "
+              "parent": " ",
+              "aydi": "deg"
             }
           ]
         },
         {
           "name": " ",
           "parent": "DEG/ENaC",
+          "aydi": "deg",
           "children": [
             {
               "name": " ",
-              "parent": " "
+              "parent": " ",
+              "aydi": "deg"
             }
           ]
         },
         {
           "name": " ",
           "parent": "DEG/ENaC",
+          "aydi": "deg",
           "children": [
             {
               "name": " ",
-              "parent": " "
+              "parent": " ",
+              "aydi": "deg"
             }
           ]
         }
@@ -325,14 +390,17 @@
     {
       "name": "Chloride channel",
       "parent": "ion channel",
+      "aydi": "chl",
       "children": [
         {
           "name": " ",
           "parent": "Chloride channel",
+          "aydi": "chl",
           "children": [
             {
               "name": "CLC",
-              "parent": " "
+              "parent": " ",
+              "aydi": "chl"
             }
           ]
         }
@@ -341,22 +409,27 @@
         {
       "name": "Cyclic nucleotide gated",
       "parent": "ion channel",
+      "aydi": "cyc",
       "children": [
         {
           "name": "Cyclic nucleotide gated",
           "parent": "Cyclic nucleotide gated",
+          "aydi": "cyc",
           "children": [
             {
               "name": "a subunit",
-              "parent": "Cyclic nucleotide gated"
+              "parent": "Cyclic nucleotide gated",
+              "aydi": "cyc"
             },
             {
               "name": "b subunit",
-              "parent": "Cyclic nucleotide gated"
+              "parent": "Cyclic nucleotide gated",
+              "aydi": "cyc"
             },
             {
               "name": "a/b",
-              "parent": "Cyclic nucleotide gated"
+              "parent": "Cyclic nucleotide gated",
+              "aydi": "cyc"
             }
           ]
         }
@@ -365,34 +438,42 @@
         {
       "name": "Cys-loop LGIC",
       "parent": "ion channel",
+      "aydi": "cys",
       "children": [
         {
           "name": "Ligand-gated",
           "parent": "Cys-loop LGIC",
+          "aydi": "cys",
           "children": [
             {
               "name": "nAChR-type",
-              "parent": "Ligand-gated"
+              "parent": "Ligand-gated",
+              "aydi": "cys"
             },
             {
               "name": "GABA",
-              "parent": "Ligand-gated"
+              "parent": "Ligand-gated",
+              "aydi": "cys"
             },
             {
               "name": "ACC",
-              "parent": "Ligand-gated"
+              "parent": "Ligand-gated",
+              "aydi": "cys"
             },
             {
               "name": "Aminergic",
-              "parent": "Ligand-gated"
+              "parent": "Ligand-gated",
+              "aydi": "cys"
             },
             {
               "name": "GluCl",
-              "parent": "Ligand-gated"
+              "parent": "Ligand-gated",
+              "aydi": "cys"
             },
             {
               "name": "diverse",
-              "parent": "Ligand-gated"
+              "parent": "Ligand-gated",
+              "aydi": "cys"
             }
           ]
         }
@@ -401,44 +482,53 @@
         {
       "name": "Metabotropic neurotransmitter receptors",
       "parent": "ion channel",
+      "aydi": "meta",
       "children": [
         {
           "name": " ",
           "parent": "Metabotropic neurotransmitter receptors",
+          "aydi": "meta",
           "children": [
             {
               "name": " ",
-              "parent": " "
+              "parent": " ",
+              "aydi": "meta"
             }
           ]
         },
           {
           "name": " ",
           "parent": "Metabotropic neurotransmitter receptors",
+          "aydi": "meta",
           "children": [
             {
               "name": " ",
-              "parent": " "
+              "parent": " ",
+              "aydi": "meta"
             }
           ]
         },
           {
           "name": " ",
           "parent": "Metabotropic neurotransmitter receptors",
+          "aydi": "meta",
           "children": [
             {
               "name": " ",
-              "parent": " "
+              "parent": " ",
+              "aydi": "meta"
             }
           ]
         },
           {
           "name": " ",
           "parent": "Metabotropic neurotransmitter receptors",
+          "aydi": "meta",
           "children": [
             {
               "name": " ",
-              "parent": " "
+              "parent": " ",
+              "aydi": "meta"
             }
           ]
         }
