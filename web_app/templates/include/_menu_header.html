@@ -1,0 +1,115 @@
+{% load staticfiles %}
+{% load i18n %}
+<header class="main-header">
+    <!-- Logo -->
+    <a href="/index" class="logo">
+        <!-- mini logo for sidebar mini 50x50 pixels -->
+        <span class="logo-mini"><strong>Chopen</strong></span>
+        <!-- logo for regular state and mobile devices -->
+        <span class="logo-lg"><strong>Chopen</strong></span>
+    </a>
+
+    <nav class="navbar navbar-static-top">
+      <div class="container">
+        <div class="navbar-header">
+          <a href="/index" class="navbar-brand"><b>Chopen</b></a>
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse">
+            <i class="fa fa-bars"></i>
+          </button>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse pull-left" id="navbar-collapse">
+            <ul class="nav navbar-nav">
+                <li><a href="{% url 'ion_channel:ion-channel-index' %}">
+                    <i class='fa fa-neuter'></i><span>{% trans 'Ion Channels' %}</span></a>
+                </li>
+                <li><a href="{% url 'ion_channel:patch-clamp-index' %}">
+                    <i class='fa fa-pinterest-p'></i><span>{% trans 'Patch Clamps' %}</span></a>
+                </li>
+                <li><a href="{% url 'ion_channel:graph-index' %}">
+                    <i class='fa fa-bar-chart'></i><span>{% trans 'Figures' %}</span></a>
+                </li>
+                <li><a href="{% url 'ion_channel:ion-channel-model-index' %}">
+                    <i class='fa fa-area-chart'></i><span>{% trans 'Ion Channel Models' %}</span></a>
+                </li>
+                <li><a href="{% url 'ion_channel:reference-index' %}">
+                    <i class='fa fa-file-text-o'></i><span>{% trans 'References' %}</span></a>
+                </li>
+            </ul>
+        </div><!-- /.navbar-collapse -->
+        <!-- Navbar Right Menu -->
+        <div class="navbar-custom-menu">
+            <ul class="nav navbar-nav">
+                {% if user.is_authenticated %}
+                <!-- User Account Menu -->
+                <li class="dropdown user user-menu">
+                    <!-- Menu Toggle Button -->
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                        <!-- The user image in the navbar-->
+                        <img src="{% static 'third_party/lte/dist/img/avatar2.png' %}" class="user-image"
+                             alt="User Image"/>
+                        <!-- hidden-xs hides the username on small devices so only the image appears. -->
+                        <span class="hidden-xs">
+                            {% if user.first_name  %}
+                                {{ user.first_name }} {{ user.last_name }}
+                            {% else %}
+                                {{ user.username }}
+                            {% endif %}
+                        </span>
+                    </a>
+                    <ul class="dropdown-menu">
+                        <!-- The user image in the menu -->
+                        <li class="user-header">
+                            <img src="{% static 'third_party/lte/dist/img/avatar2.png' %}" class="img-circle"
+                                 alt="User Image"/>
+                            <p>
+                                {% if user.first_name %}
+                                    {{ user.first_name }} {{ user.last_name }}
+                                {% else %}
+                                    {{ user.username }}
+                                {% endif %}
+                                <small>{{ user.email }}</small>
+                            </p>
+                        </li>
+                        <!-- Menu Footer-->
+                        <li class="user-footer">
+                            <div class="pull-left">
+                                <a href="{% url 'account:account-edit' %}" class="btn btn-default btn-flat">
+                                    <i class="fa  fa-edit"></i><span> Edit Account</span>
+                                </a>
+                            </div>
+                            <div class="pull-right">
+                                <a href="{% url 'password_change' %}" class="btn btn-default btn-flat">
+                                    <i class="fa  fa-key"></i><span> Change Pass</span>
+                                </a>
+                            </div>
+                        </li>
+                        <li class="user-footer">
+                            <div>
+                                <a href="{% url 'logout' %}" class="btn btn-default btn-flat center-block">
+                                    <i class='fa fa-sign-out'></i><span> {% trans 'Sign out' %}</span>
+                                </a>
+                            </div>
+                        </li>
+                    </ul>
+                </li>
+                <!-- Control Sidebar Toggle Button
+                <li>
+                    <a href="#" data-toggle="control-sidebar"><i class="fa fa-gears"></i></a>
+                </li>-->
+                {% else %}
+                <div class="pull-right">
+                    <a href="{% url 'login' %}" class="navbar-brand" role="button">
+                        <i class='fa fa-sign-in'></i><span> {% trans 'Login' %}</span>
+                    </a>
+                    <a href="{% url 'account:register' %}" class="navbar-brand" role="button">
+                        <i class='fa fa-user-plus'></i><span> {% trans 'Register' %}</span>
+                    </a>
+                </div>
+                {% endif %}
+            </ul>
+        </div>
+      </div><!-- /.container-fluid -->
+    </nav>
+</header>

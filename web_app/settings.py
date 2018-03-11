@@ -25,8 +25,7 @@ SECRET_KEY = 'd0vy02-g#nq@lg!s%5v$w(jilj@af791#1-3k9y7ea3c)djj!w'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
-
+ALLOWED_HOSTS = ['chopen.herokuapp.com', 'localhost', '127.0.0.1']
 
 # Application definition
 
@@ -46,22 +45,9 @@ INSTALLED_APPS = (
     # 'fitter',
     'formtools',
     'rest_framework',
-    'homepage',
+    # 'channelworm',
+    # 'predychannel',
 
-    # 'wagtail.wagtailforms',
-    # 'wagtail.wagtailredirects',
-    # 'wagtail.wagtailembeds',
-    # 'wagtail.wagtailsites',
-    # 'wagtail.wagtailusers',
-    # 'wagtail.wagtailsnippets',
-    # 'wagtail.wagtaildocs',
-    # 'wagtail.wagtailimages',
-    # 'wagtail.wagtailsearch',
-    # 'wagtail.wagtailadmin',
-    # 'wagtail.wagtailcore',
-    #
-    # 'modelcluster',
-    # 'taggit',
 )
 
 MIDDLEWARE = (
@@ -73,9 +59,6 @@ MIDDLEWARE = (
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     'django.middleware.security.SecurityMiddleware',
-
-    # 'wagtail.wagtailcore.middleware.SiteMiddleware',
-    # 'wagtail.wagtailredirects.middleware.RedirectMiddleware',
 )
 
 ROOT_URLCONF = 'web_app.urls'
@@ -200,6 +183,8 @@ STATICFILES_DIRS = (
     os.path.join(BASE_DIR, 'web_app', 'static'),
     os.path.join(BASE_DIR, 'ion_channel', 'static'),
     os.path.join(BASE_DIR, 'digitizer', 'static'),
+    # os.path.join(BASE_DIR, 'channelworm', 'static'),
+    # os.path.join(BASE_DIR, 'predychannel', 'static'),
 )
 
 MEDIA_ROOT = os.path.join(os.path.dirname(__file__), 'media')
