@@ -1,0 +1,118 @@
+[
+  {
+    "name": "ion channel",
+    "parent": "null",
+    "children": [
+      {
+      "name": "Potassium channel",
+      "parent": "ion channel",
+      "children": [
+        {
+          "name": "Voltage-gated",
+          "parent": "Potassium channel",
+          "children": [
+            {
+              "name": "Shaker/Kv1",
+              "parent": "Voltage-gated"
+            },
+            {
+              "name": "Shab/Kv2",
+              "parent": "Voltage-gated"
+            },
+            {
+              "name": "Shaw/Kv3",
+              "parent": "Voltage-gated"
+            },
+            {
+              "name": "Shal/Kv4",
+              "parent": "Voltage-gated"
+            },
+            {
+              "name": "KQT",
+              "parent": "Voltage-gated"
+            },
+            {
+              "name": "Eag-like/Kv10-12",
+              "parent": "Voltage-gated"
+            },
+            {
+              "name": "Calcium-activated Slo-like",
+              "parent": "Voltage-gated"
+            },
+            {
+              "name": "Calcium-activated SK",
+              "parent": "Voltage-gated"
+            }
+          ]
+        },
+        {
+          "name": "Temperature, Voltage-dependent",
+          "parent": "Potassium channel",
+          "children": [
+            {
+              "name": "TWK",
+              "parent": "Temperature, Voltage-dependent"
+            }
+          ]
+        },
+        {
+          "name": "Voltage-gated",
+          "parent": "Potassium channel",
+          "children": [
+            {
+              "name": "Kir",
+              "parent": "Voltage-gated"
+            }
+          ]
+        },
+        {
+          "name": "Voltage-gated",
+          "parent": "Potassium channel",
+          "children": [
+            {
+              "name": "KCNF1",
+              "parent": "Voltage-gated"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Calcium channel",
+      "parent": "ion channel",
+      "children": [
+        {
+          "name": "Voltage-gated",
+          "parent": "Calcium channel",
+          "children": [
+            {
+              "name": "L-type/Cav1",
+              "parent": "Voltage-gated"
+            },
+            {
+              "name": "R, N, P/Q-Type/Cav2",
+              "parent": "Voltage-gated"
+            },
+            {
+              "name": "T-Type/Cav3",
+              "parent": "Voltage-gated"
+            },
+            {
+              "name": "U Type",
+              "parent": "Voltage-gated"
+            },
+            {
+              "name": "a2d subunit",
+              "parent": "Voltage-gated"
+            },
+            {
+              "name": "B subunit",
+              "parent": "Voltage-gated"
+            }
+          ]
+        }
+      ]
+    }
+]
+  }
+]
