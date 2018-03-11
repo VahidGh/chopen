@@ -45,7 +45,7 @@ class PatchClamp(models.Model):
     cell_age = models.FloatField(default=None, blank=True, null=True,verbose_name='Age of the cell (days)')
     temperature = models.FloatField(default=21, blank=True, null=True,verbose_name='Temperature (Celsius)')
     Ca_concentration = models.FloatField(default=None, blank=True, null=True,verbose_name='Initial molar concentration of Calcium (uM)')
-    # Cl_concentration = models.FloatField(default=None, blank=True, null=True,verbose_name='Initial molar concentration of Chloride (mM)')
+    Cl_concentration = models.FloatField(default=None, blank=True, null=True,verbose_name='Initial molar concentration of Chloride (mM)')
     blockers = models.CharField(max_length=300, blank=True, null=True, verbose_name='Ion channel blockers (e.g. 500e-6 Cd2+,...)')
     extra_solution = models.TextField(blank=True, null=True, verbose_name='Extracellular Solution (e.g. 140e-3 NaCl, 5e-3 KCl,...)')
     pipette_solution = models.TextField(blank=True, null=True, verbose_name='Pipette Solution (e.g. 120e-3 KCl, 20e-3 KOH,...)')
