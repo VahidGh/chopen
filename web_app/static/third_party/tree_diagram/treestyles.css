@@ -1,7 +1,5 @@
-.node circle {
+	.node circle {
 	  fill: #fff;
-	  stroke: steelblue;
-	  stroke-width: 3px;
 	}
 
 	.node text { font: 12px sans-serif; }
@@ -11,3 +9,46 @@
 	  stroke: #ccc;
 	  stroke-width: 2px;
 	}
+	
+  body {
+        margin: 0;
+        font-family: sans-serif;
+        font-size: 11px;
+      }
+
+      .axis path, .axis line {
+        fill: none;
+        stroke: black;
+        shape-rendering: crispEdges;  /* Round any decimal pixels so it'll render nicely */
+      }
+
+    #vg {
+      fill: #ff0000;
+    }
+    #main {
+      fill: #cc00ff;
+    }
+    #vg3 {
+      fill: #ff3300;
+    }
+    #trp {
+      fill: #ff9900;
+    }
+    #ion {
+      fill: #ffcc00;
+    }
+    #deg {
+      fill: #ffff00;
+    }
+    #chl {
+      fill: #00ff00;
+    }
+    #cyc {
+      fill: #00ffff;
+    }
+    #cys {
+      fill: #0099ff;
+    }
+    #meta {
+      fill: #0000ff;
+    }
