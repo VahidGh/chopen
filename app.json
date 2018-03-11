@@ -9,6 +9,6 @@
     "DJANGO_SECURE_SSL_REDIRECT": "on"
   },
   "scripts": {
-    "postdeploy": "echo 'y' | python manage.py makemigrations ion_channel account && python manage.py migrate"
+    "postdeploy": "echo 'y' | python manage.py makemigrations channelworm ion_channel account && python manage.py migrate"
   }
 }
