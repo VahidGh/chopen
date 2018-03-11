@@ -13,7 +13,8 @@
           "children": [
             {
               "name": "Shaker/Kv1",
-              "parent": "Voltage-gated"
+              "parent": "Voltage-gated",
+              "description": "hello"
             },
             {
               "name": "Shab/Kv2",
@@ -112,7 +113,341 @@
           ]
         }
       ]
+    },
+    {
+      "name": "TRP channel",
+      "parent": "ion channel",
+      "children": [
+        {
+          "name": " ",
+          "parent": "TRP channel",
+          "children": [
+            {
+              "name": "TRPV",
+              "parent": " "
+            }
+          ]
+        },
+          {
+          "name": " ",
+          "parent": "TRP channel",
+          "children": [
+            {
+              "name": "TRPP",
+              "parent": " "
+            }
+          ]
+        },
+          {
+          "name": " ",
+          "parent": "TRP channel",
+          "children": [
+            {
+              "name": "TRPN",
+              "parent": " "
+            }
+          ]
+        },
+          {
+          "name": " ",
+          "parent": "TRP channel",
+          "children": [
+            {
+              "name": "TRPML",
+              "parent": " "
+            }
+          ]
+        },
+          {
+          "name": " ",
+          "parent": "TRP channel",
+          "children": [
+            {
+              "name": "TRPM",
+              "parent": " "
+            }
+          ]
+        },
+          {
+          "name": " ",
+          "parent": "TRP channel",
+          "children": [
+            {
+              "name": "TRPC",
+              "parent": " "
+            }
+          ]
+        },
+          {
+          "name": " ",
+          "parent": "TRP channel",
+          "children": [
+            {
+              "name": "TRPA",
+              "parent": " "
+            }
+          ]
+        },
+          {
+          "name": " ",
+          "parent": "TRP channel",
+          "children": [
+            {
+              "name": "TRPM-related",
+              "parent": " "
+            }
+          ]
+        }
+      ]
+    },
+        {
+      "name": "Ionotropic glutamate receptors",
+      "parent": "ion channel",
+      "children": [
+        {
+          "name": " ",
+          "parent": "Ionotropic glutamate receptors",
+          "children": [
+            {
+              "name": "NMDA-type",
+              "parent": " "
+            }
+          ]
+        },
+          {
+          "name": " ",
+          "parent": "Ionotropic glutamate receptors",
+          "children": [
+            {
+              "name": "AMPA-type",
+              "parent": " "
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "DEG/ENaC",
+      "parent": "ion channel",
+      "children": [
+        {
+          "name": " ",
+          "parent": "DEG/ENaC",
+          "children": [
+            {
+              "name": "Subgroup 1",
+              "parent": " "
+            }
+          ]
+        },
+          {
+          "name": " ",
+          "parent": "DEG/ENaC",
+          "children": [
+            {
+              "name": "Subgroup 2",
+              "parent": " "
+            }
+          ]
+        },
+        {
+          "name": " ",
+          "parent": "DEG/ENaC",
+          "children": [
+            {
+              "name": "Subgroup 3 (EGF + ASC domain)",
+              "parent": " "
+            }
+          ]
+        },
+        {
+          "name": " ",
+          "parent": "DEG/ENaC",
+          "children": [
+            {
+              "name": " ",
+              "parent": " "
+            }
+          ]
+        },
+        {
+          "name": " ",
+          "parent": "DEG/ENaC",
+          "children": [
+            {
+              "name": " ",
+              "parent": " "
+            }
+          ]
+        },
+        {
+          "name": " ",
+          "parent": "DEG/ENaC",
+          "children": [
+            {
+              "name": " ",
+              "parent": " "
+            }
+          ]
+        },
+        {
+          "name": " ",
+          "parent": "DEG/ENaC",
+          "children": [
+            {
+              "name": " ",
+              "parent": " "
+            }
+          ]
+        },
+        {
+          "name": " ",
+          "parent": "DEG/ENaC",
+          "children": [
+            {
+              "name": " ",
+              "parent": " "
+            }
+          ]
+        },
+        {
+          "name": " ",
+          "parent": "DEG/ENaC",
+          "children": [
+            {
+              "name": " ",
+              "parent": " "
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Chloride channel",
+      "parent": "ion channel",
+      "children": [
+        {
+          "name": " ",
+          "parent": "Chloride channel",
+          "children": [
+            {
+              "name": "CLC",
+              "parent": " "
+            }
+          ]
+        }
+          ]
+        },
+        {
+      "name": "Cyclic nucleotide gated",
+      "parent": "ion channel",
+      "children": [
+        {
+          "name": "Cyclic nucleotide gated",
+          "parent": "Cyclic nucleotide gated",
+          "children": [
+            {
+              "name": "a subunit",
+              "parent": "Cyclic nucleotide gated"
+            },
+            {
+              "name": "b subunit",
+              "parent": "Cyclic nucleotide gated"
+            },
+            {
+              "name": "a/b",
+              "parent": "Cyclic nucleotide gated"
+            }
+          ]
+        }
+          ]
+        },
+        {
+      "name": "Cys-loop LGIC",
+      "parent": "ion channel",
+      "children": [
+        {
+          "name": "Ligand-gated",
+          "parent": "Cys-loop LGIC",
+          "children": [
+            {
+              "name": "nAChR-type",
+              "parent": "Ligand-gated"
+            },
+            {
+              "name": "GABA",
+              "parent": "Ligand-gated"
+            },
+            {
+              "name": "ACC",
+              "parent": "Ligand-gated"
+            },
+            {
+              "name": "Aminergic",
+              "parent": "Ligand-gated"
+            },
+            {
+              "name": "GluCl",
+              "parent": "Ligand-gated"
+            },
+            {
+              "name": "diverse",
+              "parent": "Ligand-gated"
+            }
+          ]
+        }
+          ]
+        },
+        {
+      "name": "Metabotropic neurotransmitter receptors",
+      "parent": "ion channel",
+      "children": [
+        {
+          "name": " ",
+          "parent": "Metabotropic neurotransmitter receptors",
+          "children": [
+            {
+              "name": " ",
+              "parent": " "
+            }
+          ]
+        },
+          {
+          "name": " ",
+          "parent": "Metabotropic neurotransmitter receptors",
+          "children": [
+            {
+              "name": " ",
+              "parent": " "
+            }
+          ]
+        },
+          {
+          "name": " ",
+          "parent": "Metabotropic neurotransmitter receptors",
+          "children": [
+            {
+              "name": " ",
+              "parent": " "
+            }
+          ]
+        },
+          {
+          "name": " ",
+          "parent": "Metabotropic neurotransmitter receptors",
+          "children": [
+            {
+              "name": " ",
+              "parent": " "
+            }
+          ]
+        }
+      ]
     }
-]
-  }
+
+
+
+
+  ]
+}
 ]
