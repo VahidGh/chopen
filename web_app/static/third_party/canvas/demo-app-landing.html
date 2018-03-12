@@ -23,6 +23,11 @@
 
 	<link rel="stylesheet" href="demos/app-landing/css/fonts.css" type="text/css" />
 
+	<!-- SLIDER REVOLUTION 5.x CSS SETTINGS -->
+	<link rel="stylesheet" type="text/css" href="include/rs-plugin/css/settings.css" media="screen" />
+	<link rel="stylesheet" type="text/css" href="include/rs-plugin/css/layers.css">
+	<link rel="stylesheet" type="text/css" href="include/rs-plugin/css/navigation.css">
+
 	<!-- Bootstrap Switch CSS -->
 	<link rel="stylesheet" href="css/components/bs-switches.css" type="text/css" />
 
@@ -31,9 +36,56 @@
 
 	<link rel="stylesheet" href="demos/app-landing/css/colors.css" type="text/css" />
 
+	<!-- ADD-ONS CSS FILES -->
+	<link rel="stylesheet" type="text/css" href="include/rs-plugin/css/addons/revolution.addon.particles.css">
+	<link rel="stylesheet" type="text/css" href="include/rs-plugin/css/addons/typewriter.css">
+	<link rel="stylesheet" type="text/css" href="include/rs-plugin/fonts/font-awesome/css/font-awesome.css">
+
+
 	<!-- Document Title
 	============================================= -->
 	<title> Chopen </title>
+	<style>
+
+		.demos-filter {
+			margin: 0;
+			text-align: right;
+		}
+
+		.demos-filter li {
+			list-style: none;
+			margin: 10px 0px;
+		}
+
+		.demos-filter li a {
+			display: block;
+			border: 0;
+			text-transform: uppercase;
+			letter-spacing: 1px;
+			color: #444;
+		}
+
+		.demos-filter li a:hover,
+		.demos-filter li.activeFilter a { color: #1ABC9C; }
+
+		@media (max-width: 991px) {
+			.demos-filter { text-align: center; }
+
+			.demos-filter li {
+				float: left;
+				width: 33.3%;
+				padding: 0 20px;
+			}
+		}
+
+		@media (max-width: 767px) { .demos-filter li { width: 50%; } }
+
+		#welcome_wrapper .tp-loader.spinner3{ background-color: #222222 !important; }
+		video::-webkit-media-controls-start-playback-button{display:none !important}
+		.tc-gradient i:before{background:-webkit-linear-gradient(left,#2ed8a3 0%,#2970ff 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+		.tc-btnshadow{-webkit-box-shadow:3px 5px 10px 0px rgba(0,0,0,0.2) !important;-moz-box-shadow:3px 5px 10px 0px rgba(0,0,0,0.2) !important;box-shadow:3px 5px 10px 0px rgba(0,0,0,0.2) !important}
+
+	</style>
 
 </head>
 
@@ -66,15 +118,25 @@
 
 						<ul class="one-page-menu" data-easing="easeInOutExpo" data-speed="1250" data-offset="160">
 							<li><a href="demo-app-landing.html" data-href="#wrapper"><div>Home</div></a></li>
-							<li><a href="#" data-href="#"><div>toolbox</div></a></li>
+							<li><a href="#" data-href="#"><div>toolbox</div></a>
+							<ul>
+									<li><a href="#" data-href="#"><div>Ion channel modeling wizard</div></a></li>
+									<li><a href="#" data-href="#"><div>Open scholar</div></a></li>
+									<li><a href="#" data-href="#"><div>PreDyChannel</div></a></li>
+								</ul></li>
 							<li><a href="#" data-href="#"><div>Showcase</div></a>
 								<ul>
-									<li><a href="#" data-href="#"><div>NextGen Framework</div></a></li>
-									<li><a href="#" data-href="#"><div>Stunning Graphics</div></a></li>
-									<li><a href="#" data-href="#"><div>Secured Solutions</div></a></li>
+									<li><a href="#" data-href="#"><div> ChannelWorm</div></a></li>
+									<li><a href="#" data-href="#"><div>Ion Channel Data Set</div></a></li>
+									<li><a href="#" data-href="#"><div>OW Scholar</div></a></li>
 								</ul>
 							</li>
-							<li><a href="#" data-href="#"><div>API</div></a></li>
+							<li><a href="#" data-href="#"><div>API</div></a>
+							<ul>
+									<li><a href="#" data-href="#"><div>ChannelWorm API</div></a></li>
+									<li><a href="#" data-href="#"><div>Ion Channel Dataset API</div></a></li>
+									<li><a href="#" data-href="#"><div>OpenWorm Scholar API</div></a></li>
+								</ul></li>
 						</ul>
 
 						<ul class="one-page-menu" data-easing="easeInOutExpo" data-speed="1250" data-offset="160">
@@ -90,26 +152,120 @@
 
 		</header><!-- #header end -->
 
-		<section id="slider" class="slider-element full-screen slider-parallax">
-			<div class="slider-parallax-inner" style="background: url('demos/app-landing/images/hero/openworm.png') center center no-repeat; background-size: cover;">
-				<div class="vertical-middle" style="z-index: 2;">
-					<div class="container dark clearfix">
-						<div class="row clearfix">
-							<div class="col-lg-6 col-md-8">
-								<div class="emphasis-title">
-									<h1 class="font-body">Beautiful Websites.<br>Increased Conversions.</h1>
-								</div>
-								<a href="#" data-scrollto="#section-pricing" data-easing="easeInOutExpo" data-speed="1250" data-offset="160" class="button button-large button-white button-light capitalize" style="border-radius: 23px;">Try it Free</a>
-								<a href="https://www.youtube.com/watch?v=N_r349riLEE" class="hero-action-link" data-lightbox="iframe"><i class="icon-play-sign"></i> Watch the Video</a>
-							</div>
-						</div>
-					</div>
-				</div>
-				<div class="video-wrap" style="position: absolute; height: 100%; z-index: 1;">
-					<div class="video-overlay" style="background: rgba(0,0,0,0.2);"></div>
-				</div>
-			</div>
+		<!-- Slider
+		============================================= -->
+		<section id="slider" class="slider-element revslider-wrap full-screen clearfix">
+
+			<div class="rev_slider_wrapper" style="width: 100%">
+				<!-- START REVOLUTION SLIDER 5.3.1.6 fullscreen mode -->
+				<div id="rev_slider_9_1" class="rev_slider fullscreenbanner" style="display:none;" data-version="5.3.1.6">
+					<ul>	<!-- SLIDE  -->
+						<li data-index="rs-23" data-transition="fade" data-slotamount="default" data-hideafterloop="0" data-hideslideonmobile="off"  data-easein="Power4.easeOut" data-easeout="Power4.easeOut" data-masterspeed="default"  data-thumb=""  data-rotate="0"  data-saveperformance="off"  data-title="Example One" data-param1="" data-param2="" data-param3="" data-param4="" data-param5="" data-param6="" data-param7="" data-param8="" data-param9="" data-param10="" data-description="">
+							<!-- MAIN IMAGE -->
+							<img src="include/rs-plugin/demos/assets/images/transparent.png" style='background-color:#ffffff' alt=""  data-bgposition="center top" data-bgfit="cover" data-bgrepeat="no-repeat" data-bgparallax="off" class="rev-slidebg" data-no-retina>
+							<!-- LAYERS -->
+
+							<!-- LAYER NR. 1 -->
+							<div class="tp-caption  "
+								 id="slide-23-layer-15"
+								 data-x="['center','center','center','center']" data-hoffset="['0','0','0','0']"
+								 data-y="['middle','middle','middle','middle']" data-voffset="['0','0','0','0']"
+											data-width="full-proportional"
+								data-height="full-proportional"
+								data-whitespace="nowrap"
+
+								data-type="image"
+								data-basealign="slide"
+								data-responsive_offset="off"
+								data-responsive="off"
+								data-frames='[{"delay":500,"speed":300,"frame":"0","from":"opacity:0;","to":"o:1;","ease":"Power3.easeInOut"},{"delay":"wait","speed":300,"frame":"999","to":"opacity:0;","ease":"Power3.easeInOut"}]'
+								data-textAlign="['inherit','inherit','inherit','inherit']"
+								data-paddingtop="[0,0,0,0]"
+								data-paddingright="[0,0,0,0]"
+								data-paddingbottom="[0,0,0,0]"
+								data-paddingleft="[0,0,0,0]"
+								data-blendmode="overlay"
+
+								style="z-index: 5;"><img src="include/rs-plugin/demos/assets/images/blurbg7.jpg" alt="" data-ww="['full-proportional','full-proportional','full-proportional','full-proportional']" data-hh="['full-proportional','full-proportional','full-proportional','full-proportional']" data-no-retina> </div>
+
+							<!-- LAYER NR. 2 -->
+							<div class="tp-caption   tp-resizeme  blurslider-gradient"
+								 id="slide-23-layer-6"
+								 data-x="['center','center','center','center']" data-hoffset="['0','0','0','0']"
+								 data-y="['middle','middle','middle','middle']" data-voffset="['-110','-110','-130','-130']"
+											data-fontsize="['60','60','40','40']"
+								data-lineheight="['80','80','60','60']"
+								data-width="none"
+								data-height="none"
+								data-whitespace="nowrap"
+
+								data-type="text"
+								data-responsive_offset="on"
+								data-wrapper_class="tp-nopointer"
+
+								data-frames='[{"delay":500,"speed":1000,"frame":"0","from":"sX:2;sY:3;opacity:0;fb:10px;","to":"o:1;fb:0;","ease":"Power3.easeInOut"},{"delay":"wait","speed":300,"frame":"999","to":"auto:auto;fb:0;","ease":"Power3.easeInOut"}]'
+								data-textAlign="['center','center','center','center']"
+								data-paddingtop="[0,0,0,0]"
+								data-paddingright="[0,0,0,0]"
+								data-paddingbottom="[0,0,0,0]"
+								data-paddingleft="[0,0,0,0]"
+
+								style="z-index: 6; white-space: nowrap; font-size: 60px; line-height: 80px; font-weight: 400; color: rgba(4, 37, 60, 1.00);font-family:Poppins;letter-spacing:10px;">OpenWorm </div>
+
+							<!-- LAYER NR. 3 -->
+							<div class="tp-caption   tp-resizeme"
+								 id="slide-23-layer-8"
+								 data-x="['center','center','center','center']" data-hoffset="['0','0','0','0']"
+								 data-y="['middle','middle','middle','middle']" data-voffset="['30','30','0','0']"
+											data-width="['460','461','360','330']"
+								data-height="none"
+								data-whitespace="normal"
+
+								data-type="text"
+								data-responsive_offset="on"
+								data-wrapper_class="tp-nopointer"
+
+								data-frames='[{"delay":700,"speed":1000,"frame":"0","from":"y:20px;sX:2;sY:3;opacity:0;fb:10px;","to":"o:1;fb:0;","ease":"Power3.easeInOut"},{"delay":"wait","speed":600,"frame":"999","to":"auto:auto;fb:0;","ease":"Power3.easeInOut"}]'
+								data-textAlign="['center','center','center','center']"
+								data-paddingtop="[0,0,0,0]"
+								data-paddingright="[0,0,0,0]"
+								data-paddingbottom="[0,0,0,0]"
+								data-paddingleft="[0,0,0,0]"
+
+								style="z-index: 7; min-width: 460px; max-width: 460px; white-space: normal; font-size: 15px; line-height: 25px; font-weight: 400; color: rgba(4, 37, 60, 1.00);font-family:Poppins;letter-spacing:10px;">OpenWorm is an open source project dedicated to creating the first virtual organism in a computer.
+							 </div>
+
+							<!-- LAYER NR. 4 -->
+							<a class="tp-caption rev-btn  tp-resizeme  blurslider-button"
+					 			href="#" target="_blank"			 id="slide-23-layer-17"
+								 data-x="['center','center','center','center']" data-hoffset="['0','0','0','0']"
+								 data-y="['middle','middle','middle','middle']" data-voffset="['140','140','110','110']"
+											data-width="none"
+								data-height="none"
+								data-whitespace="nowrap"
+
+								data-type="button"
+								data-actions=''
+								data-responsive_offset="on"
+
+								data-frames='[{"delay":900,"speed":1000,"frame":"0","from":"y:100px;sX:2;sY:3;opacity:0;fb:20px;","to":"o:1;fb:0;","ease":"Power3.easeInOut"},{"delay":"wait","speed":600,"frame":"999","to":"auto:auto;fb:0;","ease":"Power3.easeInOut"},{"frame":"hover","speed":"200","ease":"Linear.easeNone","to":"o:1;rX:0;rY:0;rZ:0;z:0;fb:0;","style":"c:rgba(255, 255, 255, 1.00);"}]'
+								data-textAlign="['inherit','inherit','inherit','inherit']"
+								data-paddingtop="[0,0,0,0]"
+								data-paddingright="[35,35,35,35]"
+								data-paddingbottom="[0,0,0,0]"
+								data-paddingleft="[35,35,35,35]"
+								data-blendmode="multiply"
+
+								style="z-index: 8; white-space: nowrap; font-size: 15px; line-height: 50px; font-weight: 400; color: rgba(255, 255, 255, 1.00);font-family:Poppins;background-color:rgba(4, 37, 60, 1.00);outline:none;box-shadow:none;box-sizing:border-box;-moz-box-sizing:border-box;-webkit-box-sizing:border-box;letter-spacing:3px;cursor:pointer;text-decoration: none;">enter now!
+							</a>
+						</li>
+					</ul>
+					<div class="tp-bannertimer tp-bottom" style="visibility: hidden !important;"></div>	</div>
+				</div><!-- END REVOLUTION SLIDER -->
+			</div><!-- END REVOLUTION SLIDER WRAPPER -->
+
 		</section>
+
 
 		<!-- Content
 		============================================= -->
@@ -259,54 +415,6 @@
 					</div>
 
 				</div>
-
-				<div class="section bottommargin-lg" style="background-color: #F8FAFB; border-top: 1px solid #E5E5E5; border-bottom: 1px solid #E5E5E5;">
-
-					<div class="fslider testimonial testimonial-full nobg noborder noshadow" data-animation="fade" style="max-width: none;">
-						<div class="flexslider">
-							<div class="slider-wrap divcenter" style="max-width: 650px;">
-								<div class="slide">
-									<div class="testi-image">
-										<a href="#"><img src="images/testimonials/3.jpg" alt="Customer Testimonails"></a>
-									</div>
-									<div class="testi-content">
-										<p>Similique fugit repellendus expedita excepturi iure provident quia eaque. Repellendus, vero numquam?</p>
-										<div class="testi-meta">
-											Steve Jobs
-											<span>Apple Inc.</span>
-										</div>
-									</div>
-								</div>
-								<div class="slide">
-									<div class="testi-image">
-										<a href="#"><img src="images/testimonials/2.jpg" alt="Customer Testimonails"></a>
-									</div>
-									<div class="testi-content">
-										<p>Natus voluptatum enim quod necessitatibus quis expedita harum provident eos obcaecati id culpa corporis molestias.</p>
-										<div class="testi-meta">
-											Collis Ta'eed
-											<span>Envato Inc.</span>
-										</div>
-									</div>
-								</div>
-								<div class="slide">
-									<div class="testi-image">
-										<a href="#"><img src="images/testimonials/1.jpg" alt="Customer Testimonails"></a>
-									</div>
-									<div class="testi-content">
-										<p>Incidunt deleniti blanditiis quas aperiam recusandae consequatur ullam quibusdam cum libero illo rerum!</p>
-										<div class="testi-meta">
-											John Doe
-											<span>XYZ Inc.</span>
-										</div>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-
-				</div>
-
 				
 
 				<!-- <div class="section nomargin">
@@ -375,8 +483,39 @@
 					</div>
 				</div>
 
+				<div class="section center nobottommargin nobg">
+					<div class="container clearfix">
+
+						<h3 class="ls1 t400" style="font-size: 32px;">Experienced &amp; Trusted by <span>16,000+</span> People worldwide</h3>
+						<a href="#modal-login" data-lightbox="inline" class="button button-large button-black capitalize" style="border-radius: 23px;">Login Now</a>
+						<a href="#" data-scrollto="#section-pricing" data-easing="easeInOutExpo" data-speed="1250" data-offset="160" class="button button-large capitalize" style="border-radius: 23px;">Try it Free</a>
+
+						<div class="clear bottommargin"></div>
+
+					</div>
+				</div>
+
+				<div class="section notopmargin footer-stick" style="padding: 10px 0; background-color: #F8FAFB; border-top: 1px solid #E5E5E5;">
+					<div class="container clearfix">
+
+						<div class="row clearfix">
+							<div class="col-lg-4">
+								<div class="app-footer-features"><i class="icon-line2-globe-alt"></i><h5 class="font-body"><a href="#">Free Taining</a><span> &amp; 24-hour coverage</span></h5></div>
+							</div>
+							<div class="col-lg-4">
+								<div class="app-footer-features"><i class="icon-line2-notebook"></i><h5 class="font-body"><a href="#">99.99% Uptime</a><span> the last 12 months</span></h5></div>
+							</div>
+							<div class="col-lg-4">
+								<div class="app-footer-features"><i class="icon-line2-lock"></i><h5 class="font-body"><span>Serious about</span> <a href="#">Security</a> <span>&amp;</span> <a href="#">Privacy</a></h5></div>
+							</div>
+						</div>
+
+					</div>
+				</div>
+
 				
 			</div>
+			
 
 		</section><!-- #content end -->
 
@@ -513,6 +652,23 @@
 	============================================= -->
 	<script src="js/functions.js"></script>
 
+	<!-- SLIDER REVOLUTION 5.x SCRIPTS  -->
+	<script src="include/rs-plugin/js/jquery.themepunch.tools.min.js"></script>
+	<script src="include/rs-plugin/js/jquery.themepunch.revolution.min.js"></script>
+	<!-- SLIDER REVOLUTION ADDONS  -->
+	<script src="include/rs-plugin/js/addons/revolution.addon.particles.min.js"></script>
+	<script src="include/rs-plugin/js/addons/revolution.addon.typewriter.min.js"></script>
+	<!-- SLIDER REVOLUTION EXTENSIONS  -->
+	<script src="include/rs-plugin/js/extensions/revolution.extension.actions.min.js"></script>
+	<script src="include/rs-plugin/js/extensions/revolution.extension.carousel.min.js"></script>
+	<script src="include/rs-plugin/js/extensions/revolution.extension.kenburn.min.js"></script>
+	<script src="include/rs-plugin/js/extensions/revolution.extension.layeranimation.min.js"></script>
+	<script src="include/rs-plugin/js/extensions/revolution.extension.migration.min.js"></script>
+	<script src="include/rs-plugin/js/extensions/revolution.extension.navigation.min.js"></script>
+	<script src="include/rs-plugin/js/extensions/revolution.extension.parallax.min.js"></script>
+	<script src="include/rs-plugin/js/extensions/revolution.extension.slideanims.min.js"></script>
+	<script src="include/rs-plugin/js/extensions/revolution.extension.video.min.js"></script>
+
 	<script>
 		jQuery(document).ready( function($){
 
@@ -601,6 +757,75 @@
 
 		});
 	</script>
+	<!-- ADD-ONS JS FILES -->
+
+	<script>
+		var tpj=jQuery;
+
+		var revapi9;
+		tpj(document).ready(function() {
+			if(tpj("#rev_slider_9_1").revolution == undefined){
+				revslider_showDoubleJqueryError("#rev_slider_9_1");
+			}else{
+				revapi9 = tpj("#rev_slider_9_1").show().revolution({
+					sliderType:"hero",
+					jsFileLocation:"include/rs-plugin/js/",
+					sliderLayout:"fullscreen",
+					dottedOverlay:"none",
+					delay:9000,
+					particles: {startSlide: "first", endSlide: "last", zIndex: "1",
+						particles: {
+							number: {value: 300}, color: {value: "#000000"},
+							shape: {
+								type: "circle", stroke: {width: 0, color: "#ffffff", opacity: 1},
+								image: {src: ""}
+							},
+							opacity: {value: 0.1, random: false, min: 0.25, anim: {enable: false, speed: 1, opacity_min: 0, sync: false}},
+							size: {value: 1, random: true, min: 0.5, anim: {enable: false, speed: 40, size_min: 1, sync: false}},
+							line_linked: {enable: true, distance: 80, color: "#000000", opacity: 0.35, width: 1},
+							move: {enable: true, speed: 1, direction: "right", random: true, min_speed: 3, straight: false, out_mode: "out"}},
+						interactivity: {
+							events: {onhover: {enable: true, mode: "repulse"}, onclick: {enable: true, mode: "bubble"}},
+							modes: {grab: {distance: 400, line_linked: {opacity: 0.5}}, bubble: {distance: 400, size: 100, opacity: 1}, repulse: {distance: 75}}
+						}
+					},
+					navigation: {
+					},
+					responsiveLevels:[1240,1024,778,480],
+					visibilityLevels:[1240,1024,778,480],
+					gridwidth:[1240,1024,778,480],
+					gridheight:[868,768,960,720],
+					lazyType:"none",
+					parallax: {
+						type:"scroll",
+						origo:"slidercenter",
+						speed:400,
+						levels:[5,10,15,20,25,30,35,40,45,46,47,48,49,50,0,55],
+					},
+					shadow:0,
+					spinner:"spinner0",
+					autoHeight:"off",
+					fullScreenAutoWidth:"off",
+					fullScreenAlignForce:"off",
+					fullScreenOffsetContainer: "",
+					fullScreenOffset: "0",
+					disableProgressBar:"on",
+					hideThumbsOnMobile:"off",
+					hideSliderAtLimit:0,
+					hideCaptionAtLimit:0,
+					hideAllCaptionAtLilmit:0,
+					debugMode:false,
+					fallbacks: {
+						simplifyAll:"off",
+						disableFocusListener:false,
+					}
+				});
+			}
+
+			RsParticlesAddOn(revapi9);
+		});	/*ready*/
+	</script>
+
 
 </body>
 </html>
