@@ -41,7 +41,7 @@ INSTALLED_APPS = (
     'ion_channel',
     'account',
     'channelworm',
-    'predychannel',
+    # 'predychannel',
     'api',
     # 'scholar',
     'formtools',
