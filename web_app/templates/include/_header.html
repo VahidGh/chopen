@@ -1,0 +1,186 @@
+{% load staticfiles %}
+{% load i18n %}
+
+<head>
+
+	<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+	<meta name="author" content="SemiColonWeb" />
+
+	<!-- Stylesheets
+	============================================= -->
+	<link href="http://fonts.googleapis.com/css?family=Poppins:300,400,400i,600,700|Montserrat:400,700|Merriweather" rel="stylesheet" type="text/css" />
+	<link rel="stylesheet" href="{% static 'third_party/canvas/css/bootstrap.css' %}" type="text/css" />
+	<link rel="stylesheet" href="{% static 'third_party/canvas/style.css' %}" type="text/css" />
+	<link rel="stylesheet" href="{% static 'third_party/canvas/css/dark.css' %}" type="text/css" />
+
+	<!-- Media Agency Demo Specific Stylesheet -->
+	<link rel="stylesheet" href="{% static 'third_party/canvas/demos/app-landing/app-landing.css' %}" type="text/css" />
+	<!-- / -->
+
+	<link rel="stylesheet" href="{% static 'third_party/canvas/css/font-icons.css' %}" type="text/css" />
+	<link rel="stylesheet" href="{% static 'third_party/canvas/one-page/css/et-line.css' %}" type="text/css" />
+	<link rel="stylesheet" href="{% static 'third_party/canvas/css/animate.css' %}" type="text/css" />
+	<link rel="stylesheet" href="{% static 'third_party/canvas/css/magnific-popup.css' %}" type="text/css" />
+
+	<link rel="stylesheet" href="{% static 'third_party/canvas/demos/app-landing/css/fonts.css' %}" type="text/css" />
+
+	<!-- Bootstrap Switch CSS -->
+	<link rel="stylesheet" href="{% static 'third_party/canvas/css/components/bs-switches.css' %}" type="text/css" />
+
+	<link rel="stylesheet" href="{% static 'third_party/canvas/css/responsive.css' %}" type="text/css" />
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+
+	<link rel="stylesheet" href="{% static 'third_party/canvas/demos/app-landing/css/colors.css' %}" type="text/css" />
+
+	<!-- Document Title
+	============================================= -->
+	<title> Chopen </title>
+
+</head>
+
+<!-- Header
+============================================= -->
+<header id="header" class="split-menu transparent-header" data-sticky-class="not-dark" data-responsive-class="not-dark">
+
+    <div id="header-wrap">
+
+        <div class="container clearfix">
+
+            <div id="primary-menu-trigger"><i class="icon-reorder"></i></div>
+
+            <!-- Logo
+            ============================================= -->
+            <div id="logo">
+                <a href="index.html" class="standard-logo"
+                   data-dark-logo="{% static 'third_party/canvas/demos/app-landing/images/logo-dark.png' %}"><img
+                        src="{% static 'third_party/canvas/demos/app-landing/images/logo.png' %}" alt="Chopen Logo"></a>
+                <a href="index.html" class="retina-logo"
+                   data-dark-logo="{% static 'third_party/canvas/demos/app-landing/images/logo-dark@2x.png' %}"><img
+                        src="{% static 'third_party/canvas/demos/app-landing/images/logo@2x.png' %}" alt="Chopen Logo"></a>
+            </div><!-- #logo end -->
+
+            <!-- Primary Navigation
+            ============================================= -->
+            <nav id="primary-menu" class="with-arrows clearfix not-dark">
+
+                <ul class="one-page-menu" data-easing="easeInOutExpo" data-speed="1250" data-offset="160">
+                    <li><a href="index.html" data-href="#wrapper">
+                        <div>Home</div>
+                    </a></li>
+                    <li><a href="#" data-href="#">
+                        <div>Showcase</div>
+                    </a>
+                        <ul>
+                            <li><a href="{% url 'channelworm:ion-channel-index' %}" data-href="#">
+                                <div>ChannelWorm</div>
+                            </a></li>
+                            <li><a href="{% url 'ion_channel:ion-channel-index' %}" data-href="#">
+                                <div>Ion Channel Dataset</div>
+                            </a></li>
+                            <li><a href="{% url 'ion_channel:reference-index' %}" data-href="#">
+                                <div>OpenWorm Scholar</div>
+                            </a></li>
+                        </ul>
+                    </li>
+                    <li><a href="#" data-href="#">
+                        <div>Toolbox</div>
+                    </a>
+                        <ul>
+                            <li><a href="{% url 'ion_channel:ion-channel-dashboard' %}" data-href="#">
+                                <div>Ion channel modeler</div>
+                            </a></li>
+                            <li><a href="#" data-href="#">
+                                <div>PreDyChannel</div>
+                            </a></li>
+                            <li><a href="#" data-href="#">
+                                <div>Open scholar</div>
+                            </a></li>
+                        </ul>
+                    </li>
+                    <!--<li><a href="docs/" data-href="#">-->
+                        <!--<div>API</div>-->
+                    <!--</a>-->
+                        <!--<ul>-->
+                            <!--<li><a href="docs/#channelworm_gene-list-list" data-href="#">-->
+                                <!--<div>ChannelWorm API</div>-->
+                            <!--</a></li>-->
+                            <!--<li><a href="docs/#ion_channel-list-list" data-href="#">-->
+                                <!--<div>Ion Channel Dataset API</div>-->
+                            <!--</a></li>-->
+                            <!--<li><a href="#" data-href="#">-->
+                                <!--<div>OpenWorm Scholar API</div>-->
+                            <!--</a></li>-->
+                        <!--</ul>-->
+                    <!--</li>-->
+                </ul>
+
+                <ul class="one-page-menu" data-easing="easeInOutExpo" data-speed="1250" data-offset="160">
+                    <li><a href="docs/" data-href="#">
+                        <div>API</div>
+                    </a>
+                    </li>
+                    {% if user.is_authenticated %}
+                    <!-- User Account Menu -->
+                    <li class="dropdown user user-menu">
+                        <!-- Menu Toggle Button -->
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                                    <span class="hidden-xs">
+                                        {% if user.first_name  %}
+                                            {{ user.first_name }} {{ user.last_name }}
+                                        {% else %}
+                                            {{ user.username }}
+                                        {% endif %}
+                                    </span>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <!-- The user image in the menu -->
+                            <li class="user-header">
+                                <p>
+                                    {% if user.first_name %}
+                                    {{ user.first_name }} {{ user.last_name }}
+                                    {% else %}
+                                    {{ user.username }}
+                                    {% endif %}
+                                    <small>{{ user.email }}</small>
+                                </p>
+                            </li>
+                            <!-- Menu Footer-->
+                            <li class="user-footer">
+                                <div class="pull-left">
+                                    <a href="{% url 'account:account-edit' %}" class="btn btn-default btn-flat">
+                                        <i class="fa  fa-edit"></i><span> Edit Account</span>
+                                    </a>
+                                </div>
+                                <div class="pull-right">
+                                    <a href="{% url 'password_change' %}" class="btn btn-default btn-flat">
+                                        <i class="fa  fa-key"></i><span> Change Pass</span>
+                                    </a>
+                                </div>
+                            </li>
+                            <li class="user-footer">
+                                <div>
+                                    <a href="{% url 'logout' %}" class="btn btn-default btn-flat center-block">
+                                        <i class='fa fa-sign-out'></i><span> {% trans 'Sign out' %}</span>
+                                    </a>
+                                </div>
+                            </li>
+                        </ul>
+                    </li>
+                    {% else %}
+                    <!--<li class="menu-item-emphasis"><a href="#modal-login" data-lightbox="inline"><div>Login</div></a></li>-->
+                    <li class="menu-item-emphasis"><a href="{% url 'login' %}" data-lightbox="inline">
+                        <div>Login</div>
+                    </a></li>
+                    <li class="menu-item-emphasis"><a href="{% url 'account:register' %}" data-lightbox="inline">
+                        <div>Register</div>
+                    </a></li>
+                    {% endif %}
+                </ul>
+
+            </nav><!-- #primary-menu end -->
+
+        </div>
+
+    </div>
+
+</header><!-- #header end -->

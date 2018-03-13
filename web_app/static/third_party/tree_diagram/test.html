@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <link href="treestyles.css" rel="stylesheet" type="text/css"/>
+    <!--<link href="cellTreestyles.css" rel="stylesheet" type="text/css"/>-->
+    <!--<link href="cellTreestyles2.css" rel="stylesheet" type="text/css"/>-->
+    <script src="https://d3js.org/d3.v4.min.js"></script>
+    <script type="text/javascript">
+        console.log("{% url 'api:channelworm-gene-list-api' %}?format=json");
+        d3.json("{% url 'api:channelworm-gene-list-api' %}?format=json", function(error, treeData) {
+            <!--root = treeData[0];-->
+            root = d3.hierarchy(treeData[0]);
+            update(root);
+            console.log('treeData'+treeData);
+            console.log(root);
+            console.log(error);
+        });
+    </script>
+    <script src="tree.js"></script>
+    <!--<script src="cellTree.js"></script>-->
+    <!--<script src="cellTree2.js"></script>-->
+</body>
+</html>

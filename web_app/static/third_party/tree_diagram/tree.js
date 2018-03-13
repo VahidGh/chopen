@@ -23,10 +23,20 @@ d3.selection.prototype.moveToFront = function() {
 };
 
 // load the external data
-d3.json("treeData.json", function(error, treeData) {
-  root = treeData[0];
-  update(root);
-});
+//d3.json("treeData.json", function(error, treeData) {
+//  root = treeData[0];
+//  update(root);
+//});
+
+//console.log("{% url 'api:channelworm-gene-list-api' %}?format=json");
+//d3.json("{% url 'api:channelworm-gene-list-api' %}?format=json", function(error, treeData) {
+//    root = d3.hierarchy(treeData[0]);
+//    update(root);
+////            console.log('treeData'+treeData);
+////            console.log(root);
+////            console.log(error);
+//        });
+
 
 function update(source) {
 

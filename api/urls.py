@@ -1,17 +1,23 @@
 from django.conf.urls import url, include
 from django.contrib.auth.decorators import login_required
 from rest_framework.urlpatterns import format_suffix_patterns
+# from rest_framework.documentation import include_docs_urls
 from .views import *
 
 
 urlpatterns = [
-    url(r'^ion_channel_gene/create/$', login_required(IonChannelGeneCreateAPI.as_view()), name="ion-channel-gene-create-api"),
-    url(r'^ion_channel_gene/list/$', IonChannelGeneListAPI.as_view(), name="ion-channel-gene-list-api"),
-    url(r'^ion_channel_gene/details/(?P<pk>[0-9]+)/$', IonChannelGeneDetailsAPI.as_view(), name="ion-channel-gene-details-api"),
+    # url(r'^', index, name='index'),
+    # url(r'^docs/', include_docs_urls(title='API Docs')),
+    # url(r'^docs/', include_docs_urls(title='API Docs', public=False)),
+    # url(r'^', include_docs_urls(title='API Docs', public=False)),
 
-    url(r'^protein/create/$', login_required(ProteinCreateAPI.as_view()), name="protein-create-api"),
-    url(r'^protein/list/$', ProteinListAPI.as_view(), name="protein-list-api"),
-    url(r'^protein/details/(?P<pk>[0-9]+)/$', ProteinDetailsAPI.as_view(), name="protein-details-api"),
+    url(r'^channelworm_gene/create/$', login_required(ChannelwormGeneCreateAPI.as_view()), name="channelworm-gene-create-api"),
+    url(r'^channelworm_gene/list/$', ChannelwormGeneListAPI.as_view(), name="channelworm-gene-list-api"),
+    url(r'^channelworm_gene/details/(?P<pk>[0-9]+)/$', ChannelwormGeneDetailsAPI.as_view(), name="channelworm-gene-details-api"),
+
+    url(r'^channelworm_protein/create/$', login_required(ChannelwormProteinCreateAPI.as_view()), name="channelworm-protein-create-api"),
+    url(r'^channelworm_protein/list/$', ChannelwormProteinListAPI.as_view(), name="channelworm-protein-list-api"),
+    url(r'^channelworm_protein/details/(?P<pk>[0-9]+)/$', ChannelwormProteinDetailsAPI.as_view(), name="channelworm-protein-details-api"),
 
     url(r'^ion_channel/create/$', login_required(IonChannelCreateAPI.as_view()), name="ion-channel-create-api"),
     url(r'^ion_channel/list/$', IonChannelListAPI.as_view(), name="ion-channel-list-api"),

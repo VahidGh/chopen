@@ -1,0 +1,52 @@
+{% extends "base_ajax.html" %}
+{% load i18n %}
+{% load widget_filters %}
+{% load staticfiles %}
+
+{% block content %}
+    <div id="ion_channel_form_wrapper">
+        <div class="row">
+            <div class="col-sm-12">
+                <form method="post" class="form-horizontal" id="frm_ion_channel"
+                      action="{% url 'ion_channel:ion-channel-update' object.pk %}">
+                    <div class="box-body" style="overflow-y: scroll; height: 400px;">
+                        {% csrf_token %}
+                        <div class="col-md-12">
+                            {% for field in form %}
+                                <div class="form-group">
+                                    {{ field.errors }}
+                                    <div class="col-sm-2">
+                                        {{ field.label_tag }}
+                                    </div>
+                                    <div class="col-sm-10">
+                                        {{ field |addcss:"form-control" }}
+                                    </div>
+                                </div>
+                            {% endfor %}
+                        </div>
+                    </div>
+                    <div class="box-footer">
+                        <input type="submit" value="{% trans 'Update Ion Channel' %}"
+                               onclick="return pdc.ion_channel.saveIonChannel()"
+                               class="btn btn-primary pull-right"/>
+                    </div>
+                </form>
+                <div class="overlay cw-loading" id="loading" style="display: none">
+                    <i class="fa fa-refresh fa-spin"></i>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+
+{% block inline-css%}
+<link href="{% static 'third_party/select2/css/select2.min.css' %}" rel="stylesheet" type="text/css"/>
+{% endblock %}
+
+{% block inline-script %}
+<script src="{% static 'third_party/select2/js/select2.min.js' %}"></script>
+<script type="text/javascript">
+    $("#id_references").select2();
+</script>
+{% endblock %}

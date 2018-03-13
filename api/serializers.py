@@ -3,14 +3,14 @@ from ion_channel.models import *
 from channelworm.models import *
 
 
-class IonChannelGeneSerializer(serializers.ModelSerializer):
+class ChannelwormGeneSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = IonChannelGene
         fields = '__all__'
 
 
-class ProteinSerializer(serializers.ModelSerializer):
+class ChannelwormProteinSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Protein

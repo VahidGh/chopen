@@ -38,12 +38,12 @@
 	}
 
 	#header:not(.sticky-header) #primary-menu > ul > li.menu-item-emphasis > a:hover {
-		background-color: #FFF;
-		color: #267DF4 !important;
+		background-color: #000;
+		color: #fff !important;
 	}
 
 	#header.sticky-header #primary-menu > ul > li.menu-item-emphasis > a {
-		background-color: #267DF4;
+		background-color: #000;
 		color: #FFF;
 	}
 

@@ -2,46 +2,51 @@ from rest_framework import generics, permissions
 from .serializers import *
 from ion_channel.models import *
 from channelworm.models import *
+from django.shortcuts import render
 
 
-class IonChannelGeneCreateAPI(generics.ListCreateAPIView):
+def index(request):
+    return render(request, 'templates/index.html')
+
+
+class ChannelwormGeneCreateAPI(generics.ListCreateAPIView):
     queryset = IonChannelGene.objects.all()
-    serializer_class = IonChannelGeneSerializer
+    serializer_class = ChannelwormGeneSerializer
 
     def perform_create(self, serializer):
         serializer.save(username=self.request.user)
 
 
-class IonChannelGeneDetailsAPI(generics.RetrieveUpdateDestroyAPIView):
+class ChannelwormGeneDetailsAPI(generics.RetrieveUpdateDestroyAPIView):
 
     queryset = IonChannelGene.objects.all()
-    serializer_class = IonChannelGeneSerializer
+    serializer_class = ChannelwormGeneSerializer
 
 
-class IonChannelGeneListAPI(generics.ListAPIView):
+class ChannelwormGeneListAPI(generics.ListAPIView):
 
     queryset = IonChannelGene.objects.all()
-    serializer_class = IonChannelGeneSerializer
+    serializer_class = ChannelwormGeneSerializer
 
 
-class ProteinCreateAPI(generics.ListCreateAPIView):
+class ChannelwormProteinCreateAPI(generics.ListCreateAPIView):
     queryset = Protein.objects.all()
-    serializer_class = ProteinSerializer
+    serializer_class = ChannelwormProteinSerializer
 
     def perform_create(self, serializer):
         serializer.save(username=self.request.user)
 
 
-class ProteinDetailsAPI(generics.RetrieveUpdateDestroyAPIView):
+class ChannelwormProteinDetailsAPI(generics.RetrieveUpdateDestroyAPIView):
 
     queryset = Protein.objects.all()
-    serializer_class = ProteinSerializer
+    serializer_class = ChannelwormProteinSerializer
 
 
-class ProteinListAPI(generics.ListAPIView):
+class ChannelwormProteinListAPI(generics.ListAPIView):
 
     queryset = Protein.objects.all()
-    serializer_class = ProteinSerializer
+    serializer_class = ChannelwormProteinSerializer
 
 
 class IonChannelCreateAPI(generics.ListCreateAPIView):

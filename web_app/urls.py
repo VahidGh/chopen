@@ -6,6 +6,7 @@ from django.contrib.auth import views as auth_views
 from django.conf.urls.static import static
 from django.contrib import admin
 from django.conf import settings
+from rest_framework.documentation import include_docs_urls
 import sys
 # from ion_channel.views import index
 from .views import index
@@ -14,6 +15,7 @@ from .views import index
 # login_required() from 'django.contrib.auth.urls' redirects to accounts/login/ by default!
 
 urlpatterns = [
+    url(r'^docs/', include_docs_urls(title='API Docs')),
     # url(r'^cms/', include(wagtailadmin_urls)),
     # url(r'^documents/', include(wagtaildocs_urls)),
     # url(r'^pages/', include(wagtail_urls)),

@@ -1,0 +1,36 @@
+{
+ "name": "Potassium channel",
+ "children": [
+  {
+   "name": "Voltage-gated",
+   "children": [
+    {"name": "Shaker/Kv1"},
+    {"name": "Shab/Kv2"},
+    {"name": "Shaw/Kv3"},
+    {"name": "Shal/Kv4"},
+    {"name": "KQT"},
+    {"name": "Eag-like/Kv10-12"},
+    {"name": "Calcium-activated Slo-like"},
+    {"name": "Calcium-activated SK"}
+   ]
+  },
+  {
+   "name": "Temperature, Voltage-dependent",
+   "children": [
+    {"name": "TWK"}
+   ]
+  },
+  {
+   "name": "Voltage-gated",
+   "children": [
+    {"name": "Kir"}
+   ]
+  },
+  {
+   "name": "Voltage-gated",
+   "children": [
+    {"name": "KCNF1"}
+   ]
+  }
+  ]
+}

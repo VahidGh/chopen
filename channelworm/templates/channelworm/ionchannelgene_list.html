@@ -1,0 +1,264 @@
+{% extends "base.html" %}
+{% load i18n %}
+{% load widget_filters %}
+{% load staticfiles%}
+
+{% block page_title %}{% trans 'Ion Channel List' %}{% endblock %}
+{% block page_header %}{% trans 'Ion Channel List' %}{% endblock %}
+{% block breadcrumb %}
+    <li><a href="{% url 'ion_channel:home' %}"><i class="fa fa-home"></i> {% trans 'Home' %}</a></li>
+    <li class="active">{% trans 'Ion Channels' %}</li>
+{% endblock %}
+
+{% block content %}
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="box box-primary">
+                <div class="box-header">
+                    <i class="fa fa-neuter"></i>
+
+                    <h3 class="box-title">{% trans 'Ion Channels' %}</h3>
+
+                    <div class="box-tools pull-right">
+                        <a href="{% url 'ion_channel:ion-channel-create' %}"
+                           class="btn btn-success btn-sm">
+                            <i class="fa fa-plus"></i>
+                            {% trans 'Add New Ion Channel' %}
+                        </a>
+                        <a href="{% url 'ion_channel:cell-create' %}"
+                           class="btn btn-success btn-sm">
+                            <i class="fa fa-plus"></i>
+                            {% trans 'Add New Cell' %}
+                        </a>
+                    </div>
+                </div>
+                <div class="box-body">
+                    <table id="result_table" class="table table-bordered table-striped">
+                        <thead>
+                        <tr>
+                            <th style="width: 10px">ID</th>
+                            <th>{% trans 'Channel Name' %}</th>
+                            <th>{% trans 'Description' %}</th>
+                            <th>{% trans 'Channel Type' %}</th>
+                            <th>{% trans 'Gene Name' %}</th>
+                            <th>{% trans 'Gene ID in WormBase' %}</th>
+                            <th style="width: 200px">{% trans 'Proteins' %}</th>
+                            <th>{% trans 'Action' %}</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        {% for ion_channel in ion_channels %}
+                            <tr>
+                                <td>{{ ion_channel.id }}</td>
+                                <td>{{ ion_channel.channel_name }}</td>
+                                <td>{{ ion_channel.description }}</td>
+                                <td>{{ ion_channel.channel_type }}; {{ ion_channel.channel_subtype }}</td>
+                                <td>{{ ion_channel.gene_name }}</td>
+                                <td>
+                                    <a href="http://www.wormbase.org/species/c_elegans/gene/{{ ion_channel.gene_WB_ID }}">
+                                    {{ ion_channel.gene_WB_ID }}</a>
+                                </td>
+                                <td>{{ ion_channel.proteins }}</td>
+                                <td>
+                                    <a href="{% url 'ion_channel:ion-channel-detail' ion_channel.id %}"
+                                       class="badge bg-yellow">
+                                        <i class="fa fa-eye"></i>
+                                        {% trans 'View Detail' %}
+                                    </a>
+                                    <a href="{% url 'ion_channel:ion-channel-update' ion_channel.id %}"
+                                       class="badge bg-light-blue">
+                                        <i class="fa fa-edit"></i>
+                                        {% trans 'Edit' %}
+                                    </a>
+                                    <a href="{% url 'ion_channel:ion-channel-delete' ion_channel.id %}"
+                                       class="badge bg-red">
+                                        <i class="fa fa-remove"></i>
+                                        {% trans 'Delete' %}
+                                    </a>
+                                </td>
+                            </tr>
+                        {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}
+
+
+{% block inline-css%}
+    <link href="{% static 'third_party/tree_diagram/treestyles.css' %}" rel="stylesheet" type="text/css"/>
+{% endblock %}
+
+{% block inline-script %}
+    <script type="text/javascript">
+        $("#result_table").dataTable();
+    </script>
+    <script src="http://d3js.org/d3.v4.min.js"></script>
+    <script type="text/javascript">
+        <!--console.log("{% url 'api:channelworm-gene-list-api' %}?format=json");-->
+        <!--d3.json("{% url 'api:channelworm-gene-list-api' %}?format=json", function(error, treeData) {-->
+            <!--root = d3.hierarchy(treeData[0]);-->
+            <!--update(root);-->
+            <!--console.log('treeData'+treeData);-->
+            <!--console.log(root);-->
+            <!--console.log(error);-->
+        <!--});-->
+
+
+        var margin = {top: 20, right: 120, bottom: 20, left: 120},
+            width = 1200 - margin.right - margin.left,
+            height = 800 - margin.top - margin.bottom;
+
+        var i = 0,
+            duration = 750,
+            root;
+
+        var tree = d3.tree()
+            .size([height, width]);
+
+        var diagonal =  d3.linkHorizontal()
+            .x(function(d) { return d.y; })
+            .y(function(d) { return d.x; });
+
+
+        var svg = d3.select("body").append("svg")
+            .attr("width", width + margin.right + margin.left)
+            .attr("height", height + margin.top + margin.bottom)
+          .append("g")
+            .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+
+        d3.json("{% url 'api:channelworm-gene-list-api' %}?format=json", function(error, treeData) {
+        <!--d3.json("data.json", function(error, data) {-->
+          if (error) throw error;
+
+            root = tree(d3.hierarchy(treeData));
+            <!--update(root);-->
+            <!--console.log('treeData'+treeData);-->
+            console.log(root);
+            <!--console.log(error);-->
+        <!--});-->
+
+          <!--root = data;-->
+          root.x0 = height / 2;
+          root.y0 = 0;
+
+          <!--function collapse(d) {-->
+            <!--if (d.children) {-->
+              <!--d._children = d.children;-->
+              <!--d._children.forEach(collapse);-->
+              <!--d.children = null;-->
+            <!--}-->
+          <!--}-->
+
+          <!--root.children.forEach(collapse);-->
+          update(root);
+        });
+
+        d3.select(self.frameElement).style("height", "800px");
+
+        function update(source) {
+
+          // Compute the new tree layout.
+          var nodes = tree.nodes(root).reverse(),
+              links = tree.links(nodes);
+
+          // Normalize for fixed-depth.
+          nodes.forEach(function(d) { d.y = d.depth * 180; });
+
+          // Update the nodes…
+          var node = svg.selectAll("g.node")
+              .data(nodes, function(d) { return d.id || (d.id = ++i); });
+
+          // Enter any new nodes at the parent's previous position.
+          var nodeEnter = node.enter().append("g")
+              .attr("class", "node")
+              .attr("transform", function(d) { return "translate(" + source.y0 + "," + source.x0 + ")"; })
+              .on("click", click);
+
+          nodeEnter.append("circle")
+              .attr("r", 1e-6)
+              .style("fill", function(d) { return d._children ? "lightsteelblue" : "#fff"; });
+
+          nodeEnter.append("text")
+              .attr("x", function(d) { return d.children || d._children ? -10 : 10; })
+              .attr("dy", ".35em")
+              .attr("text-anchor", function(d) { return d.children || d._children ? "end" : "start"; })
+              .text(function(d) { return d.name; })
+              .style("fill-opacity", 1e-6);
+
+          // Transition nodes to their new position.
+          var nodeUpdate = node.transition()
+              .duration(duration)
+              .attr("transform", function(d) { return "translate(" + d.y + "," + d.x + ")"; });
+
+          nodeUpdate.select("circle")
+              .attr("r", 4.5)
+              .style("fill", function(d) { return d._children ? "lightsteelblue" : "#fff"; });
+
+          nodeUpdate.select("text")
+              .style("fill-opacity", 1);
+
+          // Transition exiting nodes to the parent's new position.
+          var nodeExit = node.exit().transition()
+              .duration(duration)
+              .attr("transform", function(d) { return "translate(" + source.y + "," + source.x + ")"; })
+              .remove();
+
+          nodeExit.select("circle")
+              .attr("r", 1e-6);
+
+          nodeExit.select("text")
+              .style("fill-opacity", 1e-6);
+
+          // Update the links…
+          var link = svg.selectAll("path.link")
+              .data(links, function(d) { return d.target.id; });
+
+          // Enter any new links at the parent's previous position.
+          link.enter().insert("path", "g")
+              .attr("class", "link")
+              .attr("d", function(d) {
+                var o = {x: source.x0, y: source.y0};
+                return diagonal({source: o, target: o});
+              });
+
+          // Transition links to their new position.
+          link.transition()
+              .duration(duration)
+              .attr("d", diagonal);
+
+          // Transition exiting nodes to the parent's new position.
+          link.exit().transition()
+              .duration(duration)
+              .attr("d", function(d) {
+                var o = {x: source.x, y: source.y};
+                return diagonal({source: o, target: o});
+              })
+              .remove();
+
+          // Stash the old positions for transition.
+          nodes.forEach(function(d) {
+            d.x0 = d.x;
+            d.y0 = d.y;
+          });
+        }
+
+        // Toggle children on click.
+        function click(d) {
+          if (d.children) {
+            d._children = d.children;
+            d.children = null;
+          } else {
+            d.children = d._children;
+            d._children = null;
+          }
+          update(d);
+        }
+
+    </script>
+    <!--<script src="{% static 'third_party/tree_diagram/tree.js' %}"></script>-->
+    <!--<script src="{% static 'third_party/tree_diagram/tree.js' %}"></script>-->
+{% endblock %}

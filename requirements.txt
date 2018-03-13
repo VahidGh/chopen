@@ -1,5 +1,7 @@
 certifi==2018.1.18
 chardet==3.0.4
+coreapi==2.3.3
+coreschema==0.0.4
 cssselect==1.0.3
 Django==2.0.3
 django-formtools==2.1
@@ -7,7 +9,10 @@ djangorestframework==3.7.7
 eutils==0.3.2
 gunicorn==19.7.1
 idna==2.6
+itypes==1.1.0
+Jinja2==2.10
 lxml==4.1.1
+MarkupSafe==1.0
 metapub==0.4.3.6
 numpy==1.14.1
 Pillow==5.0.0
@@ -19,6 +24,7 @@ six==1.11.0
 tabulate==0.8.2
 tox==2.9.1
 Unidecode==1.0.22
+uritemplate==3.0.0
 urllib3==1.22
 virtualenv==15.1.0
 whitenoise==3.3.1

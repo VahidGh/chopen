@@ -1,0 +1,57 @@
+{% extends "base.html" %}
+{% load i18n %}
+{% load widget_filters %}
+{% load staticfiles %}
+
+{% block page_title %}{% trans 'Create Ion Channel Model' %}{% endblock %}
+{% block page_header %}{% trans 'Create Ion Channel Model' %}{% endblock %}
+{% block breadcrumb %}
+    <li><a href="{% url 'ion_channel:home' %}"><i class="fa fa-home"></i> {% trans 'Home' %}</a></li>
+    <li><a href="{% url 'ion_channel:ion-channel-index' %}">{% trans 'Ion Channel Models' %}</a></li>
+    <li class="active">{% trans 'Create' %}</li>
+{% endblock %}
+
+{% block content %}
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="box box-primary">
+                <div class="box-header">
+                    <h3 class="box-title">{% trans 'Ion Channel Model' %}</h3>
+                </div>
+                <form method="post" class="form">
+                    <div class="box-body">
+                        {% csrf_token %}
+                        {% for field in form%}
+                            <div class="form-group">
+                                {{ field.errors }}
+                                {{ field.label_tag }}
+                                {{ field |addcss:"form-control" }}
+                            </div>
+                        {% endfor %}
+                    </div>
+                    <div class="box-footer">
+                        <input type="submit" value="Submit" class="btn btn-primary"/>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+
+{% block inline-css%}
+<link href="{% static 'third_party/select2/css/select2.min.css' %}" rel="stylesheet" type="text/css"/>
+{% endblock %}
+
+{% block inline-script %}
+<script src="{% static 'third_party/select2/js/select2.min.js' %}"></script>
+<script type="text/javascript">
+    $("#id_channel_name").select2();
+    $("#id_cell_type").select2();
+    $("#id_references").select2();
+    $("#id_experiment").select2();
+    $("#id_graphs").select2();
+    $("#id_username").select2();
+    $("#id_neuroML_file").select2();
+</script>
+{% endblock %}
