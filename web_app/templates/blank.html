@@ -27,17 +27,50 @@
 
 		</section>--><!-- #page-title end -->
 
+		<section id="page-title">
+
+			<div class="container clearfix">
+				<h1>
+					{% block page_header %}Page Header{% endblock %}
+					<span>{% block page_header_description %}{% endblock %}</span>
+				</h1>
+				<ol class="breadcrumb">
+					{% block breadcrumb %}
+									<!--<ol class="breadcrumb">-->
+					<!--<li class="breadcrumb-item"><a href="#">Home</a></li>-->
+					<!--<li class="breadcrumb-item"><a href="#">Shortcodes</a></li>-->
+					<!--<li class="breadcrumb-item active" aria-current="page">Process Steps</li>-->
+				<!--</ol>-->
+
+					<li class="breadcrumb-item"><a href="#"> Level </a></li>
+					<li class="breadcrumb-item"><a href="#"> Level </a></li>
+					<li class="breadcrumb-item active" aria-current="page"> Here </li>
+					{% endblock %}
+				</ol>
+			</div>
+
+		</section><!-- #page-title end -->
+
 		<!-- Content
 		============================================= -->
 		<section id="content">
 
 			<div class="content-wrap">
 
-
-
 				<div class="container clearfix">
 
-					
+					<div class="content-wrapper">
+					 <div class="container">
+						<!-- Content Header (Page header) -->
+
+
+						<!-- Main content -->
+						<section class="content">
+							{% block content %}<!-- Your Page Content Here -->{% endblock %}
+						</section>
+						<!-- /.content -->
+					  </div><!-- /.container -->
+					</div>
 
 				</div>
 

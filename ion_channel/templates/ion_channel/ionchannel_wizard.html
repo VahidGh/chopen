@@ -1,0 +1,278 @@
+{% extends "blank.html" %}
+{% load staticfiles %}
+{% load i18n %}
+{% block page_title %}{% trans 'Ion Channel' %}{% endblock %}
+{% block page_header %}{% trans 'Ion Channel' %}<span>{% trans 'Add New Ion Channel'%}</span>{% endblock %}
+{% block breadcrumb %}
+    <li class="breadcrumb-item"><a href="{% url 'ion_channel:home' %}"> {% trans 'Home' %} </a></li>
+    <li class="breadcrumb-item"><a href="{% url 'ion_channel:ion-channel-index' %}"> {% trans ' Ion Channels' %} </a></li>
+    <li class="breadcrumb-item active"> {% trans ' Add New Ion Channel' %} </li>
+{% endblock %}
+
+<head>
+
+    <link rel="stylesheet" href="{% static 'third_party/canvas/css/imports/shortcodes/process-steps.css' %}" type="text/css" />
+    <style>.process-steps li { pointer-events: none; }</style>
+
+</head>
+
+{% block content %}
+
+
+<div class="content-wrap">
+
+    <div class="container clearfix">
+
+        <div id="processTabs">
+        <ul class="process-steps bottommargin clearfix">
+            <li>
+                <a href="#ptab1" class="i-circled i-bordered i-alt divcenter">1</a>
+                <h5>Review Cart</h5>
+            </li>
+            <li>
+                <a href="#ptab2" class="i-circled i-bordered i-alt divcenter">2</a>
+                <h5>Enter Shipping Info</h5>
+            </li>
+            <li>
+                <a href="#ptab3" class="i-circled i-bordered i-alt divcenter">3</a>
+                <h5>Complete Payment</h5>
+            </li>
+            <li>
+                <a href="#ptab4" class="i-circled i-bordered i-alt divcenter">4</a>
+                <h5>Order Complete</h5>
+            </li>
+        </ul>
+        <div>
+            <div id="ptab1">
+
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Inventore, ipsa, fuga, modi, corporis maiores
+                    illum fugit ratione cumque dolores sint obcaecati quod temporibus. Expedita, sapiente, veritatis,
+                    impedit iusto labore sed itaque sunt fugiat non quis nihil hic quos necessitatibus officiis mollitia
+                    nesciunt neque! Minus, mollitia at iusto unde voluptate repudiandae.</p>
+
+                <div class="table-responsive">
+                    <table class="table cart">
+                        <thead>
+                        <tr>
+                            <th class="cart-product-remove">&nbsp;</th>
+                            <th class="cart-product-thumbnail">&nbsp;</th>
+                            <th class="cart-product-name">Product</th>
+                            <th class="cart-product-price">Unit Price</th>
+                            <th class="cart-product-quantity">Quantity</th>
+                            <th class="cart-product-subtotal">Total</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr class="cart_item">
+                            <td class="cart-product-remove">
+                                <a href="#" class="remove" title="Remove this item"><i class="icon-trash2"></i></a>
+                            </td>
+
+                            <td class="cart-product-thumbnail">
+                                <a href="#"><img width="64" height="64" src="images/shop/thumbs/small/dress-3.jpg"
+                                                 alt="Pink Printed Dress"></a>
+                            </td>
+
+                            <td class="cart-product-name">
+                                <a href="#">Pink Printed Dress</a>
+                            </td>
+
+                            <td class="cart-product-price">
+                                <span class="amount">$19.99</span>
+                            </td>
+
+                            <td class="cart-product-quantity">
+                                <div class="quantity clearfix">
+                                    <input type="button" value="-" class="minus">
+                                    <input type="text" step="1" min="1" name="quantity" value="1" title="Qty" class="qty"
+                                           size="4"/>
+                                    <input type="button" value="+" class="plus">
+                                </div>
+                            </td>
+
+                            <td class="cart-product-subtotal">
+                                <span class="amount">$19.99</span>
+                            </td>
+                        </tr>
+                        <tr class="cart_item">
+                            <td class="cart-product-remove">
+                                <a href="#" class="remove" title="Remove this item"><i class="icon-trash2"></i></a>
+                            </td>
+
+                            <td class="cart-product-thumbnail">
+                                <a href="#"><img width="64" height="64" src="images/shop/thumbs/small/shoes-2.jpg"
+                                                 alt="Checked Canvas Shoes"></a>
+                            </td>
+
+                            <td class="cart-product-name">
+                                <a href="#">Checked Canvas Shoes</a>
+                            </td>
+
+                            <td class="cart-product-price">
+                                <span class="amount">$24.99</span>
+                            </td>
+
+                            <td class="cart-product-quantity">
+                                <div class="quantity clearfix">
+                                    <input type="button" value="-" class="minus">
+                                    <input type="text" step="1" min="1" name="quantity" value="1" title="Qty" class="qty"
+                                           size="4"/>
+                                    <input type="button" value="+" class="plus">
+                                </div>
+                            </td>
+
+                            <td class="cart-product-subtotal">
+                                <span class="amount">$24.99</span>
+                            </td>
+                        </tr>
+                        </tbody>
+
+                    </table>
+                </div>
+
+                <a href="#" class="button button-3d nomargin fright tab-linker" rel="2">Checkout &rArr;</a>
+
+            </div>
+            <div id="ptab2">
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nesciunt, deleniti, atque soluta ratione
+                    blanditiis maxime at architecto laudantium eius eaque distinctio dolorem voluptatem nam ab molestias
+                    velit nemo. Illo, hic.</p>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Asperiores, modi, odit, aspernatur veritatis
+                    ipsum molestiae impedit iusto blanditiis voluptatem ab voluptas ullam expedita repellendus porro
+                    assumenda non deserunt repellat eius rem dolorem corporis temporibus voluptatibus ut! Quod, corporis,
+                    tempora, dolore, sint earum minus deserunt eveniet natus error magnam aliquam nemo.</p>
+                <div class="line"></div>
+                <a href="#" class="button button-3d nomargin tab-linker" rel="1">Previous</a>
+                <a href="#" class="button button-3d nomargin fright tab-linker" rel="3">Pay Now</a>
+            </div>
+            <div id="ptab3">
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reiciendis, sit, culpa, placeat, tempora
+                    quibusdam molestiae cupiditate atque tempore nemo tenetur facere voluptates autem aliquid provident
+                    distinctio beatae odio maxime pariatur eos ratione quae itaque quod. Distinctio, temporibus, cupiditate,
+                    eaque vero illo molestiae vel doloremque dolorum repellat ullam possimus modi dicta eum debitis ratione
+                    est in sunt et corrupti adipisci quibusdam praesentium optio laborum tempora ipsam aut cum consectetur
+                    veritatis dolorem.</p>
+                <div class="line"></div>
+                <a href="#" class="button button-3d nomargin tab-linker" rel="2">Previous</a>
+                <a href="#" class="button button-3d nomargin fright tab-linker" rel="4">Complete Order</a>
+            </div>
+            <div id="ptab4">
+                <div class="alert alert-success">
+                    <strong>Thank You.</strong> Your order will be processed once we verify the Payment.
+                </div>
+            </div>
+        </div>
+    </div>
+
+    </div>
+
+</div>
+
+
+
+
+    <div class="box box-default">
+        <div class="box-header with-border">
+            <h3 class="box-title">{% trans 'Add New Ion Channel' %}</h3>
+            <div class="box-tools pull-right">
+                <button class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
+            </div>
+        </div>
+        <div id="ion_channel_form" class="box-body"></div>
+    </div>
+    <div class="row">
+        <div class="col-sm-6">
+        <div class="box collapsed-box">
+            <div class="box-header with-border">
+                <h4 class="box-title">{% trans 'Add Reference For Patch Clamp' %}</h4>
+                <div class="box-tools pull-right">
+                    <a href="{% url 'ion_channel:reference-auto-create' %}" target="_blank"
+                       class="btn btn-box-tool" title="{% trans 'Add Reference Using Auto-Search' %}">
+                        <i class="fa fa-plus-circle"></i>
+                        {% trans 'Using Auto-Search' %}
+                    </a>
+                    <button class="btn btn-box-tool" data-widget="collapse">
+                        <i class="fa fa-plus"></i>
+                        {% trans 'Manually' %}
+                    </button>
+                </div>
+            </div>
+            <div id="reference" class="box-body"></div>
+        </div>
+        </div>
+        <div class="col-sm-6">
+        <div class="box collapsed-box">
+            <div class="box-header with-border">
+                <h4 class="box-title">{% trans 'New Patch Clamp Protocol' %}</h4>
+                <div class="box-tools pull-right">
+                    <button class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-plus"></i></button>
+                </div>
+            </div>
+            <div id="patch_clamp" class="box-body"></div>
+        </div>
+        </div>
+    </div>
+    <div class="box box-default">
+        <div class="box-header with-border">
+            <h3 class="box-title">{% trans 'Graphs' %}</h3>
+            <div class="box-tools pull-right">
+                <button class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
+            </div>
+        </div>
+        <div id="graph" class="box-body"></div>
+    </div>
+
+    <div class="modal">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                            aria-hidden="true">×</span></button>
+                    <h4 class="modal-title">Patch Clamp</h4>
+                </div>
+                <div class="modal-body" id="form-container"></div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block inline-script %}
+    <script src="{% static 'js/ion_channel.js' %}"></script>
+    <script type="text/javascript">
+        chopen.ion_channel.init({
+            url: {
+                ionChannelCreateURL: '{% url 'ion_channel:ion-channel-create' %}',
+                ionChannelUpdateURL: '{% url 'ion_channel:ion-channel-update' 0 %}',
+
+                patchClampIndex: '{% url 'ion_channel:patch-clamp-index' %}',
+                patchClampCreate: '{% url 'ion_channel:patch-clamp-create' %}',
+                patchClampUpdate: '{% url 'ion_channel:patch-clamp-update' 0 %}',
+
+                referenceIndex: '{% url 'ion_channel:reference-index' %}',
+                referenceCreate: '{% url 'ion_channel:reference-create' %}',
+                referenceCreateAuto: '{% url 'ion_channel:reference-auto-create' %}',
+                referenceUpdate: '{% url 'ion_channel:reference-update' 0 %}',
+
+                graphIndex: '{% url 'ion_channel:graph-index' %}',
+                graphCreate: '{% url 'ion_channel:graph-create' %}',
+                graphUpdate: '{% url 'ion_channel:graph-update' 0 %}',
+
+                ionChannelModelIndex: '{% url 'ion_channel:ion-channel-model-index' %}',
+                ionChannelModelCreate: '{% url 'ion_channel:ion-channel-model-create' %}',
+                ionChannelModelUpdate: '{% url 'ion_channel:ion-channel-model-update' 0 %}',
+            }
+        });
+    </script>
+
+	<script>
+		$(function() {
+			$( "#processTabs" ).tabs({ show: { effect: "fade", duration: 400 } });
+			$( ".tab-linker" ).click(function() {
+				$( "#processTabs" ).tabs("option", "active", $(this).attr('rel') - 1);
+				return false;
+			});
+		});
+	</script>
+
+
+{% endblock %}
