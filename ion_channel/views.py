@@ -98,8 +98,8 @@ class ReferenceDelete(DeleteView):
     success_url = reverse_lazy('ion_channel:reference-index')
 
 @login_required
-def ionchannel_dashboard(request):
-    return render(request, 'ion_channel/ionchannel_dashboard.html')
+def ionchannel_wizard(request):
+    return render(request, 'ion_channel/ionchannel_wizard.html')
 
 
 class CellCreate(CreateView):
