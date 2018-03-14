@@ -25,6 +25,7 @@ d3.selection.prototype.moveToFront = function() {
 // load the external data
 d3.json("treeData.json", function(error, treeData) {
   root = treeData[0];
+  var ad = function(d) { return d.aydi; };
   update(root);
 });
 
@@ -50,16 +51,18 @@ function update(source) {
     var ad = function(d) { return d.aydi; };
 
   nodeEnter.append("circle")
-    .attr("r", 6)
-    .attr("id", ad);
-
+    .attr("r", 7)
+    .attr("id", ad)
+    .attr("onclick", 'handleClick(this.id)')
+    .attr("onmouseover", 'handleMouseOver(this.id)')
+    .attr("onmouseout", 'handleMouseOut(this.id)')
 
   nodeEnter.append("text")
     .attr("x", function(d) {
       return d.children || d._children ? -13 : 13; })
     .attr("dy", ".35em")
     .attr("text-anchor", function(d) { return d.x < 180 ? "start" : "end"; })
-      .attr("transform", function(d) { return d.x < 180 ? "translate(30)" : "rotate(180)translate(-30)"; })
+    .attr("transform", function(d) { return d.x < 180 ? "translate(30)" : "rotate(180)translate(-30)"; })
     .text(function(d) { return d.name; })
     .style("fill-opacity", 1);
 
@@ -74,6 +77,33 @@ function update(source) {
     .attr("class", "link")
     .attr("d", diagonal);
 
+}
+function handleClick(aydii) {
+  var ch = document.getElementsByClassName("jumbotron");
+  for (var c = 0; c < ch.length; c++) {
+    if (ch[c].style.display == "block") {
+      ch[c].style.display = "none";
+    }
+    else {
+      document.getElementById(aydii + "d").style.display = "block";
+    }
+  }
 
+}
+function handleMouseOver(aydii) {
+  var el = document.getElementById(aydii);
+  var rec = el.getBoundingClientRect();
+  document.getElementById(aydii + "c").style.display = "block";
+  var to = rec.top;
+  var le = rec.left / 2;
+  var ri = rec.right / 2;
+  var bo = rec.bottom;
+  document.getElementById(aydii + "c").style.left = le + "px";
+  document.getElementById(aydii + "c").style.right = ri + "px";
+  document.getElementById(aydii + "c").style.top = to + "px";
+  document.getElementById(aydii + "c").style.top = bo + "px";
+}
+function handleMouseOut(aydii) {
+  document.getElementById(aydii + "c").style.display = "none";
 }
 d3.select(self.frameElement).style("height", diameter + "px");
