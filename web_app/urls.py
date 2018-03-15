@@ -1,6 +1,7 @@
 """
 chopen URL Configuration
 """
+from django.urls import path
 from django.conf.urls import include, url
 from django.contrib.auth import views as auth_views
 from django.conf.urls.static import static
@@ -16,6 +17,7 @@ from .views import index
 
 urlpatterns = [
     url(r'^docs/', include_docs_urls(title='API Docs')),
+    path('viz/', include('viz.urls')),
     # url(r'^cms/', include(wagtailadmin_urls)),
     # url(r'^documents/', include(wagtaildocs_urls)),
     # url(r'^pages/', include(wagtail_urls)),

@@ -46,6 +46,7 @@ INSTALLED_APPS = (
     # 'scholar',
     'formtools',
     'rest_framework',
+    'viz.apps.VizConfig',
 )
 
 MIDDLEWARE = (
