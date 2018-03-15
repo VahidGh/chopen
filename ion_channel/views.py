@@ -101,6 +101,10 @@ class ReferenceDelete(DeleteView):
 def ionchannel_wizard(request):
     return render(request, 'ion_channel/ionchannel_wizard.html')
 
+@login_required
+def ionchannel_dashboard(request):
+    return render(request, 'ion_channel/ionchannel_dashboard.html')
+
 
 class CellCreate(CreateView):
     model = Cell

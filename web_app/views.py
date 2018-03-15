@@ -7,7 +7,6 @@ def index(request):
     return render(request, 'index.html')
 
 
-
 class AjaxResponseMixin(object):
     """
     Mixin allows you to define alternative methods for ajax requests. Similar

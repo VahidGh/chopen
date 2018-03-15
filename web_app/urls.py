@@ -28,6 +28,7 @@ urlpatterns = [
     url(r'^channelworm/', include(('channelworm.urls', 'channelworm'), namespace="channelworm")),
     url(r'^api/', include(('api.urls', 'api'), namespace="api")),
     url(r'^index$', index ),
+    url(r'^index.html$', index ),
     url(r'^$', index ,name='home'),
     # url(r'^$', include(('homepage.urls', 'homepage'), namespace='homepage')),
     # url(r'^explorer/', include('explorer.urls')),
