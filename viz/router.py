@@ -28,3 +28,4 @@ def display_page(pathname):
         layout = page
 
     return layout
+

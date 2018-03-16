@@ -17,7 +17,7 @@ from .views import index
 
 urlpatterns = [
     url(r'^docs/', include_docs_urls(title='API Docs')),
-    path('viz/', include('viz.urls')),
+    path('viz/', include(('viz.urls', 'viz'), namespace="viz")),
     # url(r'^cms/', include(wagtailadmin_urls)),
     # url(r'^documents/', include(wagtaildocs_urls)),
     # url(r'^pages/', include(wagtail_urls)),
