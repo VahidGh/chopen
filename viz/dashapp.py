@@ -543,7 +543,7 @@ for css in external_css:
 #     color='steel blue'
 # )
 
-import networkx as nx
+# import networkx as nx
 # import pygraphviz as pgv
-import pandas as pd
-import numpy as np
+# import pandas as pd
+# import numpy as np
