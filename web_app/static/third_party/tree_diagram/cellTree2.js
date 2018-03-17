@@ -1,7 +1,7 @@
 
 var margin = {top: 20, right: 120, bottom: 20, left: 120},
-    width = 12000 - margin.right - margin.left,
-    height = 8000 - margin.top - margin.bottom;
+    width = 1200 - margin.right - margin.left,
+    height = 800 - margin.top - margin.bottom;
 
 var i = 0,
     duration = 750,
@@ -19,22 +19,22 @@ var svg = d3.select("body").append("svg")
   .append("g")
     .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 
-d3.json("celllineage.json", function(error, data) {
+d3.json("../data.json", function(error, data) {
   if (error) throw error;
 
-  root = data[0];
+  root = data;
   root.x0 = height / 2;
   root.y0 = 0;
-//
-//  function collapse(d) {
-//    if (d.children) {
-//      d._children = d.children;
-//      d._children.forEach(collapse);
-//      d.children = null;
-//    }
-//  }
-//
-//  root.children.forEach(collapse);
+
+  function collapse(d) {
+    if (d.children) {
+      d._children = d.children;
+      d._children.forEach(collapse);
+      d.children = null;
+    }
+  }
+
+  root.children.forEach(collapse);
   update(root);
 });
 
@@ -97,7 +97,6 @@ function update(source) {
   // Update the links…
   var link = svg.selectAll("path.link")
       .data(links, function(d) { return d.target.id; });
-      .attr("id", ad);
 
   // Enter any new links at the parent's previous position.
   link.enter().insert("path", "g")

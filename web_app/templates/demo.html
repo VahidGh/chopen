@@ -3,6 +3,83 @@
 {% load i18n %}
 <html dir="ltr" lang="en-US">
 
+<head>
+
+	<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+	<meta name="author" content="SemiColonWeb" />
+
+	<!-- Stylesheets
+	============================================= -->
+
+	<!-- Media Agency Demo Specific Stylesheet -->
+	<link rel="stylesheet" href="{% static 'third_party/canvas/demos/app-landing/app-landing.css' %}" type="text/css" />
+	<link rel="stylesheet" href="{% static 'third_party/canvas/demos/app-landing/css/fonts.css' %}" type="text/css" />
+
+	<!-- SLIDER REVOLUTION 5.x CSS SETTINGS -->
+	<link rel="stylesheet" type="text/css" href="{% static 'third_party/canvas/include/rs-plugin/css/settings.css' %}" media="screen" />
+	<link rel="stylesheet" type="text/css" href="{% static 'third_party/canvas/include/rs-plugin/css/layers.css' %}">
+	<link rel="stylesheet" type="text/css" href="{% static 'third_party/canvas/include/rs-plugin/css/navigation.css' %}">
+
+	<!-- Bootstrap Switch CSS -->
+	<link rel="stylesheet" href="{% static 'third_party/canvas/css/components/bs-switches.css' %}" type="text/css" />
+	<link rel="stylesheet" href="{% static 'third_party/canvas/css/responsive.css' %}" type="text/css" />
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+
+	<link rel="stylesheet" href="{% static 'third_party/canvas/demos/app-landing/css/colors.css' %}" type="text/css" />
+
+	<!-- ADD-ONS CSS FILES -->
+	<link rel="stylesheet" type="text/css" href="{% static 'third_party/canvas/include/rs-plugin/css/addons/revolution.addon.particles.css' %}">
+	<link rel="stylesheet" type="text/css" href="{% static 'third_party/canvas/include/rs-plugin/css/addons/typewriter.css' %}">
+	<link rel="stylesheet" type="text/css" href="{% static 'third_party/canvas/include/rs-plugin/fonts/font-awesome/css/font-awesome.css' %}">
+
+
+	<!-- Document Title
+	============================================= -->
+	<title> Chopen </title>
+	<style>
+
+		.demos-filter {
+			margin: 0;
+			text-align: right;
+		}
+
+		.demos-filter li {
+			list-style: none;
+			margin: 10px 0px;
+		}
+
+		.demos-filter li a {
+			display: block;
+			border: 0;
+			text-transform: uppercase;
+			letter-spacing: 1px;
+			color: #444;
+		}
+
+		.demos-filter li a:hover,
+		.demos-filter li.activeFilter a { color: #1ABC9C; }
+
+		@media (max-width: 991px) {
+			.demos-filter { text-align: center; }
+
+			.demos-filter li {
+				float: left;
+				width: 33.3%;
+				padding: 0 20px;
+			}
+		}
+
+		@media (max-width: 767px) { .demos-filter li { width: 50%; } }
+
+		#welcome_wrapper .tp-loader.spinner3{ background-color: #222222 !important; }
+		video::-webkit-media-controls-start-playback-button{display:none !important}
+		.tc-gradient i:before{background:-webkit-linear-gradient(left,#2ed8a3 0%,#2970ff 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+		.tc-btnshadow{-webkit-box-shadow:3px 5px 10px 0px rgba(0,0,0,0.2) !important;-moz-box-shadow:3px 5px 10px 0px rgba(0,0,0,0.2) !important;box-shadow:3px 5px 10px 0px rgba(0,0,0,0.2) !important}
+
+	</style>
+
+</head>
+
 <body class="stretched" data-loader-html="<div id='css3-spinner-svg-pulse-wrapper'><svg id='css3-spinner-svg-pulse' version='1.2' height='210' width='550' xmlns='http://www.w3.org/2000/svg' viewport='0 0 60 60' xmlns:xlink='http://www.w3.org/1999/xlink'><path id='css3-spinner-pulse' stroke='#DE6262' fill='none' stroke-width='2' stroke-linejoin='round' d='M0,90L250,90Q257,60 262,87T267,95 270,88 273,92t6,35 7,-60T290,127 297,107s2,-11 10,-10 1,1 8,-10T319,95c6,4 8,-6 10,-17s2,10 9,11h210' /></svg></div>">
 
 	<!-- Document Wrapper
@@ -16,137 +93,116 @@
 
 		<!-- Slider
 		============================================= -->
-		<!--<section id="slider" class="slider-element revslider-wrap full-screen clearfix">-->
+		<section id="slider" class="slider-element revslider-wrap full-screen clearfix">
 
-			<!--<div class="rev_slider_wrapper" style="width: 100%">-->
-				<!--&lt;!&ndash; START REVOLUTION SLIDER 5.3.1.6 fullscreen mode &ndash;&gt;-->
-				<!--<div id="rev_slider_9_1" class="rev_slider fullscreenbanner" style="display:none;" data-version="5.3.1.6">-->
-					<!--<ul>	&lt;!&ndash; SLIDE  &ndash;&gt;-->
-						<!--<li data-index="rs-23" data-transition="fade" data-slotamount="default" data-hideafterloop="0" data-hideslideonmobile="off"  data-easein="Power4.easeOut" data-easeout="Power4.easeOut" data-masterspeed="default"  data-thumb=""  data-rotate="0"  data-saveperformance="off"  data-title="Example One" data-param1="" data-param2="" data-param3="" data-param4="" data-param5="" data-param6="" data-param7="" data-param8="" data-param9="" data-param10="" data-description="">-->
-							<!--&lt;!&ndash; MAIN IMAGE &ndash;&gt;-->
-							<!--<img src="{% static 'third_party/canvas/include/rs-plugin/demos/assets/images/transparent.png' %}" style='background-color:#ffffff' alt=""  data-bgposition="center top" data-bgfit="cover" data-bgrepeat="no-repeat" data-bgparallax="off" class="rev-slidebg" data-no-retina>-->
-							<!--&lt;!&ndash; LAYERS &ndash;&gt;-->
+			<div class="rev_slider_wrapper" style="width: 100%">
+				<!-- START REVOLUTION SLIDER 5.3.1.6 fullscreen mode -->
+				<div id="rev_slider_9_1" class="rev_slider fullscreenbanner" style="display:none;" data-version="5.3.1.6">
+					<ul>	<!-- SLIDE  -->
+						<li data-index="rs-23" data-transition="fade" data-slotamount="default" data-hideafterloop="0" data-hideslideonmobile="off"  data-easein="Power4.easeOut" data-easeout="Power4.easeOut" data-masterspeed="default"  data-thumb=""  data-rotate="0"  data-saveperformance="off"  data-title="Example One" data-param1="" data-param2="" data-param3="" data-param4="" data-param5="" data-param6="" data-param7="" data-param8="" data-param9="" data-param10="" data-description="">
+							<!-- MAIN IMAGE -->
+							<img src="{% static 'third_party/canvas/include/rs-plugin/demos/assets/images/transparent.png' %}" style='background-color:#ffffff' alt=""  data-bgposition="center top" data-bgfit="cover" data-bgrepeat="no-repeat" data-bgparallax="off" class="rev-slidebg" data-no-retina>
+							<!-- LAYERS -->
 
-							<!--&lt;!&ndash; LAYER NR. 1 &ndash;&gt;-->
-							<!--<div class="tp-caption  "-->
-								 <!--id="slide-23-layer-15"-->
-								 <!--data-x="['center','center','center','center']" data-hoffset="['0','0','0','0']"-->
-								 <!--data-y="['middle','middle','middle','middle']" data-voffset="['0','0','0','0']"-->
-											<!--data-width="full-proportional"-->
-								<!--data-height="full-proportional"-->
-								<!--data-whitespace="nowrap"-->
+							<!-- LAYER NR. 1 -->
+							<div class="tp-caption  "
+								 id="slide-23-layer-15"
+								 data-x="['center','center','center','center']" data-hoffset="['0','0','0','0']"
+								 data-y="['middle','middle','middle','middle']" data-voffset="['0','0','0','0']"
+											data-width="full-proportional"
+								data-height="full-proportional"
+								data-whitespace="nowrap"
 
-								<!--data-type="image"-->
-								<!--data-basealign="slide"-->
-								<!--data-responsive_offset="off"-->
-								<!--data-responsive="off"-->
-								<!--data-frames='[{"delay":500,"speed":300,"frame":"0","from":"opacity:0;","to":"o:1;","ease":"Power3.easeInOut"},{"delay":"wait","speed":300,"frame":"999","to":"opacity:0;","ease":"Power3.easeInOut"}]'-->
-								<!--data-textAlign="['inherit','inherit','inherit','inherit']"-->
-								<!--data-paddingtop="[0,0,0,0]"-->
-								<!--data-paddingright="[0,0,0,0]"-->
-								<!--data-paddingbottom="[0,0,0,0]"-->
-								<!--data-paddingleft="[0,0,0,0]"-->
-								<!--data-blendmode="overlay"-->
+								data-type="image"
+								data-basealign="slide"
+								data-responsive_offset="off"
+								data-responsive="off"
+								data-frames='[{"delay":500,"speed":300,"frame":"0","from":"opacity:0;","to":"o:1;","ease":"Power3.easeInOut"},{"delay":"wait","speed":300,"frame":"999","to":"opacity:0;","ease":"Power3.easeInOut"}]'
+								data-textAlign="['inherit','inherit','inherit','inherit']"
+								data-paddingtop="[0,0,0,0]"
+								data-paddingright="[0,0,0,0]"
+								data-paddingbottom="[0,0,0,0]"
+								data-paddingleft="[0,0,0,0]"
+								data-blendmode="overlay"
 
-								<!--style="z-index: 5;"><img src="{% static 'third_party/canvas/include/rs-plugin/demos/assets/images/blurbg7.jpg' %}" alt="" data-ww="['full-proportional','full-proportional','full-proportional','full-proportional']" data-hh="['full-proportional','full-proportional','full-proportional','full-proportional']" data-no-retina> </div>-->
+								style="z-index: 5;"><img src="{% static 'third_party/canvas/include/rs-plugin/demos/assets/images/birds.jpg' %}" alt="" data-ww="['full-proportional','full-proportional','full-proportional','full-proportional']" data-hh="['full-proportional','full-proportional','full-proportional','full-proportional']" data-no-retina> </div>
 
-							<!--&lt;!&ndash; LAYER NR. 2 &ndash;&gt;-->
-							<!--<div class="tp-caption   tp-resizeme  blurslider-gradient"-->
-								 <!--id="slide-23-layer-6"-->
-								 <!--data-x="['center','center','center','center']" data-hoffset="['0','0','0','0']"-->
-								 <!--data-y="['middle','middle','middle','middle']" data-voffset="['-110','-110','-130','-130']"-->
-											<!--data-fontsize="['60','60','40','40']"-->
-								<!--data-lineheight="['80','80','60','60']"-->
-								<!--data-width="none"-->
-								<!--data-height="none"-->
-								<!--data-whitespace="nowrap"-->
+							<!-- LAYER NR. 2 -->
+							<div class="tp-caption   tp-resizeme  blurslider-gradient"
+								 id="slide-23-layer-6"
+								 data-x="['center','center','center','center']" data-hoffset="['0','0','0','0']"
+								 data-y="['middle','middle','middle','middle']" data-voffset="['-110','-110','-130','-130']"
+											data-fontsize="['60','60','40','40']"
+								data-lineheight="['80','80','60','60']"
+								data-width="none"
+								data-height="none"
+								data-whitespace="nowrap"
 
-								<!--data-type="text"-->
-								<!--data-responsive_offset="on"-->
-								<!--data-wrapper_class="tp-nopointer"-->
+								data-type="text"
+								data-responsive_offset="on"
+								data-wrapper_class="tp-nopointer"
 
-								<!--data-frames='[{"delay":500,"speed":1000,"frame":"0","from":"sX:2;sY:3;opacity:0;fb:10px;","to":"o:1;fb:0;","ease":"Power3.easeInOut"},{"delay":"wait","speed":300,"frame":"999","to":"auto:auto;fb:0;","ease":"Power3.easeInOut"}]'-->
-								<!--data-textAlign="['center','center','center','center']"-->
-								<!--data-paddingtop="[0,0,0,0]"-->
-								<!--data-paddingright="[0,0,0,0]"-->
-								<!--data-paddingbottom="[0,0,0,0]"-->
-								<!--data-paddingleft="[0,0,0,0]"-->
+								data-frames='[{"delay":500,"speed":1000,"frame":"0","from":"sX:2;sY:3;opacity:0;fb:10px;","to":"o:1;fb:0;","ease":"Power3.easeInOut"},{"delay":"wait","speed":300,"frame":"999","to":"auto:auto;fb:0;","ease":"Power3.easeInOut"}]'
+								data-textAlign="['center','center','center','center']"
+								data-paddingtop="[0,0,0,0]"
+								data-paddingright="[0,0,0,0]"
+								data-paddingbottom="[0,0,0,0]"
+								data-paddingleft="[0,0,0,0]"
 
-								<!--style="z-index: 6; white-space: nowrap; font-size: 60px; line-height: 80px; font-weight: 400; color: rgba(4, 37, 60, 1.00);font-family:Poppins;letter-spacing:10px;">OpenWorm </div>-->
+								style="z-index: 6; white-space: nowrap; font-size: 60px; line-height: 80px; font-weight: 400; color: rgba(4, 37, 60, 1.00);font-family:Poppins;letter-spacing:10px;">OpenWorm </div>
 
-							<!--&lt;!&ndash; LAYER NR. 3 &ndash;&gt;-->
-							<!--<div class="tp-caption   tp-resizeme"-->
-								 <!--id="slide-23-layer-8"-->
-								 <!--data-x="['center','center','center','center']" data-hoffset="['0','0','0','0']"-->
-								 <!--data-y="['middle','middle','middle','middle']" data-voffset="['30','30','0','0']"-->
-											<!--data-width="['460','461','360','330']"-->
-								<!--data-height="none"-->
-								<!--data-whitespace="normal"-->
+							<!-- LAYER NR. 3 -->
+							<div class="tp-caption   tp-resizeme"
+								 id="slide-23-layer-8"
+								 data-x="['center','center','center','center']" data-hoffset="['0','0','0','0']"
+								 data-y="['middle','middle','middle','middle']" data-voffset="['30','30','0','0']"
+											data-width="['460','461','360','330']"
+								data-height="none"
+								data-whitespace="normal"
 
-								<!--data-type="text"-->
-								<!--data-responsive_offset="on"-->
-								<!--data-wrapper_class="tp-nopointer"-->
+								data-type="text"
+								data-responsive_offset="on"
+								data-wrapper_class="tp-nopointer"
 
-								<!--data-frames='[{"delay":700,"speed":1000,"frame":"0","from":"y:20px;sX:2;sY:3;opacity:0;fb:10px;","to":"o:1;fb:0;","ease":"Power3.easeInOut"},{"delay":"wait","speed":600,"frame":"999","to":"auto:auto;fb:0;","ease":"Power3.easeInOut"}]'-->
-								<!--data-textAlign="['center','center','center','center']"-->
-								<!--data-paddingtop="[0,0,0,0]"-->
-								<!--data-paddingright="[0,0,0,0]"-->
-								<!--data-paddingbottom="[0,0,0,0]"-->
-								<!--data-paddingleft="[0,0,0,0]"-->
+								data-frames='[{"delay":700,"speed":1000,"frame":"0","from":"y:20px;sX:2;sY:3;opacity:0;fb:10px;","to":"o:1;fb:0;","ease":"Power3.easeInOut"},{"delay":"wait","speed":600,"frame":"999","to":"auto:auto;fb:0;","ease":"Power3.easeInOut"}]'
+								data-textAlign="['center','center','center','center']"
+								data-paddingtop="[0,0,0,0]"
+								data-paddingright="[0,0,0,0]"
+								data-paddingbottom="[0,0,0,0]"
+								data-paddingleft="[0,0,0,0]"
 
-								<!--style="z-index: 7; min-width: 460px; max-width: 460px; white-space: normal; font-size: 15px; line-height: 25px; font-weight: 400; color: rgba(4, 37, 60, 1.00);font-family:Poppins;letter-spacing:10px;">OpenWorm is an open source project dedicated to creating the first virtual organism in a computer.-->
-							 <!--</div>-->
+								style="z-index: 7; min-width: 460px; max-width: 460px; white-space: normal; font-size: 15px; line-height: 25px; font-weight: 400; color: rgba(4, 37, 60, 1.00);font-family:Poppins;letter-spacing:10px;">OpenWorm is an open source project dedicated to creating the first virtual organism in a computer.
+							 </div>
 
-							<!--&lt;!&ndash; LAYER NR. 4 &ndash;&gt;-->
-							<!--<a class="tp-caption rev-btn  tp-resizeme  blurslider-button"-->
-					 			<!--href="http://themeforest.net/item/canvas-the-multipurpose-html5-template/9228123?ref=SemiColonWeb&license=regular&open_purchase_for_item_id=9228123&purchasable=source" target="_blank"			 id="slide-23-layer-17"-->
-								 <!--data-x="['center','center','center','center']" data-hoffset="['0','0','0','0']"-->
-								 <!--data-y="['middle','middle','middle','middle']" data-voffset="['140','140','110','110']"-->
-											<!--data-width="none"-->
-								<!--data-height="none"-->
-								<!--data-whitespace="nowrap"-->
+							<!-- LAYER NR. 4 -->
+							<a class="tp-caption rev-btn  tp-resizeme  blurslider-button"
+					 			href="http://openworm.org" target="_blank"			 id="slide-23-layer-17"
+								 data-x="['center','center','center','center']" data-hoffset="['0','0','0','0']"
+								 data-y="['middle','middle','middle','middle']" data-voffset="['140','140','110','110']"
+											data-width="none"
+								data-height="none"
+								data-whitespace="nowrap"
 
-								<!--data-type="button"-->
-								<!--data-actions=''-->
-								<!--data-responsive_offset="on"-->
+								data-type="button"
+								data-actions=''
+								data-responsive_offset="on"
 
-								<!--data-frames='[{"delay":900,"speed":1000,"frame":"0","from":"y:100px;sX:2;sY:3;opacity:0;fb:20px;","to":"o:1;fb:0;","ease":"Power3.easeInOut"},{"delay":"wait","speed":600,"frame":"999","to":"auto:auto;fb:0;","ease":"Power3.easeInOut"},{"frame":"hover","speed":"200","ease":"Linear.easeNone","to":"o:1;rX:0;rY:0;rZ:0;z:0;fb:0;","style":"c:rgba(255, 255, 255, 1.00);"}]'-->
-								<!--data-textAlign="['inherit','inherit','inherit','inherit']"-->
-								<!--data-paddingtop="[0,0,0,0]"-->
-								<!--data-paddingright="[35,35,35,35]"-->
-								<!--data-paddingbottom="[0,0,0,0]"-->
-								<!--data-paddingleft="[35,35,35,35]"-->
-								<!--data-blendmode="multiply"-->
+								data-frames='[{"delay":900,"speed":1000,"frame":"0","from":"y:100px;sX:2;sY:3;opacity:0;fb:20px;","to":"o:1;fb:0;","ease":"Power3.easeInOut"},{"delay":"wait","speed":600,"frame":"999","to":"auto:auto;fb:0;","ease":"Power3.easeInOut"},{"frame":"hover","speed":"200","ease":"Linear.easeNone","to":"o:1;rX:0;rY:0;rZ:0;z:0;fb:0;","style":"c:rgba(255, 255, 255, 1.00);"}]'
+								data-textAlign="['inherit','inherit','inherit','inherit']"
+								data-paddingtop="[0,0,0,0]"
+								data-paddingright="[35,35,35,35]"
+								data-paddingbottom="[0,0,0,0]"
+								data-paddingleft="[35,35,35,35]"
+								data-blendmode="multiply"
 
-								<!--style="z-index: 8; white-space: nowrap; font-size: 15px; line-height: 50px; font-weight: 400; color: rgba(255, 255, 255, 1.00);font-family:Poppins;background-color:rgba(4, 37, 60, 1.00);outline:none;box-shadow:none;box-sizing:border-box;-moz-box-sizing:border-box;-webkit-box-sizing:border-box;letter-spacing:3px;cursor:pointer;text-decoration: none;">enter now!-->
-							<!--</a>-->
-						<!--</li>-->
-					<!--</ul>-->
-					<!--<div class="tp-bannertimer tp-bottom" style="visibility: hidden !important;"></div>-->
-				<!--</div>&lt;!&ndash; END REVOLUTION SLIDER &ndash;&gt;-->
-			<!--</div>&lt;!&ndash; END REVOLUTION SLIDER WRAPPER &ndash;&gt;-->
+								style="z-index: 8; white-space: nowrap; font-size: 15px; line-height: 50px; font-weight: 400; color: rgba(255, 255, 255, 1.00);font-family:Poppins;background-color:rgba(4, 37, 60, 1.00);outline:none;box-shadow:none;box-sizing:border-box;-moz-box-sizing:border-box;-webkit-box-sizing:border-box;letter-spacing:3px;cursor:pointer;text-decoration: none;">enter now!
+							</a>
+						</li>
+					</ul>
+					<div class="tp-bannertimer tp-bottom" style="visibility: hidden !important;"></div>
+				</div><!-- END REVOLUTION SLIDER -->
+			</div><!-- END REVOLUTION SLIDER WRAPPER -->
 
-		<!--</section>-->
-
-		<section id="slider" class="slider-element full-screen slider-parallax">
-			<div class="slider-parallax-inner" style="background: url('{% static 'third_party/canvas/demos/app-landing/images/hero/openworm.png' %}') center center no-repeat; background-size: cover;">
-				<div class="vertical-middle" style="z-index: 2;">
-					<div class="container dark clearfix">
-						<div class="row clearfix">
-							<div class="col-lg-6 col-md-8">
-								<div class="emphasis-title">
-									<h1 class="font-body">Beautiful Websites.<br>Increased Conversions.</h1>
-								</div>
-								<a href="#" data-scrollto="#section-pricing" data-easing="easeInOutExpo" data-speed="1250" data-offset="160" class="button button-large button-white button-light capitalize" style="border-radius: 23px;">Try it Free</a>
-								<a href="https://www.youtube.com/watch?v=N_r349riLEE" class="hero-action-link" data-lightbox="iframe"><i class="icon-play-sign"></i> Watch the Video</a>
-							</div>
-						</div>
-					</div>
-				</div>
-				<div class="video-wrap" style="position: absolute; height: 100%; z-index: 1;">
-					<div class="video-overlay" style="background: rgba(0,0,0,0.2);"></div>
-				</div>
-			</div>
 		</section>
 
 		<!-- Content
@@ -340,6 +396,23 @@
 	============================================= -->
 	<script src="{% static 'third_party/canvas/js/functions.js' %}"></script>
 
+	<!-- SLIDER REVOLUTION 5.x SCRIPTS  -->
+	<script src="{% static 'third_party/canvas/include/rs-plugin/js/jquery.themepunch.tools.min.js' %}"></script>
+	<script src="{% static 'third_party/canvas/include/rs-plugin/js/jquery.themepunch.revolution.min.js' %}"></script>
+	<!-- SLIDER REVOLUTION ADDONS  -->
+	<script src="{% static 'third_party/canvas/include/rs-plugin/js/addons/revolution.addon.particles.min.js' %}"></script>
+	<script src="{% static 'third_party/canvas/include/rs-plugin/js/addons/revolution.addon.typewriter.min.js' %}"></script>
+	<!-- SLIDER REVOLUTION EXTENSIONS  -->
+	<script src="{% static 'third_party/canvas/include/rs-plugin/js/extensions/revolution.extension.actions.min.js' %}"></script>
+	<script src="{% static 'third_party/canvas/include/rs-plugin/js/extensions/revolution.extension.carousel.min.js' %}"></script>
+	<script src="{% static 'third_party/canvas/include/rs-plugin/js/extensions/revolution.extension.kenburn.min.js' %}"></script>
+	<script src="{% static 'third_party/canvas/include/rs-plugin/js/extensions/revolution.extension.layeranimation.min.js' %}"></script>
+	<script src="{% static 'third_party/canvas/include/rs-plugin/js/extensions/revolution.extension.migration.min.js' %}"></script>
+	<script src="{% static 'third_party/canvas/include/rs-plugin/js/extensions/revolution.extension.navigation.min.js' %}"></script>
+	<script src="{% static 'third_party/canvas/include/rs-plugin/js/extensions/revolution.extension.parallax.min.js' %}"></script>
+	<script src="{% static 'third_party/canvas/include/rs-plugin/js/extensions/revolution.extension.slideanims.min.js' %}"></script>
+	<script src="{% static 'third_party/canvas/include/rs-plugin/js/extensions/revolution.extension.video.min.js' %}"></script>
+
 	<script>
 		jQuery(document).ready( function($){
 
@@ -427,6 +500,74 @@
 			});
 
 		});
+	</script>
+	<!-- ADD-ONS JS FILES -->
+
+	<script>
+		var tpj=jQuery;
+
+		var revapi9;
+		tpj(document).ready(function() {
+			if(tpj("#rev_slider_9_1").revolution == undefined){
+				revslider_showDoubleJqueryError("#rev_slider_9_1");
+			}else{
+				revapi9 = tpj("#rev_slider_9_1").show().revolution({
+					sliderType:"hero",
+					jsFileLocation:"include/rs-plugin/js/",
+					sliderLayout:"fullscreen",
+					dottedOverlay:"none",
+					delay:9000,
+					particles: {startSlide: "first", endSlide: "last", zIndex: "1",
+						particles: {
+							number: {value: 300}, color: {value: "#000000"},
+							shape: {
+								type: "circle", stroke: {width: 0, color: "#ffffff", opacity: 1},
+								image: {src: ""}
+							},
+							opacity: {value: 0.1, random: false, min: 0.25, anim: {enable: false, speed: 1, opacity_min: 0, sync: false}},
+							size: {value: 1, random: true, min: 0.5, anim: {enable: false, speed: 40, size_min: 1, sync: false}},
+							line_linked: {enable: true, distance: 80, color: "#000000", opacity: 0.35, width: 1},
+							move: {enable: true, speed: 1, direction: "right", random: true, min_speed: 3, straight: false, out_mode: "out"}},
+						interactivity: {
+							events: {onhover: {enable: true, mode: "repulse"}, onclick: {enable: true, mode: "bubble"}},
+							modes: {grab: {distance: 400, line_linked: {opacity: 0.5}}, bubble: {distance: 400, size: 100, opacity: 1}, repulse: {distance: 75}}
+						}
+					},
+					navigation: {
+					},
+					responsiveLevels:[1240,1024,778,480],
+					visibilityLevels:[1240,1024,778,480],
+					gridwidth:[1240,1024,778,480],
+					gridheight:[868,768,960,720],
+					lazyType:"none",
+					parallax: {
+						type:"scroll",
+						origo:"slidercenter",
+						speed:400,
+						levels:[5,10,15,20,25,30,35,40,45,46,47,48,49,50,0,55],
+					},
+					shadow:0,
+					spinner:"spinner0",
+					autoHeight:"off",
+					fullScreenAutoWidth:"off",
+					fullScreenAlignForce:"off",
+					fullScreenOffsetContainer: "",
+					fullScreenOffset: "0",
+					disableProgressBar:"on",
+					hideThumbsOnMobile:"off",
+					hideSliderAtLimit:0,
+					hideCaptionAtLimit:0,
+					hideAllCaptionAtLilmit:0,
+					debugMode:false,
+					fallbacks: {
+						simplifyAll:"off",
+						disableFocusListener:false,
+					}
+				});
+			}
+
+			RsParticlesAddOn(revapi9);
+		});	/*ready*/
 	</script>
 
 </body>

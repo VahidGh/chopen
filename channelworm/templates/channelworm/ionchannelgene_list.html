@@ -1,4 +1,4 @@
-{% extends "base.html" %}
+{% extends "blank.html" %}
 {% load i18n %}
 {% load widget_filters %}
 {% load staticfiles%}
@@ -6,8 +6,8 @@
 {% block page_title %}{% trans 'Ion Channel List' %}{% endblock %}
 {% block page_header %}{% trans 'Ion Channel List' %}{% endblock %}
 {% block breadcrumb %}
-    <li><a href="{% url 'ion_channel:home' %}"><i class="fa fa-home"></i> {% trans 'Home' %}</a></li>
-    <li class="active">{% trans 'Ion Channels' %}</li>
+    <li class="breadcrumb-item"><a href="{% url 'ion_channel:home' %}"> {% trans 'Home' %} </a></li>
+    <li class="breadcrumb-item active"> {% trans 'Ion Channels' %} </li>
 {% endblock %}
 
 {% block content %}
@@ -84,9 +84,9 @@
             </div>
         </div>
     </div>
-    <div>
-        <iframe id="plotly_iframe" src="{% url 'viz:home' %}"></iframe>
-    </div>
+    <!--<div>-->
+        <!--<iframe id="plotly_iframe" src="{% url 'viz:home' %}"></iframe>-->
+    <!--</div>-->
 
 {% endblock %}
 
@@ -108,9 +108,9 @@ iframe {
 {% endblock %}
 
 {% block inline-script %}
-    <script type="text/javascript">
-        $("#result_table").dataTable();
-    </script>
+    <!--<script type="text/javascript">-->
+        <!--$("#result_table").dataTable();-->
+    <!--</script>-->
     <!--<script src="http://d3js.org/d3.v4.min.js"></script>-->
     <!--<script type="text/javascript">-->
         <!--&lt;!&ndash;console.log("{% url 'api:channelworm-gene-list-api' %}?format=json");&ndash;&gt;-->

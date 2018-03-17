@@ -1,0 +1,543 @@
+[
+  {
+    "name": "ion channel",
+    "parent": "null",
+    "aydi": "main",
+    "children": [
+      {
+      "name": "Potassium channel",
+      "parent": "ion channel",
+      "aydi": "vg",
+      "children": [
+        {
+          "name": "Voltage-gated",
+          "parent": "Potassium channel",
+          "aydi": "vg",
+          "children": [
+            {
+              "name": "Shaker/Kv1",
+              "parent": "Voltage-gated",
+              "aydi": "vgl1"
+            },
+            {
+              "name": "Shab/Kv2",
+              "parent": "Voltage-gated",
+              "aydi": "vgl2"
+            },
+            {
+              "name": "Shaw/Kv3",
+              "parent": "Voltage-gated",
+              "aydi": "vgl3"
+            },
+            {
+              "name": "Shal/Kv4",
+              "parent": "Voltage-gated",
+              "aydi": "vgl4"
+            },
+            {
+              "name": "KQT",
+              "parent": "Voltage-gated",
+              "aydi": "vgl5"
+            },
+            {
+              "name": "Eag-like/Kv10-12",
+              "parent": "Voltage-gated",
+              "aydi": "vgl6"
+            },
+            {
+              "name": "Calcium-activated Slo-like",
+              "parent": "Voltage-gated",
+              "aydi": "vgl7"
+            },
+            {
+              "name": "Calcium-activated SK",
+              "parent": "Voltage-gated",
+              "aydi": "vgl8"
+            }
+          ]
+        },
+        {
+          "name": "Temperature, Voltage-dependent",
+          "parent": "Potassium channel",
+          "aydi": "vg",
+          "children": [
+            {
+              "name": "TWK",
+              "parent": "Temperature, Voltage-dependent",
+              "aydi": "vgl9"
+            }
+          ]
+        },
+        {
+          "name": "Voltage-gated",
+          "parent": "Potassium channel",
+          "aydi": "vg",
+          "children": [
+            {
+              "name": "Kir",
+              "parent": "Voltage-gated",
+              "aydi": "vgl10"
+            }
+          ]
+        },
+        {
+          "name": "Voltage-gated",
+          "parent": "Potassium channel",
+          "aydi": "vg",
+          "children": [
+            {
+              "name": "KCNF1",
+              "parent": "Voltage-gated",
+              "aydi": "vgl11"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Calcium channel",
+      "parent": "ion channel",
+      "aydi": "vg3",
+      "children": [
+        {
+          "name": "Voltage-gated",
+          "parent": "Calcium channel",
+          "aydi": "vg3",
+          "children": [
+            {
+              "name": "L-type/Cav1",
+              "parent": "Voltage-gated",
+              "aydi": "vg3l1"
+            },
+            {
+              "name": "R, N, P/Q-Type/Cav2",
+              "parent": "Voltage-gated",
+              "aydi": "vg3l2"
+            },
+            {
+              "name": "T-Type/Cav3",
+              "parent": "Voltage-gated",
+              "aydi": "vg3l3"
+            },
+            {
+              "name": "U Type",
+              "parent": "Voltage-gated",
+              "aydi": "vg3l4"
+            },
+            {
+              "name": "a2d subunit",
+              "parent": "Voltage-gated",
+              "aydi": "vg3l5"
+            },
+            {
+              "name": "B subunit",
+              "parent": "Voltage-gated",
+              "aydi": "vg3l6"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "TRP channel",
+      "parent": "ion channel",
+      "aydi": "trp",
+      "children": [
+        {
+          "name": " ",
+          "parent": "TRP channel",
+          "aydi": "trp",
+          "children": [
+            {
+              "name": "TRPV",
+              "parent": " ",
+              "aydi": "trpl1"
+            }
+          ]
+        },
+          {
+          "name": " ",
+          "parent": "TRP channel",
+          "aydi": "trp",
+          "children": [
+            {
+              "name": "TRPP",
+              "parent": " ",
+              "aydi": "trpl2"
+            }
+          ]
+        },
+          {
+          "name": " ",
+          "parent": "TRP channel",
+          "aydi": "trp",
+          "children": [
+            {
+              "name": "TRPN",
+              "parent": " ",
+              "aydi": "trpl3"
+            }
+          ]
+        },
+          {
+          "name": " ",
+          "parent": "TRP channel",
+          "aydi": "trp",
+          "children": [
+            {
+              "name": "TRPML",
+              "parent": " ",
+              "aydi": "trpl4"
+            }
+          ]
+        },
+          {
+          "name": " ",
+          "parent": "TRP channel",
+          "aydi": "trp",
+          "children": [
+            {
+              "name": "TRPM",
+              "parent": " ",
+              "aydi": "trpl5"
+            }
+          ]
+        },
+          {
+          "name": " ",
+          "parent": "TRP channel",
+          "aydi": "trp",
+          "children": [
+            {
+              "name": "TRPC",
+              "parent": " ",
+              "aydi": "trpl6"
+            }
+          ]
+        },
+          {
+          "name": " ",
+          "parent": "TRP channel",
+          "aydi": "trp",
+          "children": [
+            {
+              "name": "TRPA",
+              "parent": " ",
+              "aydi": "trpl7"
+            }
+          ]
+        },
+          {
+          "name": " ",
+          "parent": "TRP channel",
+          "aydi": "trp",
+          "children": [
+            {
+              "name": "TRPM-related",
+              "parent": " ",
+              "aydi": "trpl8"
+            }
+          ]
+        }
+      ]
+    },
+        {
+      "name": "Ionotropic glutamate receptors",
+      "parent": "ion channel",
+      "aydi": "ion",
+      "children": [
+        {
+          "name": " ",
+          "parent": "Ionotropic glutamate receptors",
+          "aydi": "ion",
+          "children": [
+            {
+              "name": "NMDA-type",
+              "parent": " ",
+              "aydi": "ionl1"
+            }
+          ]
+        },
+          {
+          "name": " ",
+          "parent": "Ionotropic glutamate receptors",
+          "aydi": "ion",
+          "children": [
+            {
+              "name": "AMPA-type",
+              "parent": " ",
+              "aydi": "ionl2"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "DEG/ENaC",
+      "parent": "ion channel",
+      "aydi": "deg",
+      "children": [
+        {
+          "name": " ",
+          "parent": "DEG/ENaC",
+          "aydi": "deg",
+          "children": [
+            {
+              "name": "Subgroup 1",
+              "parent": " ",
+              "aydi": "degl1"
+            }
+          ]
+        },
+          {
+          "name": " ",
+          "parent": "DEG/ENaC",
+          "aydi": "deg",
+          "children": [
+            {
+              "name": "Subgroup 2",
+              "parent": " ",
+              "aydi": "degl2"
+            }
+          ]
+        },
+        {
+          "name": " ",
+          "parent": "DEG/ENaC",
+          "aydi": "deg",
+          "children": [
+            {
+              "name": "Subgroup 3 (EGF + ASC domain)",
+              "parent": " ",
+              "aydi": "degl3"
+            }
+          ]
+        },
+        {
+          "name": " ",
+          "parent": "DEG/ENaC",
+          "aydi": "deg",
+          "children": [
+            {
+              "name": " ",
+              "parent": " ",
+              "aydi": "degl4"
+            }
+          ]
+        },
+        {
+          "name": " ",
+          "parent": "DEG/ENaC",
+          "aydi": "deg",
+          "children": [
+            {
+              "name": " ",
+              "parent": " ",
+              "aydi": "degl5"
+            }
+          ]
+        },
+        {
+          "name": " ",
+          "parent": "DEG/ENaC",
+          "aydi": "deg",
+          "children": [
+            {
+              "name": " ",
+              "parent": " ",
+              "aydi": "degl6"
+            }
+          ]
+        },
+        {
+          "name": " ",
+          "parent": "DEG/ENaC",
+          "aydi": "deg",
+          "children": [
+            {
+              "name": " ",
+              "parent": " ",
+              "aydi": "degl7"
+            }
+          ]
+        },
+        {
+          "name": " ",
+          "parent": "DEG/ENaC",
+          "aydi": "deg",
+          "children": [
+            {
+              "name": " ",
+              "parent": " ",
+              "aydi": "degl8"
+            }
+          ]
+        },
+        {
+          "name": " ",
+          "parent": "DEG/ENaC",
+          "aydi": "deg",
+          "children": [
+            {
+              "name": " ",
+              "parent": " ",
+              "aydi": "degl9"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Chloride channel",
+      "parent": "ion channel",
+      "aydi": "chl",
+      "children": [
+        {
+          "name": " ",
+          "parent": "Chloride channel",
+          "aydi": "chl",
+          "children": [
+            {
+              "name": "CLC",
+              "parent": " ",
+              "aydi": "chll1"
+            }
+          ]
+        }
+          ]
+        },
+        {
+      "name": "Cyclic nucleotide gated",
+      "parent": "ion channel",
+      "aydi": "cyc",
+      "children": [
+        {
+          "name": "Cyclic nucleotide gated",
+          "parent": "Cyclic nucleotide gated",
+          "aydi": "cyc",
+          "children": [
+            {
+              "name": "a subunit",
+              "parent": "Cyclic nucleotide gated",
+              "aydi": "cycl1"
+            },
+            {
+              "name": "b subunit",
+              "parent": "Cyclic nucleotide gated",
+              "aydi": "cycl2"
+            },
+            {
+              "name": "a/b",
+              "parent": "Cyclic nucleotide gated",
+              "aydi": "cycl3"
+            }
+          ]
+        }
+          ]
+        },
+        {
+      "name": "Cys-loop LGIC",
+      "parent": "ion channel",
+      "aydi": "cys",
+      "children": [
+        {
+          "name": "Ligand-gated",
+          "parent": "Cys-loop LGIC",
+          "aydi": "cys",
+          "children": [
+            {
+              "name": "nAChR-type",
+              "parent": "Ligand-gated",
+              "aydi": "cysl1"
+            },
+            {
+              "name": "GABA",
+              "parent": "Ligand-gated",
+              "aydi": "cysl2"
+            },
+            {
+              "name": "ACC",
+              "parent": "Ligand-gated",
+              "aydi": "cysl3"
+            },
+            {
+              "name": "Aminergic",
+              "parent": "Ligand-gated",
+              "aydi": "cysl4"
+            },
+            {
+              "name": "GluCl",
+              "parent": "Ligand-gated",
+              "aydi": "cysl5"
+            },
+            {
+              "name": "diverse",
+              "parent": "Ligand-gated",
+              "aydi": "cysl6"
+            }
+          ]
+        }
+          ]
+        },
+        {
+      "name": "Metabotropic neurotransmitter receptors",
+      "parent": "ion channel",
+      "aydi": "meta",
+      "children": [
+        {
+          "name": " ",
+          "parent": "Metabotropic neurotransmitter receptors",
+          "aydi": "meta",
+          "children": [
+            {
+              "name": " ",
+              "parent": " ",
+              "aydi": "metal1"
+            }
+          ]
+        },
+          {
+          "name": " ",
+          "parent": "Metabotropic neurotransmitter receptors",
+          "aydi": "meta",
+          "children": [
+            {
+              "name": " ",
+              "parent": " ",
+              "aydi": "metal2"
+            }
+          ]
+        },
+          {
+          "name": " ",
+          "parent": "Metabotropic neurotransmitter receptors",
+          "aydi": "meta",
+          "children": [
+            {
+              "name": " ",
+              "parent": " ",
+              "aydi": "metal3"
+            }
+          ]
+        },
+          {
+          "name": " ",
+          "parent": "Metabotropic neurotransmitter receptors",
+          "aydi": "meta",
+          "children": [
+            {
+              "name": " ",
+              "parent": " ",
+              "aydi": "metal4"
+            }
+          ]
+        }
+      ]
+    }
+
+ 
+ 
+
+  ]
+}
+]

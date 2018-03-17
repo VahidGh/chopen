@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<head>
+  <!-- Plotly.js -->
+  <!--<script src="https://cdn.plot.ly/plotly-latest.min.js"></script>-->
+    <!--<script src="https://d3js.org/d3.v4.min.js"></script>-->
+    <!--<script src="https://d3js.org/d3.v3.min.js"></script>-->
+    <!--<script src="plt.js"></script>-->
+    <link href="../cellTreestyles2.css" rel="stylesheet" type="text/css"/>
+</head>
+<!--<style>-->
+
+<!--.node circle {-->
+  <!--fill: #999;-->
+<!--}-->
+
+<!--.node text {-->
+  <!--font: 10px sans-serif;-->
+<!--}-->
+
+<!--.node&#45;&#45;internal circle {-->
+  <!--fill: #555;-->
+<!--}-->
+
+<!--.node&#45;&#45;internal text {-->
+  <!--text-shadow: 0 1px 0 #fff, 0 -1px 0 #fff, 1px 0 0 #fff, -1px 0 0 #fff;-->
+<!--}-->
+
+<!--.link {-->
+  <!--fill: none;-->
+  <!--stroke: #555;-->
+  <!--stroke-opacity: 0.4;-->
+  <!--stroke-width: 1.5px;-->
+<!--}-->
+
+<!--</style>-->
+
+<body>
+    <!--<div id="myDiv">&lt;!&ndash; Plotly chart will be drawn inside this DIV &ndash;&gt;</div>-->
+    <script src="//d3js.org/d3.v3.min.js"></script>
+    <script src="../cellTree2.js"></script>
+
+    <!--<svg width="4320" height="4320"></svg>-->
+    <!--<script src="https://d3js.org/d3.v4.min.js"></script>-->
+    <!--<script>-->
+
+        <!--var svg = d3.select("svg"),-->
+            <!--width = +svg.attr("width"),-->
+            <!--height = +svg.attr("height"),-->
+            <!--g = svg.append("g").attr("transform", "translate(" + (width / 2 + 40) + "," + (height / 2 + 90) + ")");-->
+
+        <!--&lt;!&ndash;var stratify = d3.stratify()&ndash;&gt;-->
+            <!--&lt;!&ndash;.parentId(function(d) { return d.id.substring(0, d.id.lastIndexOf(".")); });&ndash;&gt;-->
+
+        <!--var tree = d3.tree()-->
+            <!--.size([2 * Math.PI, 2000])-->
+            <!--.separation(function(a, b) { return (a.parent == b.parent ? 1 : 2) / a.depth; });-->
+
+        <!--&lt;!&ndash;d3.csv("flare.csv", function(error, data) {&ndash;&gt;-->
+        <!--d3.json("../celllineage.json", function(error, data) {-->
+          <!--if (error) throw error;-->
+
+          <!--&lt;!&ndash;var root = tree(stratify(data));&ndash;&gt;-->
+          <!--var root =  tree(d3.hierarchy(data[0]));-->
+
+          <!--var link = g.selectAll(".link")-->
+            <!--.data(root.links())-->
+            <!--.enter().append("path")-->
+              <!--.style("stroke", function(d) { if-->
+                        <!--(d.target.data.data.type == 'neuron') { return "#ff0000"; } else if-->
+                        <!--(d.target.data.data.type == 'sheath') { return "#ff3300"; } else if-->
+                        <!--(d.target.data.data.type == 'socket') { return "#ff9900"; } else if-->
+                        <!--(d.target.data.data.type == 'epithelium') { return "#FF0055"; } else if-->
+                        <!--(d.target.data.data.type == 'muscle') { return "#900C3F"; } else if-->
+                        <!--(d.target.data.data.type == 'other') { return "#00ff00"; } else if-->
+                        <!--(d.target.data.data.type == 'marginal') { return "#00ffff"; } else if-->
+                        <!--(d.target.data.data.type == 'hypoderm') { return "#0099ff"; } else if-->
+                        <!--(d.target.data.data.type == 'repro') { return "#0000ff"; } else if-->
+                        <!--(d.target.data.data.type == 'excretory') { return "#cc00ff"; } else if-->
+                        <!--(d.target.data.data.type == 'rectal') { return "#ff00cc"; } else if-->
+                        <!--(d.target.data.data.type == 'tail') { return "#00ffcc"; } else if-->
+                        <!--(d.target.data.data.type == 'intestine') { return "#FF33F3"; } else if-->
+                        <!--(d.target.data.data.type == 'gland') { return "#3300ff"; } else if-->
+                        <!--(d.target.data.data.type == 'valve') { return "#33ff00"; } else if-->
+                        <!--(d.target.data.data.type == 'coelomocyte') { return "#00ff33"; } else if-->
+                        <!--(d.target.data.data.type == 'mesoderm') { return "#0033ff"; }-->
+                      <!--})-->
+              <!--.attr("class", "link")-->
+              <!--&lt;!&ndash;.attr("d", d3.svg.diagonal.radial()&ndash;&gt;-->
+              <!--.attr("d", d3.linkRadial()-->
+                  <!--.angle(function(d) { return d.x; })-->
+                  <!--.radius(function(d) { return d.y; }));-->
+
+          <!--var node = g.selectAll(".node")-->
+            <!--.data(root.descendants())-->
+            <!--.enter().append("g")-->
+              <!--.attr("class", function(d) { return "node" + (d.children ? " node&#45;&#45;internal" : " node&#45;&#45;leaf"); })-->
+              <!--.attr("transform", function(d) { return "translate(" + radialPoint(d.x, d.y) + ")"; });-->
+
+          <!--node.append("circle")-->
+              <!--.attr("r", 2.5);-->
+              <!--&lt;!&ndash;.attr("id", ad);&ndash;&gt;-->
+
+
+          <!--node.append("text")-->
+              <!--.attr("dy", "0.31em")-->
+              <!--.attr("x", function(d) { return d.x < Math.PI === !d.children ? 6 : -6; })-->
+              <!--.attr("text-anchor", function(d) { return d.x < Math.PI === !d.children ? "start" : "end"; })-->
+              <!--.attr("transform", function(d) { return "rotate(" + (d.x < Math.PI ? d.x - Math.PI / 2 : d.x + Math.PI / 2) * 180 / Math.PI + ")"; })-->
+              <!--.style("fill", function(d) { if-->
+                        <!--(d.data.data.type == 'neuron') { return "#ff0000"; } else if-->
+                        <!--(d.data.data.type == 'sheath') { return "#ff3300"; } else if-->
+                        <!--(d.data.data.type == 'socket') { return "#ff9900"; } else if-->
+                        <!--(d.data.data.type == 'epithelium') { return "#FF0055"; } else if-->
+                        <!--(d.data.data.type == 'muscle') { return "#900C3F"; } else if-->
+                        <!--(d.data.data.type == 'other') { return "#00ff00"; } else if-->
+                        <!--(d.data.data.type == 'marginal') { return "#00ffff"; } else if-->
+                        <!--(d.data.data.type == 'hypoderm') { return "#0099ff"; } else if-->
+                        <!--(d.data.data.type == 'repro') { return "#0000ff"; } else if-->
+                        <!--(d.data.data.type == 'excretory') { return "#cc00ff"; } else if-->
+                        <!--(d.data.data.type == 'rectal') { return "#ff00cc"; } else if-->
+                        <!--(d.data.data.type == 'tail') { return "#00ffcc"; } else if-->
+                        <!--(d.data.data.type == 'intestine') { return "#FF33F3"; } else if-->
+                        <!--(d.data.data.type == 'gland') { return "#3300ff"; } else if-->
+                        <!--(d.data.data.type == 'valve') { return "#33ff00"; } else if-->
+                        <!--(d.data.data.type == 'coelomocyte') { return "#00ff33"; } else if-->
+                        <!--(d.data.data.type == 'mesoderm') { return "#0033ff"; }-->
+                      <!--})-->
+              <!--.text(function(d) { return d.data.name; })-->
+
+        <!--});-->
+
+        <!--function radialPoint(x, y) {-->
+          <!--return [(y = +y) * Math.cos(x -= Math.PI / 2), y * Math.sin(x)];-->
+        <!--}-->
+
+    <!--</script>-->
+</body>

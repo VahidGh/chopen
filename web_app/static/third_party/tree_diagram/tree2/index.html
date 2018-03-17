@@ -1,0 +1,958 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+
+    <title>ion channel</title>
+
+    <style>
+
+	.node circle {
+	  fill: #fff;
+	}
+
+	.node text { font: 12px sans-serif; }
+
+	.link {
+	  fill: none;
+	  stroke: #ccc;
+	  stroke-width: 2px;
+	}
+	
+  body {
+        margin: 0;
+        font-family: sans-serif;
+        font-size: 11px;
+      }
+
+      .axis path, .axis line {
+        fill: none;
+        stroke: black;
+        shape-rendering: crispEdges;  /* Round any decimal pixels so it'll render nicely */
+      }
+
+    #vg {
+      fill: #ff0000;
+    }
+    #vgl1 {
+      fill: #ff0000;
+    }
+    #vgl2 {
+      fill: #ff0000;
+    }
+    #vgl3 {
+      fill: #ff0000;
+    }
+    #vgl4 {
+      fill: #ff0000;
+    }
+    #vgl5 {
+      fill: #ff0000;
+    }
+    #vgl6 {
+      fill: #ff0000;
+    }
+    #vgl7 {
+      fill: #ff0000;
+    }
+    #vgl8 {
+      fill: #ff0000;
+    }
+    #vgl9 {
+      fill: #ff0000;
+    }
+    #vgl10 {
+      fill: #ff0000;
+    }
+    #vgl11 {
+      fill: #ff0000;
+    }
+    #main {
+      fill: #cc00ff;
+    }
+    #vg3 {
+      fill: #ff3300;
+    }
+    #vg3l1 {
+      fill: #ff3300;
+    }
+    #vg3l2 {
+      fill: #ff3300;
+    }
+    #vg3l3 {
+      fill: #ff3300;
+    }
+    #vg3l4 {
+      fill: #ff3300;
+    }
+    #vg3l5 {
+      fill: #ff3300;
+    }
+    #vg3l6 {
+      fill: #ff3300;
+    }
+    #trp {
+      fill: #ff9900;
+    }
+    #trpl1 {
+      fill: #ff9900;
+    }
+    #trpl2 {
+      fill: #ff9900;
+    }
+    #trpl3 {
+      fill: #ff9900;
+    }
+    #trpl4 {
+      fill: #ff9900;
+    }
+    #trpl5 {
+      fill: #ff9900;
+    }
+    #trpl6 {
+      fill: #ff9900;
+    }
+    #trpl7 {
+      fill: #ff9900;
+    }
+    #trpl8 {
+      fill: #ff9900;
+    }
+    #ion {
+      fill: #ffcc00;
+    }
+    #ionl1 {
+      fill: #ffcc00;
+    }
+    #ionl2 {
+      fill: #ffcc00;
+    }
+    #deg {
+      fill: #ffff00;
+    }
+    #degl1 {
+      fill: #ffff00;
+    }
+    #degl2 {
+      fill: #ffff00;
+    }
+    #degl3 {
+      fill: #ffff00;
+    }
+    #degl4 {
+      fill: #ffff00;
+    }
+    #degl5 {
+      fill: #ffff00;
+    }
+    #degl6 {
+      fill: #ffff00;
+    }
+    #degl7 {
+      fill: #ffff00;
+    }
+    #degl8 {
+      fill: #ffff00;
+    }
+    #degl9 {
+      fill: #ffff00;
+    }
+    #chl {
+      fill: #00ff00;
+    }
+    #chll1 {
+      fill: #00ff00;
+    }
+    #cyc {
+      fill: #00ffff;
+    }
+    #cycl1 {
+      fill: #00ffff;
+    }
+    #cycl2 {
+      fill: #00ffff;
+    }
+    #cycl3 {
+      fill: #00ffff;
+    }
+    #cys {
+      fill: #0099ff;
+    }
+    #cysl1 {
+      fill: #0099ff;
+    }
+    #cysl2 {
+      fill: #0099ff;
+    }
+    #cysl3 {
+      fill: #0099ff;
+    }
+    #cysl4 {
+      fill: #0099ff;
+    }
+    #cysl5 {
+      fill: #0099ff;
+    }
+    #cysl6 {
+      fill: #0099ff;
+    }
+    #meta {
+      fill: #0000ff;
+    }
+    #metal1 {
+      fill: #0000ff;
+    }
+    #metal2 {
+      fill: #0000ff;
+    }
+    #metal3 {
+      fill: #0000ff;
+    }
+    #metal4 {
+      fill: #0000ff;
+    }
+    .jumbotron {
+      font-size: 18px;
+    }
+    .card {
+      z-index: 99999;
+      transition-duration: 1.5s;
+    }
+    div {
+      z-index: -1;
+    }
+
+    </style>
+
+  </head>
+
+  <body>
+  <div class="card" id="vgl1c" style="width:400px; display: none;">
+    <img class="card-img-top" src="sample.jpeg" alt="Card image" style="width:100%">
+    <div class="card-body">
+      <h4 class="card-title">Card Title</h4>
+      <p class="card-text">Some example text some example text. Some wise words from people who created OpenWorm.</p>
+      <a href="#" class="btn btn-primary">Click Me!</a>
+    </div>
+  </div>
+
+  <div class="card" id="vgl2c" style="width:400px; display: none;">
+    <img class="card-img-top" src="sample.jpeg" alt="Card image" style="width:100%">
+    <div class="card-body">
+      <h4 class="card-title">Card Title</h4>
+      <p class="card-text">Some example text some example text. Some wise words from people who created OpenWorm.</p>
+      <a href="#" class="btn btn-primary">Click Me!</a>
+    </div>
+  </div>
+
+  <div class="card" id="vgl3c" style="width:400px; display: none;">
+    <img class="card-img-top" src="sample.jpeg" alt="Card image" style="width:100%">
+    <div class="card-body">
+      <h4 class="card-title">Card Title</h4>
+      <p class="card-text">Some example text some example text. Some wise words from people who created OpenWorm.</p>
+      <a href="#" class="btn btn-primary">Click Me!</a>
+    </div>
+  </div>
+
+  <div class="card" id="vgl4c" style="width:400px; display: none;">
+    <img class="card-img-top" src="sample.jpeg" alt="Card image" style="width:100%">
+    <div class="card-body">
+      <h4 class="card-title">Card Title</h4>
+      <p class="card-text">Some example text some example text. Some wise words from people who created OpenWorm.</p>
+      <a href="#" class="btn btn-primary">Click Me!</a>
+    </div>
+  </div>
+
+  <div class="card" id="vgl5c" style="width:400px; display: none;">
+    <img class="card-img-top" src="sample.jpeg" alt="Card image" style="width:100%">
+    <div class="card-body">
+      <h4 class="card-title">Card Title</h4>
+      <p class="card-text">Some example text some example text. Some wise words from people who created OpenWorm.</p>
+      <a href="#" class="btn btn-primary">Click Me!</a>
+    </div>
+  </div>
+
+  <div class="card" id="vgl6c" style="width:400px; display: none;">
+    <img class="card-img-top" src="sample.jpeg" alt="Card image" style="width:100%">
+    <div class="card-body">
+      <h4 class="card-title">Card Title</h4>
+      <p class="card-text">Some example text some example text. Some wise words from people who created OpenWorm.</p>
+      <a href="#" class="btn btn-primary">Click Me!</a>
+    </div>
+  </div>
+
+  <div class="card" id="vgl7c" style="width:400px; display: none;">
+    <img class="card-img-top" src="sample.jpeg" alt="Card image" style="width:100%">
+    <div class="card-body">
+      <h4 class="card-title">Card Title</h4>
+      <p class="card-text">Some example text some example text. Some wise words from people who created OpenWorm.</p>
+      <a href="#" class="btn btn-primary">Click Me!</a>
+    </div>
+  </div>
+
+  <div class="card" id="vgl8c" style="width:400px; display: none;">
+    <img class="card-img-top" src="sample.jpeg" alt="Card image" style="width:100%">
+    <div class="card-body">
+      <h4 class="card-title">Card Title</h4>
+      <p class="card-text">Some example text some example text. Some wise words from people who created OpenWorm.</p>
+      <a href="#" class="btn btn-primary">Click Me!</a>
+    </div>
+  </div>
+
+  <div class="card" id="vgl9c" style="width:400px; display: none;">
+    <img class="card-img-top" src="sample.jpeg" alt="Card image" style="width:100%">
+    <div class="card-body">
+      <h4 class="card-title">Card Title</h4>
+      <p class="card-text">Some example text some example text. Some wise words from people who created OpenWorm.</p>
+      <a href="#" class="btn btn-primary">Click Me!</a>
+    </div>
+  </div>
+
+  <div class="card" id="vgl10c" style="width:400px; display: none;">
+    <img class="card-img-top" src="sample.jpeg" alt="Card image" style="width:100%">
+    <div class="card-body">
+      <h4 class="card-title">Card Title</h4>
+      <p class="card-text">Some example text some example text. Some wise words from people who created OpenWorm.</p>
+      <a href="#" class="btn btn-primary">Click Me!</a>
+    </div>
+  </div>
+
+  <div class="card" id="vgl11c" style="width:400px; display: none;">
+    <img class="card-img-top" src="sample.jpeg" alt="Card image" style="width:100%">
+    <div class="card-body">
+      <h4 class="card-title">Card Title</h4>
+      <p class="card-text">Some example text some example text. Some wise words from people who created OpenWorm.</p>
+      <a href="#" class="btn btn-primary">Click Me!</a>
+    </div>
+  </div>
+
+  <div class="card" id="vg3l1c" style="width:400px; display: none;">
+    <img class="card-img-top" src="sample.jpeg" alt="Card image" style="width:100%">
+    <div class="card-body">
+      <h4 class="card-title">Card Title</h4>
+      <p class="card-text">Some example text some example text. Some wise words from people who created OpenWorm.</p>
+      <a href="#" class="btn btn-primary">Click Me!</a>
+    </div>
+  </div>
+
+  <div class="card" id="vg3l2c" style="width:400px; display: none;">
+    <img class="card-img-top" src="sample.jpeg" alt="Card image" style="width:100%">
+    <div class="card-body">
+      <h4 class="card-title">Card Title</h4>
+      <p class="card-text">Some example text some example text. Some wise words from people who created OpenWorm.</p>
+      <a href="#" class="btn btn-primary">Click Me!</a>
+    </div>
+  </div>
+
+  <div class="card" id="vg3l3c" style="width:400px; display: none;">
+    <img class="card-img-top" src="sample.jpeg" alt="Card image" style="width:100%">
+    <div class="card-body">
+      <h4 class="card-title">Card Title</h4>
+      <p class="card-text">Some example text some example text. Some wise words from people who created OpenWorm.</p>
+      <a href="#" class="btn btn-primary">Click Me!</a>
+    </div>
+  </div>
+
+  <div class="card" id="vg3l4c" style="width:400px; display: none;">
+    <img class="card-img-top" src="sample.jpeg" alt="Card image" style="width:100%">
+    <div class="card-body">
+      <h4 class="card-title">Card Title</h4>
+      <p class="card-text">Some example text some example text. Some wise words from people who created OpenWorm.</p>
+      <a href="#" class="btn btn-primary">Click Me!</a>
+    </div>
+  </div>
+
+  <div class="card" id="vg3l5c" style="width:400px; display: none;">
+    <img class="card-img-top" src="sample.jpeg" alt="Card image" style="width:100%">
+    <div class="card-body">
+      <h4 class="card-title">Card Title</h4>
+      <p class="card-text">Some example text some example text. Some wise words from people who created OpenWorm.</p>
+      <a href="#" class="btn btn-primary">Click Me!</a>
+    </div>
+  </div>
+
+  <div class="card" id="vg3l6c" style="width:400px; display: none;">
+    <img class="card-img-top" src="sample.jpeg" alt="Card image" style="width:100%">
+    <div class="card-body">
+      <h4 class="card-title">Card Title</h4>
+      <p class="card-text">Some example text some example text. Some wise words from people who created OpenWorm.</p>
+      <a href="#" class="btn btn-primary">Click Me!</a>
+    </div>
+  </div>
+
+  <div class="card" id="trpl1c" style="width:400px; display: none;">
+    <img class="card-img-top" src="sample.jpeg" alt="Card image" style="width:100%">
+    <div class="card-body">
+      <h4 class="card-title">Card Title</h4>
+      <p class="card-text">Some example text some example text. Some wise words from people who created OpenWorm.</p>
+      <a href="#" class="btn btn-primary">Click Me!</a>
+    </div>
+  </div>
+
+  <div class="card" id="trpl2c" style="width:400px; display: none;">
+    <img class="card-img-top" src="sample.jpeg" alt="Card image" style="width:100%">
+    <div class="card-body">
+      <h4 class="card-title">Card Title</h4>
+      <p class="card-text">Some example text some example text. Some wise words from people who created OpenWorm.</p>
+      <a href="#" class="btn btn-primary">Click Me!</a>
+    </div>
+  </div>
+
+  <div class="card" id="trpl3c" style="width:400px; display: none;">
+    <img class="card-img-top" src="sample.jpeg" alt="Card image" style="width:100%">
+    <div class="card-body">
+      <h4 class="card-title">Card Title</h4>
+      <p class="card-text">Some example text some example text. Some wise words from people who created OpenWorm.</p>
+      <a href="#" class="btn btn-primary">Click Me!</a>
+    </div>
+  </div>
+
+  <div class="card" id="trpl4c" style="width:400px; display: none;">
+    <img class="card-img-top" src="sample.jpeg" alt="Card image" style="width:100%">
+    <div class="card-body">
+      <h4 class="card-title">Card Title</h4>
+      <p class="card-text">Some example text some example text. Some wise words from people who created OpenWorm.</p>
+      <a href="#" class="btn btn-primary">Click Me!</a>
+    </div>
+  </div>
+
+  <div class="card" id="trpl5c" style="width:400px; display: none;">
+    <img class="card-img-top" src="sample.jpeg" alt="Card image" style="width:100%">
+    <div class="card-body">
+      <h4 class="card-title">Card Title</h4>
+      <p class="card-text">Some example text some example text. Some wise words from people who created OpenWorm.</p>
+      <a href="#" class="btn btn-primary">Click Me!</a>
+    </div>
+  </div>
+
+  <div class="card" id="trpl6c" style="width:400px; display: none;">
+    <img class="card-img-top" src="sample.jpeg" alt="Card image" style="width:100%">
+    <div class="card-body">
+      <h4 class="card-title">Card Title</h4>
+      <p class="card-text">Some example text some example text. Some wise words from people who created OpenWorm.</p>
+      <a href="#" class="btn btn-primary">Click Me!</a>
+    </div>
+  </div>
+
+  <div class="card" id="trpl7c" style="width:400px; display: none;">
+    <img class="card-img-top" src="sample.jpeg" alt="Card image" style="width:100%">
+    <div class="card-body">
+      <h4 class="card-title">Card Title</h4>
+      <p class="card-text">Some example text some example text. Some wise words from people who created OpenWorm.</p>
+      <a href="#" class="btn btn-primary">Click Me!</a>
+    </div>
+  </div>
+
+  <div class="card" id="trpl8c" style="width:400px; display: none;">
+    <img class="card-img-top" src="sample.jpeg" alt="Card image" style="width:100%">
+    <div class="card-body">
+      <h4 class="card-title">Card Title</h4>
+      <p class="card-text">Some example text some example text. Some wise words from people who created OpenWorm.</p>
+      <a href="#" class="btn btn-primary">Click Me!</a>
+    </div>
+  </div>
+
+  <div class="card" id="ionl1c" style="width:400px; display: none;">
+    <img class="card-img-top" src="sample.jpeg" alt="Card image" style="width:100%">
+    <div class="card-body">
+      <h4 class="card-title">Card Title</h4>
+      <p class="card-text">Some example text some example text. Some wise words from people who created OpenWorm.</p>
+      <a href="#" class="btn btn-primary">Click Me!</a>
+    </div>
+  </div>
+
+  <div class="card" id="ionl2c" style="width:400px; display: none;">
+    <img class="card-img-top" src="sample.jpeg" alt="Card image" style="width:100%">
+    <div class="card-body">
+      <h4 class="card-title">Card Title</h4>
+      <p class="card-text">Some example text some example text. Some wise words from people who created OpenWorm.</p>
+      <a href="#" class="btn btn-primary">Click Me!</a>
+    </div>
+  </div>
+
+  <div class="card" id="degl1c" style="width:400px; display: none;">
+    <img class="card-img-top" src="sample.jpeg" alt="Card image" style="width:100%">
+    <div class="card-body">
+      <h4 class="card-title">Card Title</h4>
+      <p class="card-text">Some example text some example text. Some wise words from people who created OpenWorm.</p>
+      <a href="#" class="btn btn-primary">Click Me!</a>
+    </div>
+  </div>
+
+  <div class="card" id="degl2c" style="width:400px; display: none;">
+    <img class="card-img-top" src="sample.jpeg" alt="Card image" style="width:100%">
+    <div class="card-body">
+      <h4 class="card-title">Card Title</h4>
+      <p class="card-text">Some example text some example text. Some wise words from people who created OpenWorm.</p>
+      <a href="#" class="btn btn-primary">Click Me!</a>
+    </div>
+  </div>
+
+  <div class="card" id="degl3c" style="width:400px; display: none;">
+    <img class="card-img-top" src="sample.jpeg" alt="Card image" style="width:100%">
+    <div class="card-body">
+      <h4 class="card-title">Card Title</h4>
+      <p class="card-text">Some example text some example text. Some wise words from people who created OpenWorm.</p>
+      <a href="#" class="btn btn-primary">Click Me!</a>
+    </div>
+  </div>
+
+  <div class="card" id="degl4c" style="width:400px; display: none;">
+    <img class="card-img-top" src="sample.jpeg" alt="Card image" style="width:100%">
+    <div class="card-body">
+      <h4 class="card-title">Card Title</h4>
+      <p class="card-text">Some example text some example text. Some wise words from people who created OpenWorm.</p>
+      <a href="#" class="btn btn-primary">Click Me!</a>
+    </div>
+  </div>
+
+  <div class="card" id="degl5c" style="width:400px; display: none;">
+    <img class="card-img-top" src="sample.jpeg" alt="Card image" style="width:100%">
+    <div class="card-body">
+      <h4 class="card-title">Card Title</h4>
+      <p class="card-text">Some example text some example text. Some wise words from people who created OpenWorm.</p>
+      <a href="#" class="btn btn-primary">Click Me!</a>
+    </div>
+  </div>
+
+  <div class="card" id="degl6c" style="width:400px; display: none;">
+    <img class="card-img-top" src="sample.jpeg" alt="Card image" style="width:100%">
+    <div class="card-body">
+      <h4 class="card-title">Card Title</h4>
+      <p class="card-text">Some example text some example text. Some wise words from people who created OpenWorm.</p>
+      <a href="#" class="btn btn-primary">Click Me!</a>
+    </div>
+  </div>
+
+  <div class="card" id="degl7c" style="width:400px; display: none;">
+    <img class="card-img-top" src="sample.jpeg" alt="Card image" style="width:100%">
+    <div class="card-body">
+      <h4 class="card-title">Card Title</h4>
+      <p class="card-text">Some example text some example text. Some wise words from people who created OpenWorm.</p>
+      <a href="#" class="btn btn-primary">Click Me!</a>
+    </div>
+  </div>
+
+  <div class="card" id="degl8c" style="width:400px; display: none;">
+    <img class="card-img-top" src="sample.jpeg" alt="Card image" style="width:100%">
+    <div class="card-body">
+      <h4 class="card-title">Card Title</h4>
+      <p class="card-text">Some example text some example text. Some wise words from people who created OpenWorm.</p>
+      <a href="#" class="btn btn-primary">Click Me!</a>
+    </div>
+  </div>
+
+  <div class="card" id="degl9c" style="width:400px; display: none;">
+    <img class="card-img-top" src="sample.jpeg" alt="Card image" style="width:100%">
+    <div class="card-body">
+      <h4 class="card-title">Card Title</h4>
+      <p class="card-text">Some example text some example text. Some wise words from people who created OpenWorm.</p>
+      <a href="#" class="btn btn-primary">Click Me!</a>
+    </div>
+  </div>
+
+  <div class="card" id="chll1c" style="width:400px; display: none;">
+    <img class="card-img-top" src="sample.jpeg" alt="Card image" style="width:100%">
+    <div class="card-body">
+      <h4 class="card-title">Card Title</h4>
+      <p class="card-text">Some example text some example text. Some wise words from people who created OpenWorm.</p>
+      <a href="#" class="btn btn-primary">Click Me!</a>
+    </div>
+  </div>
+
+  <div class="card" id="cycl1c" style="width:400px; display: none;">
+    <img class="card-img-top" src="sample.jpeg" alt="Card image" style="width:100%">
+    <div class="card-body">
+      <h4 class="card-title">Card Title</h4>
+      <p class="card-text">Some example text some example text. Some wise words from people who created OpenWorm.</p>
+      <a href="#" class="btn btn-primary">Click Me!</a>
+    </div>
+  </div>
+
+  <div class="card" id="cycl2c" style="width:400px; display: none;">
+    <img class="card-img-top" src="sample.jpeg" alt="Card image" style="width:100%">
+    <div class="card-body">
+      <h4 class="card-title">Card Title</h4>
+      <p class="card-text">Some example text some example text. Some wise words from people who created OpenWorm.</p>
+      <a href="#" class="btn btn-primary">Click Me!</a>
+    </div>
+  </div>
+
+  <div class="card" id="cycl3c" style="width:400px; display: none;">
+    <img class="card-img-top" src="sample.jpeg" alt="Card image" style="width:100%">
+    <div class="card-body">
+      <h4 class="card-title">Card Title</h4>
+      <p class="card-text">Some example text some example text. Some wise words from people who created OpenWorm.</p>
+      <a href="#" class="btn btn-primary">Click Me!</a>
+    </div>
+  </div>
+
+  <div class="card" id="cysl1c" style="width:400px; display: none;">
+    <img class="card-img-top" src="sample.jpeg" alt="Card image" style="width:100%">
+    <div class="card-body">
+      <h4 class="card-title">Card Title</h4>
+      <p class="card-text">Some example text some example text. Some wise words from people who created OpenWorm.</p>
+      <a href="#" class="btn btn-primary">Click Me!</a>
+    </div>
+  </div>
+
+  <div class="card" id="cysl2c" style="width:400px; display: none;">
+    <img class="card-img-top" src="sample.jpeg" alt="Card image" style="width:100%">
+    <div class="card-body">
+      <h4 class="card-title">Card Title</h4>
+      <p class="card-text">Some example text some example text. Some wise words from people who created OpenWorm.</p>
+      <a href="#" class="btn btn-primary">Click Me!</a>
+    </div>
+  </div>
+
+  <div class="card" id="cysl3c" style="width:400px; display: none;">
+    <img class="card-img-top" src="sample.jpeg" alt="Card image" style="width:100%">
+    <div class="card-body">
+      <h4 class="card-title">Card Title</h4>
+      <p class="card-text">Some example text some example text. Some wise words from people who created OpenWorm.</p>
+      <a href="#" class="btn btn-primary">Click Me!</a>
+    </div>
+  </div>
+
+  <div class="card" id="cysl4c" style="width:400px; display: none;">
+    <img class="card-img-top" src="sample.jpeg" alt="Card image" style="width:100%">
+    <div class="card-body">
+      <h4 class="card-title">Card Title</h4>
+      <p class="card-text">Some example text some example text. Some wise words from people who created OpenWorm.</p>
+      <a href="#" class="btn btn-primary">Click Me!</a>
+    </div>
+  </div>
+
+  <div class="card" id="cysl5c" style="width:400px; display: none;">
+    <img class="card-img-top" src="sample.jpeg" alt="Card image" style="width:100%">
+    <div class="card-body">
+      <h4 class="card-title">Card Title</h4>
+      <p class="card-text">Some example text some example text. Some wise words from people who created OpenWorm.</p>
+      <a href="#" class="btn btn-primary">Click Me!</a>
+    </div>
+  </div>
+
+  <div class="card" id="cysl6c" style="width:400px; display: none;">
+    <img class="card-img-top" src="sample.jpeg" alt="Card image" style="width:100%">
+    <div class="card-body">
+      <h4 class="card-title">Card Title</h4>
+      <p class="card-text">Some example text some example text. Some wise words from people who created OpenWorm.</p>
+      <a href="#" class="btn btn-primary">Click Me!</a>
+    </div>
+  </div>
+
+  <div class="card" id="metal1c" style="width:400px; display: none;">
+    <img class="card-img-top" src="sample.jpeg" alt="Card image" style="width:100%">
+    <div class="card-body">
+      <h4 class="card-title">Card Title</h4>
+      <p class="card-text">Some example text some example text. Some wise words from people who created OpenWorm.</p>
+      <a href="#" class="btn btn-primary">Click Me!</a>
+    </div>
+  </div>
+
+  <div class="card" id="metal2c" style="width:400px; display: none;">
+    <img class="card-img-top" src="sample.jpeg" alt="Card image" style="width:100%">
+    <div class="card-body">
+      <h4 class="card-title">Card Title</h4>
+      <p class="card-text">Some example text some example text. Some wise words from people who created OpenWorm.</p>
+      <a href="#" class="btn btn-primary">Click Me!</a>
+    </div>
+  </div>
+
+  <div class="card" id="metal3c" style="width:400px; display: none;">
+    <img class="card-img-top" src="sample.jpeg" alt="Card image" style="width:100%">
+    <div class="card-body">
+      <h4 class="card-title">Card Title</h4>
+      <p class="card-text">Some example text some example text. Some wise words from people who created OpenWorm.</p>
+      <a href="#" class="btn btn-primary">Click Me!</a>
+    </div>
+  </div>
+
+  <div class="card" id="metal4c" style="width:400px; display: none;">
+    <img class="card-img-top" src="sample.jpeg" alt="Card image" style="width:100%">
+    <div class="card-body">
+      <h4 class="card-title">Card Title</h4>
+      <p class="card-text">Some example text some example text. Some wise words from people who created OpenWorm.</p>
+      <a href="#" class="btn btn-primary">Click Me!</a>
+    </div>
+  </div>
+
+
+  <div class="jumbotron" style="display: none" id="vgl1d">
+    <p>Some description here. Anything can be added here1.</p>
+  </div>
+  <div class="jumbotron" style="display: none" id="vgl2d">
+    <p>Some description here. Anything can be added here2.</p>
+  </div>
+  <div class="jumbotron" style="display: none" id="vgl3d">
+    <p>Some description here. Anything can be added here3.</p>
+  </div>
+  <div class="jumbotron" style="display: none" id="vgl4d">
+    <p>Some description here. Anything can be added here4.</p>
+  </div>
+  <div class="jumbotron" style="display: none" id="vgl5d">
+    <p>Some description here. Anything can be added here5.</p>
+  </div>
+  <div class="jumbotron" style="display: none" id="vgl66d">
+    <p>Some description here. Anything can be added here6.</p>
+  </div>
+  <div class="jumbotron" style="display: none" id="vgl7d">
+    <p>Some description here. Anything can be added here7.</p>
+  </div>
+  <div class="jumbotron" style="display: none" id="vgl8d">
+    <p>Some description here. Anything can be added here8.</p>
+  </div>
+  <div class="jumbotron" style="display: none" id="vgl9d">
+    <p>Some description here. Anything can be added here9.</p>
+  </div>
+  <div class="jumbotron" style="display: none" id="vgl10d">
+    <p>Some description here. Anything can be added here10.</p>
+  </div>
+  <div class="jumbotron" style="display: none" id="vgl11d">
+    <p>Some description here. Anything can be added here11.</p>
+  </div>
+  <div class="jumbotron" style="display: none" id="vg3l1d">
+    <p>Some description here. Anything can be added here12.</p>
+  </div>
+  <div class="jumbotron" style="display: none" id="vg3l2d">
+    <p>Some description here. Anything can be added here13.</p>
+  </div>
+  <div class="jumbotron" style="display: none" id="vg3l3d">
+    <p>Some description here. Anything can be added here14.</p>
+  </div>
+  <div class="jumbotron" style="display: none" id="vg3l4d">
+    <p>Some description here. Anything can be added here15.</p>
+  </div>
+  <div class="jumbotron" style="display: none" id="vg3l5d">
+    <p>Some description here. Anything can be added here16.</p>
+  </div>
+  <div class="jumbotron" style="display: none" id="vg3l6d">
+    <p>Some description here. Anything can be added here17.</p>
+  </div>
+  <div class="jumbotron" style="display: none" id="trpl1d">
+    <p>Some description here. Anything can be added here18.</p>
+  </div>
+  <div class="jumbotron" style="display: none" id="trpl2d">
+    <p>Some description here. Anything can be added here19.</p>
+  </div>
+  <div class="jumbotron" style="display: none" id="trpl3d">
+    <p>Some description here. Anything can be added here20.</p>
+  </div>
+  <div class="jumbotron" style="display: none" id="trpl4d">
+    <p>Some description here. Anything can be added here.</p>
+  </div>
+  <div class="jumbotron" style="display: none" id="trpl5d">
+    <p>Some description here. Anything can be added here.</p>
+  </div>
+  <div class="jumbotron" style="display: none" id="trpl6d">
+    <p>Some description here. Anything can be added here.</p>
+  </div>
+  <div class="jumbotron" style="display: none" id="trpl7d">
+    <p>Some description here. Anything can be added here.</p>
+  </div>
+  <div class="jumbotron" style="display: none" id="trpl8d">
+    <p>Some description here. Anything can be added here.</p>
+  </div>
+  <div class="jumbotron" style="display: none" id="ionl1d">
+    <p>Some description here. Anything can be added here.</p>
+  </div>
+  <div class="jumbotron" style="display: none" id="ionl2d">
+    <p>Some description here. Anything can be added here.</p>
+  </div>
+  <div class="jumbotron" style="display: none" id="degl1d">
+    <p>Some description here. Anything can be added here.</p>
+  </div>
+  <div class="jumbotron" style="display: none" id="degl2d">
+    <p>Some description here. Anything can be added here.</p>
+  </div>
+  <div class="jumbotron" style="display: none" id="degl3d">
+    <p>Some description here. Anything can be added here.</p>
+  </div>
+  <div class="jumbotron" style="display: none" id="degl4d">
+    <p>Some description here. Anything can be added here.</p>
+  </div>
+  <div class="jumbotron" style="display: none" id="degl5d">
+    <p>Some description here. Anything can be added here.</p>
+  </div>
+  <div class="jumbotron" style="display: none" id="degl6d">
+    <p>Some description here. Anything can be added here.</p>
+  </div>
+  <div class="jumbotron" style="display: none" id="degl7d">
+    <p>Some description here. Anything can be added here.</p>
+  </div>
+  <div class="jumbotron" style="display: none" id="degl8d">
+    <p>Some description here. Anything can be added here.</p>
+  </div>
+  <div class="jumbotron" style="display: none" id="degl9d">
+    <p>Some description here. Anything can be added here.</p>
+  </div>
+  <div class="jumbotron" style="display: none" id="chll1d">
+    <p>Some description here. Anything can be added here.</p>
+  </div>
+  <div class="jumbotron" style="display: none" id="cycl1d">
+    <p>Some description here. Anything can be added here.</p>
+  </div>
+  <div class="jumbotron" style="display: none" id="cycl2d">
+    <p>Some description here. Anything can be added here.</p>
+  </div>
+  <div class="jumbotron" style="display: none" id="cycl3d">
+    <p>Some description here. Anything can be added here.</p>
+  </div>
+  <div class="jumbotron" style="display: none" id="cysl1d">
+    <p>Some description here. Anything can be added here.</p>
+  </div>
+  <div class="jumbotron" style="display: none" id="cysl2d">
+    <p>Some description here. Anything can be added here.</p>
+  </div>
+  <div class="jumbotron" style="display: none" id="cysl3d">
+    <p>Some description here. Anything can be added here.</p>
+  </div>
+  <div class="jumbotron" style="display: none" id="cysl4d">
+    <p>Some description here. Anything can be added here.</p>
+  </div>
+  <div class="jumbotron" style="display: none" id="cysl5d">
+    <p>Some description here. Anything can be added here.</p>
+  </div>
+  <div class="jumbotron" style="display: none" id="cysl6d">
+    <p>Some description here. Anything can be added here.</p>
+  </div>
+  <div class="jumbotron" style="display: none" id="metal1d">
+    <p>Some description here. Anything can be added here.</p>
+  </div>
+  <div class="jumbotron" style="display: none" id="metal2d">
+    <p>Some description here. Anything can be added here.</p>
+  </div>
+  <div class="jumbotron" style="display: none" id="metal3d">
+    <p>Some description here. Anything can be added here.</p>
+  </div>
+  <div class="jumbotron" style="display: none" id="metal4d">
+    <p>Some description here. Anything can be added here.</p>
+  </div>
+
+
+<!-- load the d3.js library -->	
+<script src="http://d3js.org/d3.v3.min.js"></script>
+	
+<script>
+
+
+	
+var i = 0;
+
+var diameter = 1560;
+var padding = 210;
+
+var tree = d3.layout.tree()
+    .size([80, diameter / 2 - padding])
+    .separation(function(a, b) { return (a.parent == b.parent ? 1 : 2) / a.depth; });
+
+var diagonal = d3.svg.diagonal.radial()
+    .projection(function(d) { return [d.y, d.x / 180 * Math.PI]; });
+
+var svg = d3.select("body").append("svg")
+    .attr("width", diameter)
+    .attr("height", diameter)
+  .append("g")
+    .attr("transform", "translate(" + diameter / 7 + "," + diameter / 1.3 + ")");
+
+d3.selection.prototype.moveToFront = function() {
+  return this.each(function() {
+    this.parentNode.appendChild(this);
+  });
+};
+
+// load the external data
+d3.json("treeData.json", function(error, treeData) {
+  root = treeData[0];
+  var ad = function(d) { return d.aydi; };
+  update(root);
+});
+
+function update(source) {
+
+  // Compute the new tree layout.
+  var nodes = tree.nodes(root).reverse(),
+    links = tree.links(nodes);
+
+
+  // Normalize for fixed-depth.
+  nodes.forEach(function(d) { d.y = d.depth * 300; });
+
+  // Declare the nodes…
+  var node = svg.selectAll("g.node")
+    .data(nodes, function(d) { return d.id || (d.id = ++i); });
+
+  // Enter the nodes.
+  var nodeEnter = node.enter().append("g")
+    .attr("class", "node")
+    .attr("transform", function(d) { return "rotate(" + (d.x - 90) + ")translate(" + d.y + ")"; })
+
+    var ad = function(d) { return d.aydi; };
+
+  nodeEnter.append("circle")
+    .attr("r", 7)
+    .attr("id", ad)
+    .attr("onclick", 'handleClick(this.id)')
+    .attr("onmouseover", 'handleMouseOver(this.id)')
+    .attr("onmouseout", 'handleMouseOut(this.id)')
+    
+  nodeEnter.append("text")
+    .attr("x", function(d) { 
+      return d.children || d._children ? -13 : 13; })
+    .attr("dy", ".35em")
+    .attr("text-anchor", function(d) { return d.x < 180 ? "start" : "end"; })
+    .attr("transform", function(d) { return d.x < 180 ? "translate(30)" : "rotate(180)translate(-30)"; })
+    .text(function(d) { return d.name; })
+    .style("fill-opacity", 1);
+
+
+  // Declare the links…
+  var link = svg.selectAll("path.link")
+    .data(links, function(d) { return d.target.id; });
+
+
+  // Enter the links.
+  link.enter().insert("path", "g")
+    .attr("class", "link")
+    .attr("d", diagonal);
+
+}
+function handleClick(aydii) {
+  var ch = document.getElementsByClassName("jumbotron");
+  for (var c = 0; c < ch.length; c++) {
+    if (ch[c].style.display == "block") {
+      ch[c].style.display = "none";
+    }
+    else {
+      document.getElementById(aydii + "d").style.display = "block";
+    }
+  }
+
+}
+function handleMouseOver(aydii) {
+  var el = document.getElementById(aydii);
+  var rec = el.getBoundingClientRect();
+  document.getElementById(aydii + "c").style.display = "block";
+  var to = rec.top;
+  var le = rec.left / 2;
+  var ri = rec.right / 2;
+  var bo = rec.bottom;
+  document.getElementById(aydii + "c").style.left = le + "px";
+  document.getElementById(aydii + "c").style.right = ri + "px";
+  document.getElementById(aydii + "c").style.top = to + "px";
+  document.getElementById(aydii + "c").style.top = bo + "px";
+}
+function handleMouseOut(aydii) {
+  document.getElementById(aydii + "c").style.display = "none";
+}
+d3.select(self.frameElement).style("height", diameter + "px");
+</script>
+
+  </body>
+</html>
