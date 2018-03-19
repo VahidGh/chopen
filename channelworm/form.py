@@ -1,6 +1,13 @@
 from django.forms import ModelForm
 from django import forms
 # from models import Experiment, Reference
+from .models import IonChannelGene
+
+
+class IonChannelGeneForm(ModelForm):
+    class Meta:
+        model = IonChannelGene
+        exclude = ('username','create_date', 'last_update')
 
 
 # class GraphForm(ModelForm):

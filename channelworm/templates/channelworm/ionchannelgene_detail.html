@@ -5,8 +5,8 @@
 {% block page_title %}{% trans 'Ion Channel Detail' %}{% endblock %}
 {% block page_header %}{% trans 'Ion Channel Detail' %}{% endblock %}
 {% block breadcrumb %}
-    <li><a href="{% url 'ion_channel:home' %}"><i class="fa fa-home"></i> {% trans 'Home' %}</a></li>
-    <li><a href="{% url 'ion_channel:ion-channel-index' %}">{% trans 'Ion Channels' %}</a></li>
+    <li><a href="{% url 'channelworm:index' %}"><i class="fa fa-home"></i> {% trans 'Home' %}</a></li>
+    <li><a href="{% url 'channelworm:ion-channel-gene-index' %}">{% trans 'Ion Channels' %}</a></li>
     <li class="active">{% trans 'Detail' %}</li>
 {% endblock %}
 
@@ -15,10 +15,7 @@
     {% if field.value != None %}
     <div class="box box-default">
         <div class="box-header with-border">
-            <h4 class="box-title">{{ field.label_tag }}</h4>
-            <div class="box-tools pull-right">
-                <button class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
-            </div><!-- /.box-tools -->
+            <h4 class="box-title"><b>{{ field.label_tag }}</b></h4>
         </div>
         <div class="box-body">
             {{ field.value }}
@@ -26,30 +23,29 @@
     </div>
     {% endif %}
 {% endfor %}
-<h3 class="box-title">{% trans 'Proteins' %}</h3>
+<br>
+<h3 class="box-title"><b>{% trans 'Proteins' %}</b></h3>
 {% for protein in proteins%}
+<br>
     <div class="box box-default">
         <div class="box-header with-border">
-            <h2 class="box-title">
+            <h4 class="box-title">
                 <a href="https://www.wormbase.org/species/c_elegans/protein/{{ protein.wb_ID }}">
                                     {{ protein.name }}</a>
-            </h2>
-            <div class="box-tools pull-right">
-                <button class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
-            </div><!-- /.box-tools -->
+            </h4>
         </div>
         <div class="box-header with-border">
-            <h2 class="box-title">
-                {% trans 'GI number:' %}
-            </h2>
+            <h4 class="box-title">
+                <b>{% trans 'GI number:' %}</b>
+            </h4>
         </div>
         <div class="box-body">
             <a href="http://www.ncbi.nlm.nih.gov/protein/{{ protein.gi }}">{{ protein.gi }}</a>
         </div>
         <div class="box-header with-border">
-            <h2 class="box-title">
-                {% trans 'Sequence in FASTA:' %}
-            </h2>
+            <h4 class="box-title">
+                <b>{% trans 'Sequence in FASTA:' %}</b>
+            </h4>
         </div>
         <div class="box-body">
             <pre>{{ protein.fasta }}</pre>

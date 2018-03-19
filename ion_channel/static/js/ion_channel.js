@@ -4,6 +4,7 @@ chopen.ion_channel = (function () {
     var url = {
         ionChannelCreateURL: '',
         ionChannelUpdateURL: '',
+        ionChannelDetailURL: '',
         referenceIndex: '',
         referenceCreate: '',
         referenceCreateAuto: '',
@@ -17,11 +18,19 @@ chopen.ion_channel = (function () {
         IonChannelModelIndex: '',
         IonChannelModelCreate: '',
         IonChannelModelUpdate: '',
+        IonChannelGeneIndex: '',
+        IonChannelGeneCreate: '',
+        IonChannelGeneUpdate: '',
     };
 
     function init(config) {
         url.ionChannelCreateURL = config.url.ionChannelCreateURL;
         url.ionChannelUpdateURL = config.url.ionChannelUpdateURL;
+        url.ionChannelDetailURL = config.url.ionChannelDetailURL;
+
+        url.ionChannelGeneIndex = config.url.ionChannelGeneIndex;
+        url.ionChannelGeneCreate = config.url.ionChannelGeneCreate;
+        url.ionChannelGeneUpdate = config.url.ionChannelGeneUpdate;
 
         url.referenceIndex = config.url.referenceIndex;
         url.referenceCreate = config.url.referenceCreate;
@@ -41,6 +50,7 @@ chopen.ion_channel = (function () {
         url.IonChannelModelUpdate = config.url.IonChannelModelUpdate;
 
         $("#ion_channel_form").load(url.ionChannelCreateURL);
+        $("#ion_channel_detail").load(url.ionChannelDetailURL);
     }
 
     function loadReference() {
@@ -83,6 +93,30 @@ chopen.ion_channel = (function () {
                     var lastSlashIndex = ionChannelUpdateURL.lastIndexOf("/");
                     var updateURL = ionChannelUpdateURL.substring(0, lastSlashIndex) + "/" + ionChannelId;
                     $("#ion_channel_form_wrapper").load(updateURL);
+                    $('#loading').css("display", "none");
+
+                    $("#reference").load(url.referenceCreate);
+                    $("#patch_clamp").load(url.patchClampCreate);
+                    loadGraph();
+                }
+            }
+        });
+
+        return false;
+    }
+
+    function saveIonChannelGene() {
+        var ionChannelGeneUpdate = url.ionChannelGeneUpdate;
+
+        chopen.ajax.submit({
+            form: 'frm_ion_channel_gene',
+            loadingMask: 'loading',
+            success: function (response) {
+                if (response.status == 'success') {
+                    ionChannelId = response.pk;
+                    var lastSlashIndex = ionChannelUpdateURL.lastIndexOf("/");
+                    var updateURL = ionChannelUpdateURL.substring(0, lastSlashIndex) + "/" + ionChannelId;
+                    $("#ion_channel_gene_form_wrapper").load(updateURL);
                     $('#loading').css("display", "none");
 
                     $("#reference").load(url.referenceCreate);

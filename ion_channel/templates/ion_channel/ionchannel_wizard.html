@@ -42,10 +42,26 @@
         </ul>
         <div>
             <div id="ptab1">
-
-                <h3>Add new ion channel</h3>
-
-                <div id="ion_channel_form" class="form-group"></div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="box">
+                            <div class="box-header with-border">
+                                <h4 class="box-title"><b>{% trans 'Add new ion channel' %}</b></h4>
+                                <br>
+                            </div>
+                            <div id="ion_channel_form" class="form-group"></div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="box box-solid">
+                            <div class="box-header with-border">
+                                <h4 class="box-title"><b>{% trans 'Ion channel sample form' %}</b></h4>
+                                <br>
+                            </div>
+                            <div id="ion_channel_detail" class="box-body"></div>
+                        </div>
+                    </div>
+                </div>
 
                 <div class="line"></div>
 
@@ -58,7 +74,7 @@
                    class="button" title="{% trans 'Add Reference Using Auto-Search' %}">
                     {% trans 'Using Auto-Search' %}
                 </a>
-                <button class="button" data-widget="collapse">
+                <button class="button">
                     {% trans 'Manually' %}
                 </button>
                 <div id="reference" class="form-group row"></div>
@@ -165,13 +181,23 @@
     <!--</div>-->
 {% endblock %}
 
+{% block inline-css %}
+    <link href="{% static 'third_party/select2/css/select2.min.css' %}" rel="stylesheet" type="text/css"/>
+{% endblock %}
+
 {% block inline-script %}
-    <script src="{% static 'js/ion_channel.js' %}"></script>
+<script src="{% static 'third_party/select2/js/select2.min.js' %}"></script>
+<script src="{% static 'js/ion_channel.js' %}"></script>
     <script type="text/javascript">
         chopen.ion_channel.init({
             url: {
+                ionChannelGeneIndex: '{% url 'channelworm:ion-channel-gene-index' %}',
+                ionChannelGeneCreate: '{% url 'channelworm:ion-channel-gene-create' %}',
+                ionChannelGeneUpdate: '{% url 'channelworm:ion-channel-gene-update' 0 %}',
+
                 ionChannelCreateURL: '{% url 'ion_channel:ion-channel-create' %}',
                 ionChannelUpdateURL: '{% url 'ion_channel:ion-channel-update' 0 %}',
+                ionChannelDetailURL: '{% url 'ion_channel:ion-channel-detail-ajax' 1 %}',
 
                 patchClampIndex: '{% url 'ion_channel:patch-clamp-index' %}',
                 patchClampCreate: '{% url 'ion_channel:patch-clamp-create' %}',
