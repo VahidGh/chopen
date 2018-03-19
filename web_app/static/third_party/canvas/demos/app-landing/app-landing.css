@@ -92,6 +92,54 @@
 
 #slider .emphasis-title h1 { font-size: 48px; }
 
+
+#css3-spinner-svg-pulse-wrapper {
+	position: absolute;
+	overflow: hidden;
+	width: 260px;
+	height: 210px;
+	top: 50%;
+	left: 50%;
+	margin-top: -105px;
+	margin-left: -130px;
+	background-color: transparent;
+	animation: none;
+	-webkit-animation: none;
+}
+
+#css3-spinner-svg-pulse {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	margin-top: -105px;
+	margin-left: -275px;
+}
+
+#css3-spinner-pulse {
+	stroke-dasharray: 281;
+	-webkit-animation: dash 5s infinite linear forwards;
+}
+
+/*Animation*/
+@-webkit-keyframes dash {
+	from {
+		stroke-dashoffset:814;
+	}
+
+	to {
+		stroke-dashoffset:-814;
+	}
+}
+
+@keyframes dash {
+	from {
+		stroke-dashoffset:814;
+	}
+
+	to {
+		stroke-dashoffset:-814;
+	}
+}
 .hero-action-link {
 	margin-left: 30px;
 	color: #DDD;

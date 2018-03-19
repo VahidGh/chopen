@@ -2,6 +2,7 @@ from django.db import models
 from django.contrib.auth.models import User
 from django.core.exceptions import ValidationError
 from django.utils.translation import ugettext_lazy as _
+from channelworm.models import IonChannelGene
 
 
 Cell_Type_CHOICES = (
@@ -20,7 +21,7 @@ class Cell(models.Model):
     specific_capacitance = models.FloatField(default=0.01,blank=True, null=True,verbose_name='Specific capacitance of the membrane (F/m2)')
     area = models.FloatField(default=2e-5, blank=True, null=True,verbose_name='Total area of the cell (m2)')
 
-    def __unicode__(self):
+    def __str__(self):
         return self.cell_type
 
 Method_CHOICES = (
@@ -50,7 +51,7 @@ class PatchClamp(models.Model):
     extra_solution = models.TextField(blank=True, null=True, verbose_name='Extracellular Solution (e.g. 140e-3 NaCl, 5e-3 KCl,...)')
     pipette_solution = models.TextField(blank=True, null=True, verbose_name='Pipette Solution (e.g. 120e-3 KCl, 20e-3 KOH,...)')
 
-    def __unicode__(self):
+    def __str__(self):
         return repr(self.cell) + ", " + str(self.method) + ", " + str(self.temperature) + " (C), " + "Holding Potential: " + \
                str(self.holding_potential) + " (mV), From: " + str(self.voltage_start) + ", To: " + str(self.voltage_end) + \
                ", Duration: "+str(self.duration) + " (ms), From: " + str(self.start_time) + ", To: " + str(self.end_time) + \
@@ -83,7 +84,7 @@ class Reference(models.Model):
     subject = models.CharField(max_length=300,choices=Reference_Type_CHOICES,default='Electrophysiology')
     file_url = models.URLField(blank=True, null=True)
 
-    def __unicode__(self):
+    def __str__(self):
         return self.PMID + ", " + self.citation + ", " + self.year
 
     def clean(self):
@@ -167,6 +168,8 @@ class IonChannel(models.Model):
     gene_symbol = models.CharField(null=True, max_length=300)
     isoform = models.CharField(blank=True, null=True, max_length=20)
     animal = models.CharField(blank=True, null=True, max_length=200,choices=ANIMAL_CHOICES)
+    channelworm_gene = models.ForeignKey(IonChannelGene, on_delete=models.CASCADE, blank=True, null=True,
+                                         help_text="Select an availale gene from ChannelWorm dataset if this is a C. elegans ion channel.")
     channel_type = models.CharField(blank=True, null=True, max_length=300,choices=Channel_Type_CHOICES)
     class_symbol = models.CharField(blank=True, null=True, max_length=300)
     subfamily = models.CharField(blank=True, null=True, max_length=20)
@@ -186,8 +189,8 @@ class IonChannel(models.Model):
     references = models.ManyToManyField(Reference, blank=True)
     links = models.TextField(blank=True, null=True)
 
-    def __unicode__(self):
-        return self.channel_name
+    def __str__(self):
+        return self.channel_name + ', ' + self.channel_type + ', ' + self.full_name
 
 
 Axis_Type_CHOICES = (
@@ -229,7 +232,7 @@ class Graph(models.Model):
     # interpolated_plot_file = models.FileField(blank=True, null=True, upload_to='ion_channel/plots')
     comments = models.TextField(blank=True, null=True)
 
-    def __unicode__(self):
+    def __str__(self):
         return str(self.y_axis_type) + "-" + str(self.x_axis_type) + " relationship of " + repr(self.ion_channel) + ". From: Fig. " + \
                    str(self.figure_ref_address) + ", " + self.reference.citation + ", " + self.reference.year
 
@@ -240,7 +243,7 @@ class GraphData(models.Model):
     series_data = models.TextField()
     # interpolated_data = models.TextField(blank=True, null=True)
 
-    def __unicode__(self):
+    def __str__(self):
         return self.series_name
 
     def asarray(self):
@@ -282,5 +285,5 @@ class IonChannelModel(models.Model):
     neuron_file = models.FilePathField(blank=True, null=True)
     references = models.ManyToManyField(Reference)
 
-    def __unicode__(self):
+    def __str__(self):
         return repr(self.channel_name)

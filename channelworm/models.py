@@ -1,6 +1,5 @@
 from django.db import models
 from django.contrib.auth.models import User
-from ion_channel.models import IonChannel
 
 
 Channel_Type_CHOICES = (
@@ -64,11 +63,10 @@ class IonChannelGene(models.Model):
     expression_pattern = models.TextField(blank=True, null=True)
     expression_evidences = models.TextField(blank=True, null=True,verbose_name='PMID for expression evidence')
     last_update = models.DateTimeField(auto_now=True, null=True)
-    ion_channel = models.ForeignKey(IonChannel, on_delete=models.CASCADE, blank=True, null=True)
     username = models.ForeignKey(User, verbose_name='Contributor', on_delete=models.CASCADE, default='1')
 
-    def __unicode__(self):
-        return self.channel_name
+    def __str__(self):
+        return self.channel_name + ', ' + self.channel_type + ', ' + self.channel_subtype
 
 
 class Protein(models.Model):
@@ -84,5 +82,5 @@ class Protein(models.Model):
     structure = models.TextField(blank=True, null=True)
     structure_image = models.ImageField(blank=True, null=True, upload_to='ion_channel/structures/')
 
-    def __unicode__(self):
+    def __str__(self):
         return self.name

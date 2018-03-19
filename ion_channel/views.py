@@ -7,11 +7,12 @@ from django.shortcuts import render, get_object_or_404, redirect
 from formtools.wizard.views import SessionWizardView
 from datetime import datetime
 from django.conf import settings
-from django.views.generic import ListView, CreateView, UpdateView, DeleteView
+from django.views.generic import ListView, CreateView, UpdateView, DeleteView, DetailView
 import sys
-from web_app.views import AjaxMixinListView, AjaxMixinCreateView, AjaxMixinUpdateView, AjaxMixinDeleteView
+from web_app.views import AjaxMixinListView, AjaxMixinCreateView, AjaxMixinUpdateView, AjaxMixinDeleteView, AjaxResponseMixin
 from .models import *
 from .form import *
+from channelworm.models import *
 # from fitter import initiators
 
 
@@ -135,6 +136,12 @@ class IonChannelDetail(AjaxMixinUpdateView, UpdateView):
         context['graphs'] = Graph.objects.filter(ion_channel_id=int(self.kwargs['pk']))
         context['patch_clamps'] = PatchClamp.objects.filter(id__in=[graph.id for graph in context['graphs']])
         return context
+
+
+class IonChannelDetailAjax(AjaxMixinUpdateView, UpdateView):
+    template_name = 'ion_channel/ionchannel_detail_ajax.html'
+    model = IonChannel
+    fields = '__all__'
 
 
 class IonChannelCreate(AjaxMixinCreateView, CreateView):

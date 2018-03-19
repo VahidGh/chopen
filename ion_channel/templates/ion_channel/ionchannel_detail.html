@@ -96,6 +96,14 @@
                                 <i class="fa fa-file-text-o"></i>
                                 {% trans 'View Series' %}
                             </a>
+                            <a href="{% url 'api:graph-data-index-api' graph.id %}" class="badge bg-yellow">
+                                <i class="fa fa-file-text-o"></i>
+                                {% trans 'REST API' %}
+                            </a>
+                            <a href="{% url 'api:graph-data-index-api' graph.id %}?format=json" class="badge bg-yellow">
+                                <i class="fa fa-file-text-o"></i>
+                                {% trans 'Download JSON' %}
+                            </a>
                         </p></dd>
                     </dl>
                 </div>

@@ -39,6 +39,7 @@ urlpatterns = [
     url(r'^graph/list/$', GraphListAPI.as_view(), name="graph-list-api"),
     url(r'^graph/details/(?P<pk>[0-9]+)/$', GraphDetailsAPI.as_view(), name="graph-details-api"),
 
+    url(r'^graph_data/(?P<pk>[0-9]+)$', GraphDataSeriesAPI.as_view(), name='graph-data-index-api'),
     url(r'^graph_data/create/$', login_required(GraphDataCreateAPI.as_view()), name="graph-data-create-api"),
     url(r'^graph_data/list/$', GraphDataListAPI.as_view(), name="graph-data-list-api"),
     url(r'^graph_data/details/(?P<pk>[0-9]+)/$', GraphDataDetailsAPI.as_view(), name="graph-data-details-api"),

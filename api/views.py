@@ -2,7 +2,7 @@ from rest_framework import generics, permissions
 from .serializers import *
 from ion_channel.models import *
 from channelworm.models import *
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404
 
 
 def index(request):
@@ -159,6 +159,15 @@ class GraphDataCreateAPI(generics.ListCreateAPIView):
 
     def perform_create(self, serializer):
         serializer.save()
+
+
+class GraphDataSeriesAPI(generics.ListAPIView):
+
+    serializer_class = GraphDataSerializer
+
+    def get_queryset(self):
+        self.graph = get_object_or_404(Graph, id=self.kwargs['pk'])
+        return GraphData.objects.filter(graph=self.graph)
 
 
 class GraphDataDetailsAPI(generics.RetrieveUpdateDestroyAPIView):

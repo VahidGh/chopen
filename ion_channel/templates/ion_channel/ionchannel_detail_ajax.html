@@ -1,0 +1,43 @@
+{% extends "base_ajax.html" %}
+{% load i18n %}
+{% load widget_filters %}
+{% load staticfiles %}
+
+{% block content %}
+    <div class="col-md-12">
+      <div class="box box-solid">
+        <div class="box-body" style="overflow-y: scroll; height: 400px;">
+          <dl style="word-break: break-all">
+              {% for field in form%}
+                {% if field.value %}
+                    <div class="col-sm-4">
+                        <dt>{{ field.label_tag }}</dt>
+                    </div>
+                    <div class="col-sm-8">
+                    {% if field.html_name == "username" %}
+                        <dd><p>{{ object.username }}</p></dd>
+                    {% elif field.html_name == "create_date" %}
+                        <dd><p>{{ object.create_date }}</p></dd>
+                    {% elif field.html_name == "refSeq_id" %}
+                        <dd><p><a href="http://www.ncbi.nlm.nih.gov/protein/{{ field.value }}">{{ field.value }}</a></p></dd>
+                    {% elif field.html_name == "gene_id" %}
+                        <dd><p><a href="http://www.ncbi.nlm.nih.gov/gene/{{ field.value }}">{{ field.value }}</a></p></dd>
+                    {% elif field.html_name == "uniprot_id" %}
+                        <dd><p><a href="http://www.uniprot.org/uniprot/{{ field.value }}">{{ field.value }}</a></p></dd>
+                    {% elif field.html_name == 'references' %}
+                        {% for ref in object.references.all %}
+                            <dd><p>{% trans '[' %}{{ ref.id }}{% trans '] ' %}
+                                <a href="http://www.ncbi.nlm.nih.gov/pubmed/{{ ref.PMID }}">{{ ref }}</a>
+                            </p></dd>
+                        {% endfor %}
+                    {% else %}
+                        <dd>{{ field.value|linebreaks }}</dd>
+                    {% endif %}
+                    </div>
+                {% endif %}
+              {% endfor %}
+          </dl>
+        </div>
+      </div>
+    </div>
+{% endblock %}

@@ -12,6 +12,7 @@ urlpatterns = [
     url(r'^ion_channels/wizard$', ionchannel_wizard, name='ion-channel-wizard'),
     url(r'^ion_channels/dashboard$', ionchannel_dashboard, name='ion-channel-dashboard'),
     url(r'^ion_channels/detail/(?P<pk>[0-9]+)$', IonChannelDetail.as_view(), name='ion-channel-detail'),
+    url(r'^ion_channels/adetail/(?P<pk>[0-9]+)$', IonChannelDetailAjax.as_view(), name='ion-channel-detail-ajax'),
     url(r'^ion_channels/create/(?P<ionChannelId>[0-9]+)*$', login_required(IonChannelCreate.as_view()), name='ion-channel-create'),
     url(r'^ion_channels/update/(?P<pk>[0-9]+)$', login_required(IonChannelUpdate.as_view()), name='ion-channel-update'),
     url(r'^ion_channels/delete/(?P<pk>[0-9]+)$', login_required(IonChannelDelete.as_view()), name='ion-channel-delete'),

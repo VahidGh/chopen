@@ -7,5 +7,5 @@ class UserProfile(models.Model):
     website = models.URLField(blank=True)
     image = models.ImageField(upload_to='account/user/%Y/%m/%d', blank=True)
 
-    def __unicode__(self):
+    def __str__(self):
         return self.user.username
