@@ -8,18 +8,18 @@ from . import router
 
 app.layout = html.Div(children=[
     dcc.Location(id='url', refresh=False),
-    dcc.Link('Index', href='/'),
-    ', ',
-    dcc.Link('Figure 1', href='{}fig1'.format(app.url_base_pathname)),
-    ', ',
-    dcc.Link('Figure 2', href='{}fig2'.format(app.url_base_pathname)),
-    html.Br(),
-    html.Br(),
+    # dcc.Link('Index', href='/'),
+    # ', ',
+    dcc.Link(href='{}fig1'.format(app.url_base_pathname)),
+    # ', ',
+    # dcc.Link('Figure 2', href='{}fig2'.format(app.url_base_pathname)),
+    # html.Br(),
+    # html.Br(),
     html.Div(id='content')
 ])
 
-
-# callbacks could go here, or in another callback.py file with this at the top:
+#
+# # callbacks could go here, or in another callback.py file with this at the top:
 # from .server import app
 #
 # import dash

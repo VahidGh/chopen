@@ -10,6 +10,11 @@
     <li class="active">{% trans 'Detail' %}</li>
 {% endblock %}
 
+{% block inline-script %}
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+
+{% endblock %}
+
 {% block content %}
     <div class="col-md-6">
       <div class="box box-solid">
@@ -81,15 +86,21 @@
                             <a href="{{ graph.file.url }}">
                                 <img src="{{ graph.file.url }}" style="max-width:100%; max-height:100%;"/>
                             </a>
-                            {% if graph.digitized_plot %}
-                                <a href="{{ graph.digitized_plot.url }}">
-                                    <img src="{{ graph.digitized_plot.url }}" style="max-width:100%; max-height:100%;" />
-                                </a>
-                            {% endif %}
-                            {% if graph.digitized_plot_file %}
-                                <a href="{{ graph.digitized_plot_file.url }}">{% trans 'Download pickle' %}</a>
-                            {% endif %}
-                        </p></dd>
+                            <div id="{{ graph.id }}" style="width: 480px; height: 400px;">
+                                <!-- Plotly chart will be drawn inside this DIV -->
+                                <script type="text/javascript">
+                                    makeplot('{{ graph.id }}');
+                                </script>
+                            </div>
+                            <!--{% if graph.digitized_plot %}-->
+                                <!--<a href="{{ graph.digitized_plot.url }}">-->
+                                    <!--<img src="{{ graph.digitized_plot.url }}" style="max-width:100%; max-height:100%;" />-->
+                                <!--</a>-->
+                            <!--{% endif %}-->
+                            <!--{% if graph.digitized_plot_file %}-->
+                                <!--<a href="{{ graph.digitized_plot_file.url }}">{% trans 'Download pickle' %}</a>-->
+                            <!--{% endif %}-->
+                        </dd>
                         <dt>{% trans 'Digitized data:' %}</dt>
                         <dd><p>
                             <a href="{% url 'ion_channel:graph-data-index' graph.id %}" class="badge bg-yellow">

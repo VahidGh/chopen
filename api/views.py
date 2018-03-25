@@ -167,7 +167,18 @@ class GraphDataSeriesAPI(generics.ListAPIView):
 
     def get_queryset(self):
         self.graph = get_object_or_404(Graph, id=self.kwargs['pk'])
-        return GraphData.objects.filter(graph=self.graph)
+        graph_data = GraphData.objects.filter(graph=self.graph)
+        data = []
+        for obj in graph_data:
+            xy = obj.series_data.splitlines()
+            arr = list()
+            for row in xy:
+                arr += [map(float, row.split(','))]
+            xp, yp = list(map(list, zip(*arr)))
+            data.append({'id':obj.id, 'graph':obj.graph, 'series_name':obj.series_name, 'series_data':obj.series_data,
+                         'x':xp,'y':yp})
+
+        return data
 
 
 class GraphDataDetailsAPI(generics.RetrieveUpdateDestroyAPIView):

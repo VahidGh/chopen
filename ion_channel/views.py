@@ -323,13 +323,17 @@ def save_graph_data(request):
 
         # TODO: get from api
         # graph_id = request.POST.get("graph_id")
-        # myInitiator = initiators.Initiator()
+        # # myInitiator = initiators.Initiator()
         # media_root = settings.MEDIA_ROOT
         # media_file = 'ion_channel/plots/' + graph_id + '/'
         # fp = media_root + '/' + media_file
         # if not os.path.exists(fp):
         #     os.mkdir(fp)
-        # plot_file = media_file + myInitiator.get_graphdata_from_db(graph_id, plot=True, path=fp)
+        # graph_data = GraphData.objects.filter(graph__id=graph_id)
+        # for obj in graph_data:
+        #     x, y = obj.asarray()
+        #
+        # # plot_file = media_file + myInitiator.get_graphdata_from_db(graph_id, plot=True, path=fp)
         # graph = Graph.objects.filter(id=graph_id)
         # graph.update(digitized_plot=plot_file + '.png', digitized_plot_file=plot_file + '.pickle')
         response_data = {'status': 'success', 'result': 'New graph saved.'}

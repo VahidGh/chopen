@@ -58,6 +58,9 @@ class GraphSerializer(serializers.ModelSerializer):
 
 class GraphDataSerializer(serializers.ModelSerializer):
 
+    x = serializers.ListField(child=serializers.FloatField(min_value=-1e-10, max_value=1e10))
+    y = serializers.ListField(child=serializers.FloatField(min_value=-1e-10, max_value=1e10))
+
     class Meta:
         model = GraphData
         fields = '__all__'

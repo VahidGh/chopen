@@ -4,6 +4,9 @@
 <html dir="ltr" lang="en-US">
 <body class="stretched">
 
+	{% block inline-script %}{% endblock %}
+	<script src="{% static 'js/plotly_graph_data.js' %}"></script>
+
 	<!-- Document Wrapper
 	============================================= -->
 	<div id="wrapper" class="clearfix">
@@ -78,8 +81,6 @@
 	============================================= -->
 	<script src="{% static 'third_party/canvas/js/functions.js' %}"></script>
 	<script src="{% static 'js/chopen.js' %} " type="text/javascript"></script>
-
-	{% block inline-script %}{% endblock %}
 
 </body>
 
