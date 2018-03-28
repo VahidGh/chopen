@@ -163,7 +163,7 @@ class GraphDataCreateAPI(generics.ListCreateAPIView):
 
 class GraphDataSeriesAPI(generics.ListAPIView):
 
-    serializer_class = GraphDataSerializer
+    serializer_class = GraphDataSeriesSerializer
 
     def get_queryset(self):
         self.graph = get_object_or_404(Graph, id=self.kwargs['pk'])
