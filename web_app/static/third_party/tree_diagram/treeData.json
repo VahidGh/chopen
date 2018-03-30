@@ -17,42 +17,42 @@
             {
               "name": "Shaker/Kv1",
               "parent": "Voltage-gated",
-              "aydi": "vg"
+              "aydi": "vgl1"
             },
             {
               "name": "Shab/Kv2",
               "parent": "Voltage-gated",
-              "aydi": "vg"
+              "aydi": "vgl2"
             },
             {
               "name": "Shaw/Kv3",
               "parent": "Voltage-gated",
-              "aydi": "vg"
+              "aydi": "vgl3"
             },
             {
               "name": "Shal/Kv4",
               "parent": "Voltage-gated",
-              "aydi": "vg"
+              "aydi": "vgl4"
             },
             {
               "name": "KQT",
               "parent": "Voltage-gated",
-              "aydi": "vg"
+              "aydi": "vgl5"
             },
             {
               "name": "Eag-like/Kv10-12",
               "parent": "Voltage-gated",
-              "aydi": "vg"
+              "aydi": "vgl6"
             },
             {
               "name": "Calcium-activated Slo-like",
               "parent": "Voltage-gated",
-              "aydi": "vg"
+              "aydi": "vgl7"
             },
             {
               "name": "Calcium-activated SK",
               "parent": "Voltage-gated",
-              "aydi": "vg"
+              "aydi": "vgl8"
             }
           ]
         },
@@ -64,7 +64,7 @@
             {
               "name": "TWK",
               "parent": "Temperature, Voltage-dependent",
-              "aydi": "vg"
+              "aydi": "vgl9"
             }
           ]
         },
@@ -76,7 +76,7 @@
             {
               "name": "Kir",
               "parent": "Voltage-gated",
-              "aydi": "vg"
+              "aydi": "vgl10"
             }
           ]
         },
@@ -88,7 +88,7 @@
             {
               "name": "KCNF1",
               "parent": "Voltage-gated",
-              "aydi": "vg"
+              "aydi": "vgl11"
             }
           ]
         }
@@ -107,32 +107,32 @@
             {
               "name": "L-type/Cav1",
               "parent": "Voltage-gated",
-              "aydi": "vg3"
+              "aydi": "vg3l1"
             },
             {
               "name": "R, N, P/Q-Type/Cav2",
               "parent": "Voltage-gated",
-              "aydi": "vg3"
+              "aydi": "vg3l2"
             },
             {
               "name": "T-Type/Cav3",
               "parent": "Voltage-gated",
-              "aydi": "vg3"
+              "aydi": "vg3l3"
             },
             {
               "name": "U Type",
               "parent": "Voltage-gated",
-              "aydi": "vg3"
+              "aydi": "vg3l4"
             },
             {
               "name": "a2d subunit",
               "parent": "Voltage-gated",
-              "aydi": "vg3"
+              "aydi": "vg3l5"
             },
             {
               "name": "B subunit",
               "parent": "Voltage-gated",
-              "aydi": "vg3"
+              "aydi": "vg3l6"
             }
           ]
         }
@@ -151,7 +151,7 @@
             {
               "name": "TRPV",
               "parent": " ",
-              "aydi": "trp"
+              "aydi": "trpl1"
             }
           ]
         },
@@ -163,7 +163,7 @@
             {
               "name": "TRPP",
               "parent": " ",
-              "aydi": "trp"
+              "aydi": "trpl2"
             }
           ]
         },
@@ -175,7 +175,7 @@
             {
               "name": "TRPN",
               "parent": " ",
-              "aydi": "trp"
+              "aydi": "trpl3"
             }
           ]
         },
@@ -187,7 +187,7 @@
             {
               "name": "TRPML",
               "parent": " ",
-              "aydi": "trp"
+              "aydi": "trpl4"
             }
           ]
         },
@@ -199,7 +199,7 @@
             {
               "name": "TRPM",
               "parent": " ",
-              "aydi": "trp"
+              "aydi": "trpl5"
             }
           ]
         },
@@ -211,7 +211,7 @@
             {
               "name": "TRPC",
               "parent": " ",
-              "aydi": "trp"
+              "aydi": "trpl6"
             }
           ]
         },
@@ -223,7 +223,7 @@
             {
               "name": "TRPA",
               "parent": " ",
-              "aydi": "trp"
+              "aydi": "trpl7"
             }
           ]
         },
@@ -235,7 +235,7 @@
             {
               "name": "TRPM-related",
               "parent": " ",
-              "aydi": "trp"
+              "aydi": "trpl8"
             }
           ]
         }
@@ -254,7 +254,7 @@
             {
               "name": "NMDA-type",
               "parent": " ",
-              "aydi": "ion"
+              "aydi": "ionl1"
             }
           ]
         },
@@ -266,7 +266,7 @@
             {
               "name": "AMPA-type",
               "parent": " ",
-              "aydi": "ion"
+              "aydi": "ionl2"
             }
           ]
         }
@@ -285,7 +285,7 @@
             {
               "name": "Subgroup 1",
               "parent": " ",
-              "aydi": "deg"
+              "aydi": "degl1"
             }
           ]
         },
@@ -297,7 +297,7 @@
             {
               "name": "Subgroup 2",
               "parent": " ",
-              "aydi": "deg"
+              "aydi": "degl2"
             }
           ]
         },
@@ -309,7 +309,7 @@
             {
               "name": "Subgroup 3 (EGF + ASC domain)",
               "parent": " ",
-              "aydi": "deg"
+              "aydi": "degl3"
             }
           ]
         },
@@ -321,7 +321,7 @@
             {
               "name": " ",
               "parent": " ",
-              "aydi": "deg"
+              "aydi": "degl4"
             }
           ]
         },
@@ -333,7 +333,7 @@
             {
               "name": " ",
               "parent": " ",
-              "aydi": "deg"
+              "aydi": "degl5"
             }
           ]
         },
@@ -345,7 +345,7 @@
             {
               "name": " ",
               "parent": " ",
-              "aydi": "deg"
+              "aydi": "degl6"
             }
           ]
         },
@@ -357,7 +357,7 @@
             {
               "name": " ",
               "parent": " ",
-              "aydi": "deg"
+              "aydi": "degl7"
             }
           ]
         },
@@ -369,7 +369,7 @@
             {
               "name": " ",
               "parent": " ",
-              "aydi": "deg"
+              "aydi": "degl8"
             }
           ]
         },
@@ -381,7 +381,7 @@
             {
               "name": " ",
               "parent": " ",
-              "aydi": "deg"
+              "aydi": "degl9"
             }
           ]
         }
@@ -400,7 +400,7 @@
             {
               "name": "CLC",
               "parent": " ",
-              "aydi": "chl"
+              "aydi": "chll1"
             }
           ]
         }
@@ -419,17 +419,17 @@
             {
               "name": "a subunit",
               "parent": "Cyclic nucleotide gated",
-              "aydi": "cyc"
+              "aydi": "cycl1"
             },
             {
               "name": "b subunit",
               "parent": "Cyclic nucleotide gated",
-              "aydi": "cyc"
+              "aydi": "cycl2"
             },
             {
               "name": "a/b",
               "parent": "Cyclic nucleotide gated",
-              "aydi": "cyc"
+              "aydi": "cycl3"
             }
           ]
         }
@@ -448,32 +448,32 @@
             {
               "name": "nAChR-type",
               "parent": "Ligand-gated",
-              "aydi": "cys"
+              "aydi": "cysl1"
             },
             {
               "name": "GABA",
               "parent": "Ligand-gated",
-              "aydi": "cys"
+              "aydi": "cysl2"
             },
             {
               "name": "ACC",
               "parent": "Ligand-gated",
-              "aydi": "cys"
+              "aydi": "cysl3"
             },
             {
               "name": "Aminergic",
               "parent": "Ligand-gated",
-              "aydi": "cys"
+              "aydi": "cysl4"
             },
             {
               "name": "GluCl",
               "parent": "Ligand-gated",
-              "aydi": "cys"
+              "aydi": "cysl5"
             },
             {
               "name": "diverse",
               "parent": "Ligand-gated",
-              "aydi": "cys"
+              "aydi": "cysl6"
             }
           ]
         }
@@ -492,7 +492,7 @@
             {
               "name": " ",
               "parent": " ",
-              "aydi": "meta"
+              "aydi": "metal1"
             }
           ]
         },
@@ -504,7 +504,7 @@
             {
               "name": " ",
               "parent": " ",
-              "aydi": "meta"
+              "aydi": "metal2"
             }
           ]
         },
@@ -516,7 +516,7 @@
             {
               "name": " ",
               "parent": " ",
-              "aydi": "meta"
+              "aydi": "metal3"
             }
           ]
         },
@@ -528,7 +528,7 @@
             {
               "name": " ",
               "parent": " ",
-              "aydi": "meta"
+              "aydi": "metal4"
             }
           ]
         }
