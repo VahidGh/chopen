@@ -25,7 +25,6 @@ d3.selection.prototype.moveToFront = function() {
 // load the external data
 d3.json("treeData.json", function(error, treeData) {
   root = treeData[0];
-  var ad = function(d) { return d.aydi; };
   update(root);
 });
 
@@ -43,19 +42,21 @@ function update(source) {
   var node = svg.selectAll("g.node")
     .data(nodes, function(d) { return d.id || (d.id = ++i); });
 
+  var ad = function(d) { return d.aydi; };
+  var ads = function(d) { return (d.aydi + "c1"); };
   // Enter the nodes.
   var nodeEnter = node.enter().append("g")
     .attr("class", "node")
+    .attr("id", ads)
     .attr("transform", function(d) { return "rotate(" + (d.x - 90) + ")translate(" + d.y + ")"; })
-
-    var ad = function(d) { return d.aydi; };
+    ;
 
   nodeEnter.append("circle")
     .attr("r", 7)
     .attr("id", ad)
-    .attr("onclick", 'handleClick(this.id)')
     .attr("onmouseover", 'handleMouseOver(this.id)')
     .attr("onmouseout", 'handleMouseOut(this.id)')
+    .attr("onclick", 'handleClick(this.id)');
 
   nodeEnter.append("text")
     .attr("x", function(d) {
@@ -91,19 +92,20 @@ function handleClick(aydii) {
 
 }
 function handleMouseOver(aydii) {
-  var el = document.getElementById(aydii);
-  var rec = el.getBoundingClientRect();
-  document.getElementById(aydii + "c").style.display = "block";
-  var to = rec.top;
-  var le = rec.left / 2;
-  var ri = rec.right / 2;
-  var bo = rec.bottom;
+  document.getElementById(aydii + "c").style.display = "block"
+  var rec = document.getElementById(aydii).getBoundingClientRect();
+  var to = rec.top + 10;
+  var le = rec.left + 10;
   document.getElementById(aydii + "c").style.left = le + "px";
-  document.getElementById(aydii + "c").style.right = ri + "px";
   document.getElementById(aydii + "c").style.top = to + "px";
-  document.getElementById(aydii + "c").style.top = bo + "px";
 }
 function handleMouseOut(aydii) {
   document.getElementById(aydii + "c").style.display = "none";
+}
+function hMOv(aydii) {
+  document.getElementById(aydii).style.display = "block"
+}
+function hMOu(aydii) {
+  document.getElementById(aydii).style.display = "none"
 }
 d3.select(self.frameElement).style("height", diameter + "px");

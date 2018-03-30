@@ -1,3 +1,7 @@
+.node {
+  z-index: -1;
+  position: absolute;
+}
 .node circle {
     fill: #fff;
   }
@@ -9,7 +13,7 @@
     stroke: #ccc;
     stroke-width: 2px;
   }
-  
+
   body {
         margin: 0;
         font-family: sans-serif;
@@ -206,6 +210,14 @@
       font-size: 18px;
     }
     .card {
+      position: absolute;
+      display: block;
       z-index: 99999;
-      transition-duration: 1.5s;
+      width: 400px;
+    }
+    svg {
+      top: 0;
+      left: 0;
+      z-index: -1;
+      display: block;
     }
