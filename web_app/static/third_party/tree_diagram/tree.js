@@ -1,20 +1,20 @@
 var i = 0;
 
-var diameter = 1560;
+var diameter = 1960;
 var padding = 210;
 
 var tree = d3.layout.tree()
-    .size([80, diameter / 2 - padding])
+    .size([150, diameter / 1.5 - padding])
     .separation(function(a, b) { return (a.parent == b.parent ? 1 : 2) / a.depth; });
 
 var diagonal = d3.svg.diagonal.radial()
-    .projection(function(d) { return [d.y, d.x / 180 * Math.PI]; });
+    .projection(function(d) { return [d.y, d.x / 180 * Math.PI + 1.57]; });
 
 var svg = d3.select("body").append("svg")
-    .attr("width", diameter)
-    .attr("height", diameter)
+    .attr("width", diameter / 1.1)
+    .attr("height", diameter / 1.7)
   .append("g")
-    .attr("transform", "translate(" + diameter / 7 + "," + diameter / 1.3 + ")");
+    .attr("transform", "translate(" + diameter / 2.3 + "," + diameter / 15.3 + ")");
 
 d3.selection.prototype.moveToFront = function() {
   return this.each(function() {
@@ -40,29 +40,26 @@ d3.selection.prototype.moveToFront = function() {
 
 function update(source) {
 
-  // Compute the new tree layout.
   var nodes = tree.nodes(root).reverse(),
     links = tree.links(nodes);
 
 
-  // Normalize for fixed-depth.
-  nodes.forEach(function(d) { d.y = d.depth * 300; });
+  nodes.forEach(function(d) { d.y = d.depth * 210; });
 
-  // Declare the nodes…
   var node = svg.selectAll("g.node")
     .data(nodes, function(d) { return d.id || (d.id = ++i); });
 
   var ad = function(d) { return d.aydi; };
   var ads = function(d) { return (d.aydi + "c1"); };
-  // Enter the nodes.
+
   var nodeEnter = node.enter().append("g")
     .attr("class", "node")
     .attr("id", ads)
-    .attr("transform", function(d) { return "rotate(" + (d.x - 90) + ")translate(" + d.y + ")"; })
+    .attr("transform", function(d) { return "rotate(" + (d.x) + ")translate(" + d.y + ")"; })
     ;
 
   nodeEnter.append("circle")
-    .attr("r", 7)
+    .attr("r", 5)
     .attr("id", ad)
     .attr("onmouseover", 'handleMouseOver(this.id)')
     .attr("onmouseout", 'handleMouseOut(this.id)')
@@ -70,24 +67,21 @@ function update(source) {
 
   nodeEnter.append("text")
     .attr("x", function(d) {
-      return d.children || d._children ? -13 : 13; })
+      return d.children || d._children ? -2 : 2; })
     .attr("dy", ".35em")
-    .attr("text-anchor", function(d) { return d.x < 180 ? "start" : "end"; })
-    .attr("transform", function(d) { return d.x < 180 ? "translate(30)" : "rotate(180)translate(-30)"; })
+    .attr("text-anchor", function(d) { return d.x < 90 ? "start" : "end"; })
+    .attr("transform", function(d) { return d.x < 90 ? "translate(10)" : "rotate(180)translate(-10)"; })
     .text(function(d) { return d.name; })
     .style("fill-opacity", 1);
 
 
-  // Declare the links…
   var link = svg.selectAll("path.link")
     .data(links, function(d) { return d.target.id; });
 
 
-  // Enter the links.
   link.enter().insert("path", "g")
     .attr("class", "link")
     .attr("d", diagonal);
-
 }
 function handleClick(aydii) {
   var ch = document.getElementsByClassName("jumbotron");
@@ -97,6 +91,7 @@ function handleClick(aydii) {
     }
     else {
       document.getElementById(aydii + "d").style.display = "block";
+      document.getElementById(aydii + "d").scrollIntoView();
     }
   }
 

@@ -26,184 +26,34 @@
         shape-rendering: crispEdges;  /* Round any decimal pixels so it'll render nicely */
       }
 
-    #vg {
-      fill: #ff0000;
-    }
-    #vgl1 {
-      fill: #ff0000;
-    }
-    #vgl2 {
-      fill: #ff0000;
-    }
-    #vgl3 {
-      fill: #ff0000;
-    }
-    #vgl4 {
-      fill: #ff0000;
-    }
-    #vgl5 {
-      fill: #ff0000;
-    }
-    #vgl6 {
-      fill: #ff0000;
-    }
-    #vgl7 {
-      fill: #ff0000;
-    }
-    #vgl8 {
-      fill: #ff0000;
-    }
-    #vgl9 {
-      fill: #ff0000;
-    }
-    #vgl10 {
-      fill: #ff0000;
-    }
-    #vgl11 {
+    #vg, #vgl1, #vgl2, #vgl3, #vgl4, #vgl5, #vgl6, #vgl7, #vgl8, #vgl9, #vgl10, #vgl11, #vgl12, #vgl13, #vgl14, #vgl15, #vgl16, #vgl17, #vgl18, #vgl19, #vgl20, #vgl21, #vgl22, #vgl23, #vgl24, #vgl25, #vgl26, #vgl27, #vgl28, #vgl29 {
       fill: #ff0000;
     }
     #main {
       fill: #cc00ff;
     }
-    #vg3 {
-      fill: #ff3300;
+    #vg3, #vg3l1, #vg3l2, #vg3l3, #vg3l4, #vg3l5, #vg3l6, #vg3l7, #vg3l8, #vg3l9 {
+      fill: #ff5500;
     }
-    #vg3l1 {
-      fill: #ff3300;
-    }
-    #vg3l2 {
-      fill: #ff3300;
-    }
-    #vg3l3 {
-      fill: #ff3300;
-    }
-    #vg3l4 {
-      fill: #ff3300;
-    }
-    #vg3l5 {
-      fill: #ff3300;
-    }
-    #vg3l6 {
-      fill: #ff3300;
-    }
-    #trp {
+    #trp, #trpl1, #trpl2, #trpl3, #trpl4, #trpl5, #trpl6, #trpl7, #trpl8, #trpl9, #trpl10, #trpl11, #trpl12, #trpl13, #trpl14, #trpl15, #trpl16 {
       fill: #ff9900;
     }
-    #trpl1 {
-      fill: #ff9900;
-    }
-    #trpl2 {
-      fill: #ff9900;
-    }
-    #trpl3 {
-      fill: #ff9900;
-    }
-    #trpl4 {
-      fill: #ff9900;
-    }
-    #trpl5 {
-      fill: #ff9900;
-    }
-    #trpl6 {
-      fill: #ff9900;
-    }
-    #trpl7 {
-      fill: #ff9900;
-    }
-    #trpl8 {
-      fill: #ff9900;
-    }
-    #ion {
+    #ion, #ionl1, #ionl2, #ionl3, #ionl4, #ionl5 {
       fill: #ffcc00;
     }
-    #ionl1 {
-      fill: #ffcc00;
-    }
-    #ionl2 {
-      fill: #ffcc00;
-    }
-    #deg {
+    #deg, #degl1, #degl2, #degl3, #degl4, #degl5, #degl6, #degl7, #degl8, #degl9, #degl10, #degl11, #degl12, #degl13, #degl14, #degl15, #degl16, #degl17, #degl18, #degl19, #degl20, #degl21 {
       fill: #ffff00;
     }
-    #degl1 {
-      fill: #ffff00;
-    }
-    #degl2 {
-      fill: #ffff00;
-    }
-    #degl3 {
-      fill: #ffff00;
-    }
-    #degl4 {
-      fill: #ffff00;
-    }
-    #degl5 {
-      fill: #ffff00;
-    }
-    #degl6 {
-      fill: #ffff00;
-    }
-    #degl7 {
-      fill: #ffff00;
-    }
-    #degl8 {
-      fill: #ffff00;
-    }
-    #degl9 {
-      fill: #ffff00;
-    }
-    #chl {
+    #chl, #chll1, #chll2, #chll3, #chll4 {
       fill: #00ff00;
     }
-    #chll1 {
-      fill: #00ff00;
-    }
-    #cyc {
+    #cyc, #cycl1, #cycl2, #cycl3, #cycl4, #cycl5, #cycl6 {
       fill: #00ffff;
     }
-    #cycl1 {
-      fill: #00ffff;
-    }
-    #cycl2 {
-      fill: #00ffff;
-    }
-    #cycl3 {
-      fill: #00ffff;
-    }
-    #cys {
+    #cys, #cysl1, #cysl2, #cysl3, #cysl4, #cysl5, #cysl6, #cysl7, #cysl8, #cysl9, #cysl10, #cysl11, #cysl12, #cysl13, #cysl14, #cysl15, #cysl16, #cysl17, #cysl18, #cysl19, #cysl20, #cysl21, #cysl22, #cysl23, #cysl24, #cysl25, #cysl26, #cysl27, #cysl28, #cysl29, #cysl30 {
       fill: #0099ff;
     }
-    #cysl1 {
-      fill: #0099ff;
-    }
-    #cysl2 {
-      fill: #0099ff;
-    }
-    #cysl3 {
-      fill: #0099ff;
-    }
-    #cysl4 {
-      fill: #0099ff;
-    }
-    #cysl5 {
-      fill: #0099ff;
-    }
-    #cysl6 {
-      fill: #0099ff;
-    }
-    #meta {
-      fill: #0000ff;
-    }
-    #metal1 {
-      fill: #0000ff;
-    }
-    #metal2 {
-      fill: #0000ff;
-    }
-    #metal3 {
-      fill: #0000ff;
-    }
-    #metal4 {
+    #meta, #metal1, #metal2, #metal3, #metal4 {
       fill: #0000ff;
     }
     .jumbotron {
