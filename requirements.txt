@@ -9,11 +9,11 @@ dash-core-components==0.21.0
 dash-html-components==0.9.0
 dash-renderer==0.11.3
 decorator==4.2.1
-Django==2.0.3
+Django>2.0.8
 django-formtools==2.1
 djangorestframework==3.7.7
 eutils==0.3.2
-Flask==0.12.2
+Flask>0.12.3
 Flask-Compress==1.4.0
 gunicorn==19.7.1
 idna==2.6
